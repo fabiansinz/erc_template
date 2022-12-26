@@ -14,11 +14,12 @@
 \DeclareOption{STG}{\renewcommand{\proposaltype}{Starting Grant}}
 \DeclareOption{COG}{\renewcommand{\proposaltype}{Consolidator Grant}}
 \DeclareOption{ADG}{\renewcommand{\proposaltype}{Advanced Grant}}
-\newcommand{\callyear}{2022}
+\newcommand{\callyear}{2023}
 
 \ProcessOptions
 
 \LoadClass{scrreprt}
+\KOMAoptions{fontsize=11pt}
 
 %\ifx\@firstchapter\@empty \addtocounter{chapter}{1}\else\addtocounter{chapter}{\@firstchapter}\fi
 
@@ -28,16 +29,23 @@
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage[english]{babel}
 \RequirePackage[right]{eurosym}
+\RequirePackage{soul}
+\RequirePackage{tabularx}
+\RequirePackage{marginnote}
 \setlength{\footskip}{1.45\baselineskip}
 \RequirePackage[left=2cm,top=1.5cm,bottom=1.5cm,right=2cm,includefoot,includehead]{geometry}
-\RequirePackage[utf8]{inputenc}
-\RequirePackage[T1]{fontenc}
+% \RequirePackage[utf8]{inputenc}
+% \RequirePackage[T1]{fontenc}
+\RequirePackage{fontspec}
+\setmainfont{Arial}
+
 \RequirePackage{graphicx} 		% Add graphics capabilities
 \RequirePackage{xspace}
 \RequirePackage{blindtext}
 \RequirePackage{amsmath}  		% Better maths support
-\RequirePackage{pslatex} %Times font
-\RequirePackage{todonotes}
+% \RequirePackage{pslatex} %Times font
+\RequirePackage[textsize=tiny, color=green]{todonotes}
+\setlength{\marginparwidth}{1.5cm}
 \RequirePackage{mdframed}
 
 % for the open and filled star symbols
@@ -52,6 +60,31 @@
 \definecolor{citegreen} {rgb} {0.28,0.41,0.19}
 \definecolor{darkgreen} {rgb} {0.37,0.72,0.17}
 \definecolor{lightgreen}{rgb} {0.56,0.88,0.28}
+
+% primary colors
+\definecolor{goe_blue}{HTML}{003665}
+\definecolor{obji}{HTML}{003665}
+\definecolor{light_blue}{HTML}{BDCEE3}
+\definecolor{neon_blue}{HTML}{04D9FF}
+% secondary colors
+\definecolor{sec_dark_blue}{HTML}{006597}
+\definecolor{sec_mid_blue}{HTML}{0093c7}
+\definecolor{objii}{HTML}{0093c7}
+\definecolor{sec_sky_blue}{HTML}{84bfea}
+\definecolor{objiv}{HTML}{84bfea}
+\definecolor{sec_chamois}{HTML}{e9e1d7}
+\definecolor{lila}{RGB}{178,91,247}
+
+\definecolor{gold}{HTML}{fec615}
+\definecolor{deeppink}{HTML}{ff1493}
+
+\definecolor{cs_orange}{HTML}{E58143}
+\definecolor{objiii}{HTML}{E58143}
+\definecolor{grey_2}{HTML}{575556}
+\definecolor{grey_1}{HTML}{3C3B39}
+\definecolor{grey_3}{HTML}{878787}
+\definecolor{grey_4}{HTML}{DADADA}
+
 \RequirePackage[%
   pdfstartview=FitH,%
   breaklinks=true,%
@@ -59,11 +92,12 @@
   colorlinks=true,%
   linkcolor= darkblue,
   anchorcolor=black,%
-  citecolor=citegreen,
+  citecolor=goe_blue,
   filecolor=black,%
   menucolor=black,%
   urlcolor=darkblue%
   ]{hyperref}
+
 
 \AtBeginDocument{%
   \hypersetup{%
@@ -78,10 +112,24 @@
 
 % ========== BIBLIOGRAPHY STUFF ============
 
-\RequirePackage{natbib}
-\bibpunct{(}{)}{;}{a}{,}{,}
+% \RequirePackage{natbib}
+\RequirePackage[style=authoryear]{biblatex}
+\RequirePackage{csquotes}
+% \bibpunct{(}{)}{;}{a}{,}{,}
 \input{abbrev.tex}
-\setlength{\bibsep}{0.0cm}
+% \setlength{\bibsep}{0.0cm}
+
+% \newrobustcmd*{\parentexttrack}[1]{%
+%   \begingroup
+%   \blx@blxinit
+%   \blx@setsfcodes
+%   \blx@bibopenparen#1\blx@bibcloseparen
+%   \endgroup}
+
+% \AtEveryCite{%
+%   \let\parentext=\parentexttrack%
+%   \let\bibopenparen=\bibopenbracket%
+%   \let\bibcloseparen=\bibclosebracket}
 
 % ========== SECTION FORMATTING ============
 % the sections have a,b,c numbering
@@ -108,7 +156,7 @@
 \setlength{\belowcaptionskip}{0.0cm}
 
 \RedeclareSectionCommands[indent=0pt, beforeskip=0.2em, afterskip=0.3em]{chapter,section}
-\RedeclareSectionCommands[indent=0pt, beforeskip=0.2em, afterskip=0.2em]{subsection,subsubsection,paragraph}
+\RedeclareSectionCommands[indent=0pt, beforeskip=.2em, afterskip=0.2em]{subsection,subsubsection,paragraph}
 
 
 %###
@@ -156,19 +204,45 @@
 % change font size of captions
 \RequirePackage[font=small]{caption}
 
+%========== Math stuff ====================
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\newcommand{\z}{\vec{z}}
+
 % ======== To fix list things ============ 
 \RequirePackage{enumitem}
+\RequirePackage{tikz}
+
+\newcommand\bboxed[2]{%
+  \tikz[baseline=(X.base)] 
+    \node (X) [draw=none, inner sep=0, fill=#2, text=white] {\strut \footnotesize~#1\;};%
+}
+\newcommand{\obji}{\bboxed{\hyperref[sub:obji]{\color{white}O-1}}{obji}}
+\newcommand{\objii}{\bboxed{\hyperref[sub:objii]{\color{white}O-2}}{objii}}
+\newcommand{\objiii}{\bboxed{\hyperref[sub:objiii]{\color{white}O-3}}{objiii}}
+\newcommand{\objiv}{\bboxed{\hyperref[sub:objiv]{O-4}}{objiv}}
+% \newcommand{\objii}{\bboxed{Obj.~2}{objii}}
+% \newcommand{\objiii}{\bboxed{Obj.~3}{objiii}}
+% \newcommand{\objiv}{\bboxed{\color{black}Obj.~4}{objiv}}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{%
+            \node[shape=circle,fill=grey_4,draw=black,inner sep=1pt] (char) {\footnotesize #1};}}
+
+\newcommand*\circledpri[1]{\tikz[baseline=(char.base)]{%
+            \node[shape=circle,fill=goe_blue,draw=goe_blue,inner sep=1pt] (char) {\color{white}#1};}}
+\newcommand*\circledsec[1]{\tikz[baseline=(char.base)]{%
+            \node[shape=circle,fill=sec_mid_blue,draw=sec_mid_blue,inner sep=1pt] (char) {\color{white}#1};}}
+
 \setitemize{noitemsep,topsep=0ex,parsep=0.25ex,partopsep=0pt,leftmargin=*}
 \setenumerate{topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*}
 \RequirePackage{amssymb}
-\renewcommand{\labelitemi}{\tiny$\blacksquare$}
+% \renewcommand{\labelitemi}{\tiny$\blacksquare$}
 \RequirePackage{nopageno}
 \RequirePackage{enumitem}
 
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt} % Remove line at top
- 
+ \newcommand{\topicsentence}[1]{{\color{sec_mid_blue}#1}}
 \lhead{\emph{\@author}}
 \chead{Part \thechapter}
 \rhead{\theacro}

@@ -6,8 +6,8 @@
 \bibliography{bibliography.bib}
 
 \author{Fabian Sinz}
-\acro{Embodied Digital Twin}
-\title{Data-driven embodied digital twins of mouse visual cortex.}
+\acro{Circuits 2 Behavior}
+\title{Linking neural variability to perception, anatomy, and behavior by data-driven models of the mouse visual system}
 \institution{Georg August Universität Göttingen}
 
 % ====== BODY OF THE DOCUMENT ======
@@ -26,86 +26,80 @@
 
 \section{Extended Synopsis of the Scientific Proposal}
 
+% neural variability under natural conditions
+% - determined by "unconscious inference" (i.e. vision)
+% - depends on the features neurons present (i.e. area)
+% - determined by a hidden task
+% - reflected in the neuro-anatomical circuitry
+% - governed by principles of Bayesian inference (possibly with the wrong model)
+% perceptlets
 \subsection{Background, state of the art and rationale}
-% Visual features are often only hypothesized to play a role. Behavioral verification is missing
-The purpose of the visual system is to extract actionable information about our environment from the complex and ambiguous light patterns provided by the eyes. 
-% This information forms the informational basis for our behavior.
-In the cortex of mice, visual information is processed in the primary (V1) and multiple higher visual areas (AL, LM, LI, PM, RL, P, AM, POR, A, \hl{see Figure}).
-While these areas show some differences in visual selectivity, a clear functional distinction between these different areas -- as found in primates~\parencite{Guclu2015-hv,Yamins2016-ob,Guclu2017-bi,Cadena2022-im} -- could not be established so far~\parencite{Conwell2021-pw}.
-Research in recent years has demonstrated that behavior and the internal state of an animal can profoundly modulate neuronal activity in visual cortex~\parencite{Niell2010-bs,Musall2019-kd,Stringer2019-lt} and even change its stimulus selectivity on a short timescale~\parencite{Franke2022-do}.
-This means that at every instance, neuronal activity in visual cortex is a combination of what the mouse sees (visual input), what it does (behavior), and what it wants to do (internal state). 
-However, in most instances, this modulation of neural activity is treated as ``noise'' even though it exhibits a rich structure~\parencite{Musall2019-kd, Stringer2019-lt}.
-In addition, most of what we know about mouse visual cortex comes from experiments with head-fixed animals passively viewing simple visual stimuli, such as oriented patterns (gratings), or performing simple visual discrimination tasks. 
-Since the visual complexity and behavioral possibilities in these experiments are severely limited they might not engage a visual system that was made for inferring properties of a complex natural world during natural behavior from high dimensional visual input, thus failing to show a clear difference between different brain areas.
-\textbf{The central hypothesis of this proposal is that there is a close correspondence between what is computed in a visual area and what types of natural behavior most change the response properties of its neurons. Consequently, the distinctive feature to understand computational differences between mouse higher visual areas is which types of natural behavior most change their neuronal response properties.}
+\textit{The whole is more than the sum of its parts} -- this phrase from Aristotle's Metaphysics Book VIII is an apt description of visual perception and behavior. 
+Each single neuron in the visual system is only sensitive to a mosaic piece of the visual field. Only the concerted interactions of all these sensory fragments together creates our perception, forming hypotheses about the world beyond our eyes which builds the informational basis of our behavior. 
+However, our perception is not a static image processing algorithm: Behavioral goals, attentional states and our current expectation about the environment can influence how visual information is acquired and processed, changing the activity profile of hundred thousands of neurons it relies on with it. 
+Even if the visual stimulus is identical the neural activity in the visual system and our perception of the world can change. This allows the brain to flexibly interpret sensory information and adapt to the particular behavioral context \hl{Include image of bistable percept?}.  
+\textbf{The central hypothesis for the research I propose here is that  neuronal variability reflects fundamental computational processes to infer properties of the natural environment beyond the eyes. My goal is to link the structure of this neural variability to mathematical principles of inference under uncertainty, neuro-anatomical microcircuit connectivity, and behavioral goals of the organism.} 
 
-% While neuroscientists can currently measure the activity of a larger number of neurons and track behavior at a higher level of detail than ever before, understanding how sensory input and behavior are integrated into the neural activity of thousands of neurons across different brain areas and how this activity relates to neuronal computation, remains a challenge~\parencite{Urai2022-fz}.
-Behavior is known to affect visual processing in mice and other animals~\parencite{Niell2010-bs, Musall2019-kd, Erisken2014-un,Christensen2017-bx}. 
-While running is mostly linked to an additive or multiplicative gain on neural response without changing their stimulus preferences~\parencite{Dadarlat2017-jw, Mineault2016-fk}.
-We recently showed that arousal, which correlates with a widened pupil and running in mice, can change the color preference of neurons in primary visual cortex at the timescale of seconds~\parencite{Franke2022-do}. 
-Furthermore, locomotion has previously been linked to changes in preference for visual speed~\parencite{Andermann2011-vw}, as well as changes in functional connectivity between areas~\parencite{Clancy2019-ta} and changes in the structure of the stimulus independent activity of an entire neuronal population~\parencite{Horrocks2021-re,Stringer2019-lt}. 
+% Current state: mostly images, variability only for simple stimuli or ignored, behavioral mostly ignored
+% Visual system, neural variability, studied in isolation
+The goal of the visual and other sensory systems is to provide the organism with actionable information about the world inferred from sensory data \hl{ref}. \hl{Include active sensing?} 
+The visual cortex roughly contains between 50,000 and 200,000 neurons under each mm$^2$ of cortex surface~\parencite{Colonnier1981-oj}.
+Only a small fraction of these neurons are functionally characterized, because -- until recently -- the number of neurons that could be recorded was limited. 
+Most of what we currently know about the visual system is based on simple stimuli, such as dots or gratings, or static natural images. 
+However, the most ethological stimulus for the visual system -- natural video -- remains largely unexplored because of the complexity of the stimulus and the resulting difficulty to parametrize it with few interpretable dimensions. 
+How the neuronal representation in visual cortex supports and adapts to behavioral goals under natural conditions is largely unknown. 
+Furthermore, the variability of neuronal activity around the mean response to a stimulus exhibits rich structure \hl{Stringer} and changes depending on the task context \hl{Haefner, Churchland}.
+While the structure of this variability cannot be explained by the stimulus, it can provide the organism with valuable information about the certainty with which particular aspects of the world can be inferred \hl{Ma PPC, Pouget}\hl{Prior expectations about the stimulus?}
+But again, despite a few exceptions \hl{Gallant, Bashiri} the characterization and the computational role of stimulus conditioned variability for natural images and video remains unexplored. 
 
-The relevance of mouse higher visual areas for behavioral tasks are not well understood.
-Previous studies that silenced or suppressed activity in different higher visual areas \hl{REFs} often observed complex consequences that are not easily understood in terms of their computational relevance~\parencite{Froudarakis2019-yt}. 
-A clear link between higher features computed in higher visual areas and specific behavioral task of the mouse could not be established so far. 
-One possible reason for that could be those causal manipulation where performed in passively viewing mice that did not engage in a task, or on simple tasks that might be too far from the ethological context the mouse visual system has evolved for. 
-Detecting and understanding the functional relevance might thus require us to study neuronal processing during \textit{natural behavior and natural stimulation together}, which is what the system was made for. 
-Unfortunately, while neuroscientists can currently measure the activity of a larger number of neurons and track behavior at a higher level of detail than ever before, understanding how sensory input and behavior are integrated into the neural activity of thousands of neurons across different brain areas and how this activity relates to neuronal computation, remains a challenge~\parencite{Urai2022-fz}.
-In experiments that can record a large number of neurons (e.g. using 2-photon microscopy), animals are usually head-fixed which severely limits behavior. 
-In recordings of freely behaving mice, the number of simultaneously observable neurons is limited and the exact visual input to the system is usually unknown. 
-During the analyses of the data, modulations by unobserved factors are commonly treated as ``noise'' even though they might be highly meaningful in the respective behavioral context~\parencite{Musall2019-kd} and ignoring them might prevent us from understanding the bigger picture.
-One possibility to deal with this problem is to wait for advances in experimental technology that allows us to observe all relevant variables at once. Alternatively, we can exploit the tremendous advances in (deep) machine learning in recent years and compile multiple experiments into a single predictive model -- a \textit{functional digital twin}. This is what I propose to do here. 
-% -- that can be used to study the system computational offline (\textit{in silico}) in ways that are not feasible experimentally, and make experimentally verifiable predictions. 
+Studying the role of neuronal variability for natural stimuli and behavior in controlled experimental conditions is next to impossible because the same stimulation and behavior cannot be repeated multiple times. 
+At the same time, the required experimental methods for simultaneously observing behavior, large scale neuronal activity, and its circuit implementation under natural conditions do currently not exist. Furthermore, the traditional way of studying sensory systems via carefully designed stimuli and experimental protocols might be too restricted for studying ``natural neuroscience'' since neuronal selectivity can be complex and might not easily map to human interpretable categories~\parencite{Doerig2022-ex}. 
 
-In summary, to make significant progress in understanding the computational relevance of different higher visual areas in mouse visual cortex, we need to crucial steps: \circled{1} We need to embrace the complexity studying neuronal responses under natural stimulation and behavior, and move towards a ``natural neuroscience'' that studies single trials from a system in an environment it was made for. \circled{2} We need the necessary technology to compile different behavioral and physiological observations in a single computational model -- a functional digital twin -- that allows us to disentangle the contribution of the stimulus, the behavioral context, and internal states to neuronal activity across cortex, to characterize the correspondence between behavioral context and modulation of neuronal processing \textit{in silico}, and that makes testable experimental predictions about neuronal processing that depend on behavioral context or on causal manipulations. 
+However, recent success in modeling neuronal activity and behavior with deep neuronal networks offer an promising avenue to overcome the above challenges. We and others have demonstrated that it is possible to learn general models from large scale neuronal data that can predict the responses of thousands of neurons to arbitrary natural stimuli and can be used to derive novel and experimentally testable predictions \textit{in vivo} from studying the model \textit{in silico}.
+Since these models -- in the ideal case -- copy the functional behavior of large scale neuronal populations, we refer to them as \emph{functional digital twins}. The goal of these models is not to simulate neuronal activity in a biophysical simulation of neuronal circuits, but rather to use machine learning as a tool to fill in the gaps of our ignorance about the biological system between measurable quantities such as visual input, neuronal activity, and behavior, and tie  multiple experiments together in one model that can be use to derive novel and readily testable hypothesis about the computations underlying perception and behavior. 
 
-With regard to the data, I was the coordinator for machine learning and computational neuroscience in a consortium\footnote{Machine Intelligence from Cortical Networks: \url{https://www.iarpa.gov/index.php/research-programs/microns}.} that recorded the visual responses and circuit anatomy of about 60,000 neurons to natural, parametric, and rendered movies. Through this project and multiple follow-up studies\footnote{Such as our neuronal prediction challenge \url{https://sensorium2022.net/}} I have access to \hl{several million neuron hours} of responses to natural videos across the entire visual cortex. In addition, my long-time experimental collaborators Dr. Tolias (>20 common papers and preprints) and Dr. Froudarakis (>10 common papers and preprints) will provide me with data to successfully complete this project. Dr. Tolias will provide data from multiple mice freely behaving in a virtually augmented environment along with eye-tracking, behavior tracking and large scale recordings from neuropixels. Dr. Froudarakis will provide me with data from freely behaving animals in home cages, and mice performing an open field object recognition task with simultaneous mini-scope 2-photon recordings from visual cortex. 
-In addition, my lab has access to behavioral data (videos) of freely behaving mice in home cages from current research grants. 
+This approach relies on \circled{1} the availability of massive amounts of measurements from the biological system and \circled{2} tools from modern machine learning and neural data science. 
+With regards to \circled{1}, I was involved in conceptually shaping and running a large consortium\footnote{\url{https://www.ninai.org/\#team}} that acquired the activity and detailed circuit neuroanatomy of about 60,000 neurons in the visual cortex of a mouse. The activity was recorded to natural videos, rendered video of naturalistic scenes, and classical stimuli. \hl{unprecedented to before}. Thus, this data allows us to connect latent properties of the world (object ID, geometrical properties from rendering), natural vision and neuronal anatomy. In auxiliary experiments, the consortium recorded over \hl{XXX} hours of neuronal activity in over \hl{XXX} unique neuronal from mouse visual cortex. \hl{behavioral data}. \hl{I have access to all this data}. 
 
-Studying a neural system under complex natural conditions that cannot easily controlled or repeated in a classical trial structure necessitates the use of modern machine learning techniques for automatic feature extraction and model building. Merging multiple experiments into predictive models of neuronal activity for an entire visual system that account for arbitrary visual video input, complex behavior, and internal states is not feasible with manually crafted low parametric features, but needs techniques from machine learning to extract the currently unknown patterns from the data. Likewise, while animals can now be automatically tracked in videos thanks to advances in computer vision~\parencite{Mathis2018-lk}, extracting compact descriptions -- syllables -- of behavior from raw pixels of a video of a freely behaving animal, is an open and important task of modern neuronal data science, to complex and time consuming to be performed manually. Embracing data-driven methods allows us to approach the problem in a more unbiased way and extract patterns that might be hard to catch from an anthropocentric viewpoint. 
+Complex datasets like these put neuroscience in the area of big data and cannot be simply analyzed by techniques that focus on single neurons and low parametric stimuli, but require tools of modern machine learning and neural data science to connect and interpret the different high dimensional observations. My work over the last five years has focussed on exactly that. We built deep predictive models for mouse visual cortex to natural images and video that yielded novel and experimentally verified insights \parencite{Walker2019-yw, Franke2022-do, Sinz2018-sk}. \hl{more details}
 
-The work of my team and I have focused on building reliable image computable functional digital  twins in the last five year. We have demonstrated that these models extract characteristic features of visual cortex from large scale data that generalize between animals~\parencite{Sinz2018-sk,Lurz2020-ua,Cobos2022-rr} and can extract meaningful internal states from large scale population recordings~\parencite{Bashiri2021-or}. 
-Models based on our network architectures are currently state of the art in predicting mouse visual cortex\footnote{All winners of  \url{https://sensorium2022.net/} used our base network architecture}. 
-With the help of these models, we have synthesized new optimal stimuli that deviated from previous text book knowledge of visual tuning in mouse V1~\parencite{Walker2019-yw}, and demonstrated that color tuning in mouse V1 can change with behavioral state on the time-scale of seconds~\parencite{Franke2022-do}. Together, these findings provide a strong rationale that data-driven models of mouse visual cortex can extract novel and experimentally verifiable insights from large scale data. 
+My previous work has demonstrated that functional digital twins of the visual system can be learned from data and provide novel insights. Their key advantage is that they can compile multiple experiments into a single model. This model is flexible enough to extract patterns from the data in a more unbiased way and does not rely on manual design of low parametric models. Instead, these models let the data speak for itself and extract complex but verifiable hypotheses about the sensory system. Here I propose to take several logical next steps in the development of digital twins and use them to study the role neuronal variability in perception and behavior, and its foundation in the neuro-anatomical circuit structure. 
 
-Here I propose to take the logical next step and extend this approach to behavior. 
-Specifically, I will build a data-driven embodied digital twin of mouse visual cortex that merges large scale recordings of neuronal activity with large scale recordings of free and task-driven behavior in a single model. 
-This digital twin will allow me to \circled{1} disambiguate the contributions of stimulus and behavior to neuronal responses in visual cortices (objective~\obji), \circled{2} find specific stereotypical behaviors linked to changes neuronal processing for each higher visual area (objective~\objii), and \circled{3} build a new computational framework to predict the effect of causal manipulations in neuronal firing on free behavior or on mice performing an object recognition task (objective~\objiii). 
 
 \subsection{Approach}
-
-The scientific questions laid out above, all require substantial methodological innovations in machine learning for neuroscience. Thus each objective has a technical goal and a scientific question. 
+My objectives is to build data-driven functional digital twins for mouse visual cortex and behavior, and use them to understand the role of neuronal variability in perceptual inference and behavior, as well as its relation to neuronal circuit anatomy. The scientific questions all require substantial methodological innovations in machine learning for neuroscience. Thus each objective has a technical goal and a scientific question. 
 
 \subsubsection{Objectives}
 {\def\arraystretch{1.5}\tabcolsep=5pt
 \begin{tabularx}{\textwidth}{l|X|X}
- & \textbf{technical goal} & \textbf{scientific goal} \\\hline
+ & \textbf{technical goal} & \textbf{scientific question} \\\hline
 \obji 
-& Build a digital twin of mouse visual cortex for freely behaving mice.
-& How does behavior and internal state modulate visual cortex during free behavior?\\\hline
+& Build a dynamic model of neuronal firing and its variability for the entire visual cortex of the mouse. 
+& Is stimulus conditioned neural variability stimulus dependent? \hl{brain areas?}\\\hline
 \objii & 
-Build a compact description of different states of free behavior (syllables of behavior). &
-What are stereotypical behaviors linked to specific changes neuronal processing for each higher visual area? \\\hline
+Build a joint generative model of videos and neuronal responses.&
+Are neural fluctuations consistent with probabilistic inference? \\\hline
 \objiii & 
-Use reinforcement learning to predict behavioral changes of causal manipulations of different higher visual areas. &
-Establish a causal link between neural activity in higher visual areas and behavior. \\
+Build a graph neural network based predictor of correlation matrices. &
+What part of the stimulus-conditioned correlations can be explained by neuro-anatomical microcircuit structure? \\\hline
+\objiv & 
+Build a digital twin of mouse with neuronal activity and behavior. &
+Are perceptual uncertainties on a neural level consistent with behavioral uncertainties? \\
 \end{tabularx}
 }
 
+\obji~builds the backbone for \objii,~\objiii,~and~\objiv. \objii~relates the neuronal activity and its variability compiled into the digital twin to mathematical principles of perceptual inference under uncertainty. \objiii~investigates the anatomical basis of the statistical structure in the neuronal variability in the local cortical microcircuit. \objiv~uses joint behavioral and functional recordings to relate neuronal variability to perceptual goals of a behaving mouse. 
+
 \subsubsection{Interdisciplinarity}
-This project addresses fundamental research questions in neuroscience by developing novel machine learning models. The successful execution of this project requires strong expertise in both fields and contributes to advancing both of them. I am trained in computer science/bioinformatics (undergraduate), machine learning (since undergraduate), computational neuroscience (PhD), and neuroscience (PostDocs). I have a track record of over \hl{X} peer reviewed papers on machine learning and neuroscience published in high ranking journals and top tier conferences together with my long term collaborators (Drs. Tolias and Franke at Baylor College of Medicine, Houston, TX, and Dr. Froudarakis, FORTH, Crete). I will build on this foundation to successfully implement the proposed goals of this project. 
+This project addresses fundamental research questions in neuroscience by developing novel machine learning models. The successful execution of this project requires strong expertise in both fields and contributes to advancing both of them. I am trained in computer science/bioinformatics (undergraduate), machine learning (since undergraduate), computational neuroscience (PhD), and neuroscience (PostDocs). I have a track record of over \hl{X} peer reviewed papers on machine learning and neuroscience published in high ranking journals and top tier conferences together with my long term collaborators (Drs. Tolias and Franke, Baylor College of Medicine, Houston, TX, and Emanoulli Froudarakis, FORTH, Crete). I will build on this foundation to successfully implement the proposed goals of this project. 
 
 \subsubsection{Beyond state of the art}
-The proposed project makes a step from the typical trial based structure of systems and behavioral neuroscience towards ``natural neuroscience'' that focuses on studying a neural system under complex natural conditions that cannot easily controlled or repeated. Even in classical conditions every trial in a neuronal system depends on uncontrollable factors (e.g. internal state) and can therefore by definition not be repeated by definition~\parencite{Urai2022-fz}. I advocate to embrace this complexity and build models that can compile many experiments in a single model, can disentangle different factors of neuronal processing, yet make specific and verifiable experimental predictions. 
-Such a model, that can predict neuronal responses of an entire visual cortex under free behavior does not exist, and would merge two major determinants of a neuronal systems stimulus driven neuronal activity and behavior. 
+\hl{data and data science}
+Here I propose to build on our foundational work for functional digital twins and substantially extend them in several directions: video input, single trial variability, circuit connectivity, and behavior. As the volume and detail of data in neuroscience is increasing fast, studying neural systems under natural conditions will require models that can integrate these multiple measurements. Because of the complexity of both the neural system and the stimulus domain, we still know for to little about the system to manually craft a model. Thus the only way to obtain a model with substantial predictive power is to learn it from data -- create a functional digital twin. The current proposal takes several logical next steps to extend this approach and provide new insights about the neuronal computations that underlie our perception and behavior. 
+\hl{make more concise why this is \textbf{beyond} SOTA. }
 
 \subsubsection{Potential impact}
-If successful, the project can change our view of the function of higher visual areas in mice and how neuronal tuning is changed according to behavioral needs. 
-Furthermore, as the volume, detail, and complexity of neuroscientific and behavioral data is increasing, such a model can become the seed for a \textit{standard model of systems neuroscience}.
-In line with the neuroconnectionist research programme~ the technical and scientific advances will lead to a major step towards a ``a cohesive large-scale research programme centered around ANNs as a computational language for expressing falsifiable theories about brain computation''~\parencite{Doerig2022-ex}. As argued by these authors, this approach can generate ``new and otherwise unreachable insights into the workings of the brain''.
 
-
-% computational goal also unclear for mid -level areas
 \subsubsection{\colorbox{obji}{\color{white}Objective 1}: A video-driven latent state model of mouse visual cortex}
 \label{sub:obji}
 
