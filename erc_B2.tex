@@ -115,6 +115,12 @@ This digital twin will allow me to \circled{1} disambiguate the contributions of
 
 
 % ---------------------------------------------------------
+We will explore two versions of this feature extractor: one strictly hierarchical where consecutive where each layer only receives input from lower layers, and one with feedback where a lower layer can receive inputs from past features of higher layers -- modeling the recurrent feedback structure in the brain. The feature extractor will be trained on responses of thousands of neurons to natural and parameteric videos. Since the feature extractor is shared, it can also be shared across neurons from different experiments with possibly different stimuli. 
+
+
+A  Here we will extend our previous model for response distribution on natural image~ and us a normalizing flow model~\parencite{Rezende2015-mx} to transform neural responses into a correlated latent Gaussian distribution. Developing this mechanism poses four challenges: \circled{1} we want to be able to compute conditional distribution (e.g. conditioned on past time or other neurons), \circled{2} it needs to be efficient to run on videos, \circled{3} the correlations should be possibly stimulus dependent, and \circled{4} it needs to deal with the (semi)-discrete nature of deconvolved Calcium recordings (peak at zero, but otherwise continuous density). We will deal with \circled{1} by learning a dimensionwise normalizing flow such as in \cite{Bashiri2021-or}, \circled{2} and \circled{3} by using a Gauss Markov model (Kalman Filter) that also receives inputs from the video feature extractor, and \circled{4} by using variational dequantization~\parencite{Hoogeboom2021-zs} to turn the discrete part into a continuous signal.  \hl{include scientific part + areas}
+
+% ---------------------------------------------------------
 
 
 %%%%%%%%%%%%% BIBLIOGRAPHY %%%%%%%%%%%%%%%%%%%
