@@ -25,6 +25,50 @@
   eprint        = "1606.03476"
 }
 
+@ARTICLE{McIntosh2016-tr,
+  title    = "Deep Learning Models of the Retinal Response to Natural Scenes",
+  author   = "McIntosh, Lane T and Maheswaranathan, Niru and Nayebi, Aran and
+              Ganguli, Surya and Baccus, Stephen A",
+  abstract = "A central challenge in sensory neuroscience is to understand
+              neural computations and circuit mechanisms that underlie the
+              encoding of ethologically relevant, natural stimuli. In
+              multilayered neural circuits, nonlinear processes such as
+              synaptic transmission and spiking dynamics present a significant
+              obstacle to the creation of accurate computational models of
+              responses to natural stimuli. Here we demonstrate that deep
+              convolutional neural networks (CNNs) capture retinal responses to
+              natural scenes nearly to within the variability of a cell's
+              response, and are markedly more accurate than linear-nonlinear
+              (LN) models and Generalized Linear Models (GLMs). Moreover, we
+              find two additional surprising properties of CNNs: they are less
+              susceptible to overfitting than their LN counterparts when
+              trained on small amounts of data, and generalize better when
+              tested on stimuli drawn from a different distribution (e.g.
+              between natural scenes and white noise). An examination of the
+              learned CNNs reveals several properties. First, a richer set of
+              feature maps is necessary for predicting the responses to natural
+              scenes compared to white noise. Second, temporally precise
+              responses to slowly varying inputs originate from feedforward
+              inhibition, similar to known retinal mechanisms. Third, the
+              injection of latent noise sources in intermediate layers enables
+              our model to capture the sub-Poisson spiking variability observed
+              in retinal ganglion cells. Fourth, augmenting our CNNs with
+              recurrent lateral connections enables them to capture contrast
+              adaptation as an emergent property of accurately describing
+              retinal responses to natural scenes. These methods can be readily
+              generalized to other sensory modalities and stimulus ensembles.
+              Overall, this work demonstrates that CNNs not only accurately
+              capture sensory circuit responses to natural scenes, but also can
+              yield information about the circuit's internal structure and
+              function.",
+  journal  = "Adv. Neural Inf. Process. Syst.",
+  volume   =  29,
+  number   = "Nips",
+  pages    = "1369--1377",
+  year     =  2016,
+  keywords = "system identification;system identification;ERC Consolidator 2023"
+}
+
 @ARTICLE{Arora2018-tq,
   title         = "A Survey of Inverse Reinforcement Learning: Challenges,
                    Methods and Progress",
@@ -51,7 +95,7 @@
                    currently open research questions.",
   month         =  jun,
   year          =  2018,
-  keywords      = "skimmed;ERC Consolidator 2023",
+  keywords      = "read;ERC Consolidator 2023",
   archivePrefix = "arXiv",
   primaryClass  = "cs.LG",
   eprint        = "1806.06877"
@@ -91,38 +135,66 @@
   eprint        = "1901.07017"
 }
 
-@ARTICLE{Merel2019-qm,
-  title         = "Deep neuroethology of a virtual rodent",
-  author        = "Merel, Josh and Aldarondo, Diego and Marshall, Jesse and
-                   Tassa, Yuval and Wayne, Greg and {\"O}lveczky, Bence",
-  abstract      = "Parallel developments in neuroscience and deep learning have
-                   led to mutually productive exchanges, pushing our
-                   understanding of real and artificial neural networks in
-                   sensory and cognitive systems. However, this interaction
-                   between fields is less developed in the study of motor
-                   control. In this work, we develop a virtual rodent as a
-                   platform for the grounded study of motor activity in
-                   artificial models of embodied control. We then use this
-                   platform to study motor activity across contexts by training
-                   a model to solve four complex tasks. Using methods familiar
-                   to neuroscientists, we describe the behavioral
-                   representations and algorithms employed by different layers
-                   of the network using a neuroethological approach to
-                   characterize motor activity relative to the rodent's
-                   behavior and goals. We find that the model uses two classes
-                   of representations which respectively encode the
-                   task-specific behavioral strategies and task-invariant
-                   behavioral kinematics. These representations are reflected
-                   in the sequential activity and population dynamics of neural
-                   subpopulations. Overall, the virtual rodent facilitates
-                   grounded collaborations between deep reinforcement learning
-                   and motor neuroscience.",
-  month         =  nov,
-  year          =  2019,
-  keywords      = "4 mouse;read;ERC Consolidator 2023",
-  archivePrefix = "arXiv",
-  primaryClass  = "q-bio.NC",
-  eprint        = "1911.09451"
+@ARTICLE{Deverett2019-gs,
+  title    = "Interval timing in deep reinforcement learning agents",
+  author   = "Deverett, B and Faulkner, Ryan and Fortunato, Meire and Wayne,
+              Greg and Leibo, Joel Z",
+  abstract = "This work characterize the strategies developed by recurrent and
+              feedforward agents, which both succeed at temporal reproduction
+              using distinct mechanisms, some of which bear specific and
+              intriguing similarities to biological systems. The measurement of
+              time is central to intelligent behavior. We know that both
+              animals and artificial agents can successfully use temporal
+              dependencies to select actions. In artificial agents, little work
+              has directly addressed (1) which architectural components are
+              necessary for successful development of this ability, (2) how
+              this timing ability comes to be represented in the units and
+              actions of the agent, and (3) whether the resulting behavior of
+              the system converges on solutions similar to those of biology.
+              Here we studied interval timing abilities in deep reinforcement
+              learning agents trained end-to-end on an interval reproduction
+              paradigm inspired by experimental literature on mechanisms of
+              timing. We characterize the strategies developed by recurrent and
+              feedforward agents, which both succeed at temporal reproduction
+              using distinct mechanisms, some of which bear specific and
+              intriguing similarities to biological systems. These findings
+              advance our understanding of how agents come to represent time,
+              and they highlight the value of experimentally inspired
+              approaches to characterizing agent abilities.",
+  journal  = "Adv. Neural Inf. Process. Syst.",
+  year     =  2019,
+  keywords = "4 behavior;read next;unread;ERC Consolidator 2023",
+  language = "en"
+}
+
+@ARTICLE{Cowley2020-cy,
+  title    = "High-contrast ``gaudy'' images improve the training of deep
+              neural network models of visual cortex",
+  author   = "Cowley, Benjamin R and Pillow, Jonathan W",
+  abstract = "A key challenge in understanding the sensory transformations of
+              the visual system is to obtain a highly predictive model of
+              responses from visual cortical neurons. Deep neural networks
+              (DNNs) provide a promising candidate for such a model. However,
+              DNNs require orders of magnitude more training data than
+              neuroscientists can collect from real neurons because
+              experimental recording time is severely limited. This motivates
+              us to find images that train highly-predictive DNNs with as
+              little training data as possible. We propose gaudy
+              images---high-contrast binarized versions of natural images---to
+              efficiently train DNNs. In extensive simulation experiments, we
+              find that training DNNs with gaudy images substantially reduces
+              the number of training images needed to accurately predict the
+              simulated responses of visual cortical neurons. We also find that
+              gaudy images, chosen before training, outperform images chosen
+              during training by active learning algorithms. Thus, gaudy images
+              overemphasize features of natural images, especially edges, that
+              are the most important for efficiently training DNNs. We believe
+              gaudy images will aid in the modeling of visual cortical neurons,
+              potentially opening new scientific questions about visual
+              processing, as well as aid general practitioners that seek ways
+              to improve the training of DNNs.",
+  year     =  2020,
+  keywords = "read;system identification;ERC Consolidator 2023"
 }
 
 @ARTICLE{Locatello2020-io,
@@ -154,6 +226,34 @@
   archivePrefix = "arXiv",
   primaryClass  = "cs.LG",
   eprint        = "2006.15055"
+}
+
+@ARTICLE{Cobbe2020-ap,
+  title         = "Phasic Policy Gradient",
+  author        = "Cobbe, Karl and Hilton, Jacob and Klimov, Oleg and Schulman,
+                   John",
+  abstract      = "We introduce Phasic Policy Gradient (PPG), a reinforcement
+                   learning framework which modifies traditional on-policy
+                   actor-critic methods by separating policy and value function
+                   training into distinct phases. In prior methods, one must
+                   choose between using a shared network or separate networks
+                   to represent the policy and value function. Using separate
+                   networks avoids interference between objectives, while using
+                   a shared network allows useful features to be shared. PPG is
+                   able to achieve the best of both worlds by splitting
+                   optimization into two phases, one that advances training and
+                   one that distills features. PPG also enables the value
+                   function to be more aggressively optimized with a higher
+                   level of sample reuse. Compared to PPO, we find that PPG
+                   significantly improves sample efficiency on the challenging
+                   Procgen Benchmark.",
+  month         =  sep,
+  year          =  2020,
+  keywords      = "4 behavior;read next;unread;ERC Consolidator 2023",
+  copyright     = "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.LG",
+  eprint        = "2009.04416"
 }
 
 @ARTICLE{Chen2021-ap,
@@ -225,7 +325,7 @@
                    interaction with trained models.",
   month         =  nov,
   year          =  2021,
-  keywords      = "skimmed;ERC Consolidator 2023",
+  keywords      = "read;ERC Consolidator 2023",
   archivePrefix = "arXiv",
   primaryClass  = "cs.CV",
   eprint        = "2111.12594"
@@ -289,7 +389,7 @@
                    high-accuracy decoding of natural movies from visual cortex.",
   month         =  apr,
   year          =  2022,
-  keywords      = "skimmed;U19;ERC Consolidator 2023",
+  keywords      = "read;U19;ERC Consolidator 2023",
   archivePrefix = "arXiv",
   primaryClass  = "cs.LG",
   eprint        = "2204.00673"
@@ -447,7 +547,7 @@
                    insights into the workings of the brain.",
   month         =  sep,
   year          =  2022,
-  keywords      = "skimmed;ERC Consolidator 2023",
+  keywords      = "read;ERC Consolidator 2023",
   archivePrefix = "arXiv",
   primaryClass  = "q-bio.NC",
   eprint        = "2209.03718"
@@ -522,10 +622,190 @@
                    occluded joints while it remains well-calibrated.",
   month         =  oct,
   year          =  2022,
-  keywords      = "ERC Consolidator 2023",
+  keywords      = "own;ERC Consolidator 2023",
   archivePrefix = "arXiv",
   primaryClass  = "cs.CV",
   eprint        = "2210.11179"
+}
+
+@ARTICLE{Howell2022-gc,
+  title         = "Predictive Sampling: Real-time Behaviour Synthesis with
+                   {MuJoCo}",
+  author        = "Howell, Taylor and Gileadi, Nimrod and Tunyasuvunakool,
+                   Saran and Zakka, Kevin and Erez, Tom and Tassa, Yuval",
+  abstract      = "We introduce MuJoCo MPC (MJPC), an open-source, interactive
+                   application and software framework for real-time predictive
+                   control, based on MuJoCo physics. MJPC allows the user to
+                   easily author and solve complex robotics tasks, and
+                   currently supports three shooting-based planners:
+                   derivative-based iLQG and Gradient Descent, and a simple
+                   derivative-free method we call Predictive Sampling.
+                   Predictive Sampling was designed as an elementary baseline,
+                   mostly for its pedagogical value, but turned out to be
+                   surprisingly competitive with the more established
+                   algorithms. This work does not present algorithmic advances,
+                   and instead, prioritises performant algorithms, simple code,
+                   and accessibility of model-based methods via intuitive and
+                   interactive software. MJPC is available at:
+                   github.com/deepmind/mujoco\_mpc, a video summary can be
+                   viewed at: dpmd.ai/mjpc.",
+  month         =  dec,
+  year          =  2022,
+  keywords      = "4 behavior;read next;unread;ERC Consolidator 2023",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.RO",
+  eprint        = "2212.00541"
+}
+
+@ARTICLE{Perez2023-fu,
+  title         = "{CNN-Based} Action Recognition and Pose Estimation for
+                   Classifying Animal Behavior from Videos: A Survey",
+  author        = "Perez, Michael and Toler-Franklin, Corey",
+  abstract      = "Classifying the behavior of humans or animals from videos is
+                   important in biomedical fields for understanding brain
+                   function and response to stimuli. Action recognition,
+                   classifying activities performed by one or more subjects in
+                   a trimmed video, forms the basis of many of these
+                   techniques. Deep learning models for human action
+                   recognition have progressed significantly over the last
+                   decade. Recently, there is an increased interest in research
+                   that incorporates deep learning-based action recognition for
+                   animal behavior classification. However, human action
+                   recognition methods are more developed. This survey presents
+                   an overview of human action recognition and pose estimation
+                   methods that are based on convolutional neural network (CNN)
+                   architectures and have been adapted for animal behavior
+                   classification in neuroscience. Pose estimation, estimating
+                   joint positions from an image frame, is included because it
+                   is often applied before classifying animal behavior. First,
+                   we provide foundational information on algorithms that learn
+                   spatiotemporal features through 2D, two-stream, and 3D CNNs.
+                   We explore motivating factors that determine optimizers,
+                   loss functions and training procedures, and compare their
+                   performance on benchmark datasets. Next, we review animal
+                   behavior frameworks that use or build upon these methods,
+                   organized by the level of supervision they require. Our
+                   discussion is uniquely focused on the technical evolution of
+                   the underlying CNN models and their architectural
+                   adaptations (which we illustrate), rather than their
+                   usability in a neuroscience lab. We conclude by discussing
+                   open research problems, and possible research directions.
+                   Our survey is designed to be a resource for researchers
+                   developing fully unsupervised animal behavior classification
+                   systems of which there are only a few examples in the
+                   literature.",
+  month         =  jan,
+  year          =  2023,
+  keywords      = "4 behavior;unread;ERC Consolidator 2023",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.CV",
+  eprint        = "2301.06187"
+}
+
+@ARTICLE{Zhang2018-cs,
+  title    = "Convolutional neural network models of {V1} responses to complex
+              patterns",
+  author   = "Zhang, Yimeng and Lee, T-S Tai Sing and Li, Ming and Liu, Fang
+              and Tang, Shiming and Sing, Tai and Ming, Lee and Fang, Li and
+              Shiming, Liu and Lee, T-S Tai Sing and Li, Ming and Liu, Fang and
+              Tang, Shiming",
+  abstract = "In this study, we evaluated the convolutional neural network
+              (CNN) method for modeling V1 neurons of awake macaque monkeys in
+              response to a large set of complex pattern stimuli. CNN models
+              outperformed all the other baseline models, such as Gabor-based
+              standard models for V1 cells and various variants of generalized
+              linear models. We then systematically dissected different
+              components of the CNN and found two key factors that made CNNs
+              outperform other models: thresholding nonlinearity and
+              convolution. In addition, we fitted our data using a pre-trained
+              deep CNN via transfer learning. The deep CNN's higher layers,
+              which encode more complex patterns, outperformed lower ones, and
+              this result was consistent with our earlier work on the
+              complexity of V1 neural code. Our study systematically evaluates
+              the relative merits of different CNN components in the context of
+              V1 neuron modeling.",
+  journal  = "J. Comput. Neurosci.",
+  pages    = "1--22",
+  year     =  2018,
+  keywords = "Convolutional neural network; Nonlinear regression; System
+              identification; V1; convolutional neural network; nonlinear
+              regression; system identification; v1;\_old;ERC Consolidator 2023"
+}
+
+@ARTICLE{Wiersma1968-xt,
+  title    = "The selective responsiveness of various crayfish oculomotor
+              fibers to sensory stimuli",
+  author   = "Wiersma, C A and Oberjat, T",
+  journal  = "Comp. Biochem. Physiol.",
+  volume   =  26,
+  number   =  1,
+  pages    = "1--16",
+  month    =  jul,
+  year     =  1968,
+  keywords = "4 behavior;4 brainstate;read next;unread;ERC Consolidator 2023",
+  language = "en"
+}
+
+@ARTICLE{Ponce2019-yn,
+  title     = "Evolving Images for Visual Neurons Using a Deep Generative
+               Network Reveals Coding Principles and Neuronal Preferences",
+  author    = "Ponce, Carlos R and Xiao, Will and Schade, Peter F and Hartmann,
+               Till S and Kreiman, Gabriel and Livingstone, Margaret S",
+  abstract  = "What specific features should visual neurons encode, given the
+               infinity of real-world images and the limited number of neurons
+               available to represent them? We investigated neuronal
+               selectivity in monkey inferotemporal cortex via the vast
+               hypothesis space of a generative deep neural network, avoiding
+               assumptions about features or semantic categories. A genetic
+               algorithm searched this space for stimuli that maximized
+               neuronal firing. This led to the evolution of rich synthetic
+               images of objects with complex combinations of shapes, colors,
+               and textures, sometimes resembling animals or familiar people,
+               other times revealing novel patterns that did not map to any
+               clear semantic category. These results expand our conception of
+               the dictionary of features encoded in the cortex, and the
+               approach can potentially reveal the internal representations of
+               any system whose input can be captured by a generative model.",
+  journal   = "Cell",
+  publisher = "Elsevier",
+  volume    =  177,
+  number    =  4,
+  pages     = "999--1009.e10",
+  year      =  2019,
+  keywords  = "generative adversarial network; inferotemporal cortex; neural
+               networks;read;MEI \& reconstruction;ERC Consolidator 2023"
+}
+
+@ARTICLE{Eggermann2014-xp,
+  title    = "Cholinergic Signals in Mouse Barrel Cortex during Active Whisker
+              Sensing",
+  author   = "Eggermann, Emmanuel and Kremer, Yves and Crochet, Sylvain and
+              Petersen, Carl C H",
+  abstract = "Summary Internal brain states affect sensory perception,
+              cognition, and learning. Many neocortical areas exhibit changes
+              in the pattern and synchrony of neuronal activity during quiet
+              versus active behaviors. Active behaviors are typically
+              associated with desynchronized cortical dynamics. Increased
+              thalamic firing contributes importantly to desynchronize mouse
+              barrel cortex during active whisker sensing. However, a
+              whisking-related cortical state change persists after thalamic
+              inactivation, which is mediated at least in part by
+              acetylcholine, as we show here by using whole-cell recordings,
+              local pharmacology, axonal calcium imaging, and optogenetic
+              stimulation. During whisking, we find prominent cholinergic
+              signals in the barrel cortex, which suppress spontaneous cortical
+              activity. The desynchronized state of barrel cortex during
+              whisking is therefore driven by at least two distinct signals
+              with opposing functions: increased thalamic activity driving
+              glutamatergic excitation of the cortex and increased cholinergic
+              input suppressing spontaneous cortical activity.",
+  journal  = "Cell Rep.",
+  volume   =  9,
+  number   =  5,
+  pages    = "1654--1660",
+  month    =  dec,
+  year     =  2014,
+  keywords = "4 behavior;4 brainstate;read next;unread;ERC Consolidator 2023"
 }
 
 @ARTICLE{Wang2022-cn,
@@ -605,6 +885,40 @@
   year     =  2019,
   keywords = "read next;unread;ERC Consolidator 2023",
   language = "en"
+}
+
+@ARTICLE{Chiappe2010-bm,
+  title    = "Walking Modulates Speed Sensitivity in Drosophila Motion Vision",
+  author   = "Chiappe, M Eugenia and Seelig, Johannes D and Reiser, Michael B
+              and Jayaraman, Vivek",
+  abstract = "Summary Changes in behavioral state modify neural activity in
+              many systems [1, 2, 3, 4, 5]. In some vertebrates such modulation
+              has been observed and interpreted in the context of attention [2]
+              and sensorimotor coordinate transformations [3]. Here we report
+              state-dependent activity modulations during walking in a
+              visual-motor pathway of Drosophila. We used two-photon imaging to
+              monitor intracellular calcium activity in motion-sensitive lobula
+              plate tangential cells (LPTCs) in head-fixed Drosophila walking
+              on an air-supported ball. Cells of the horizontal system (HS)---a
+              subgroup of LPTCs---showed stronger calcium transients in
+              response to visual motion when flies were walking rather than
+              resting. The amplified responses were also correlated with
+              walking speed. Moreover, HS neurons showed a relatively higher
+              gain in response strength at higher temporal frequencies, and
+              their optimum temporal frequency was shifted toward higher motion
+              speeds. Walking-dependent modulation of HS neurons in the
+              Drosophila visual system may constitute a mechanism to facilitate
+              processing of higher image speeds in behavioral contexts where
+              these speeds of visual motion are relevant for course
+              stabilization.",
+  journal  = "Curr. Biol.",
+  volume   =  20,
+  number   =  16,
+  pages    = "1470--1475",
+  month    =  aug,
+  year     =  2010,
+  keywords = "SYSNEURO;4 behavior;4 brainstate;read next;unread;ERC
+              Consolidator 2023"
 }
 
 @ARTICLE{Ayaz2013-vv,
@@ -725,8 +1039,36 @@
   pages    = "R356--R358",
   month    =  apr,
   year     =  2021,
-  keywords = "4 behavior;skimmed;ERC Consolidator 2023",
+  keywords = "4 behavior;read;ERC Consolidator 2023",
   language = "en"
+}
+
+@ARTICLE{Prenger2004-qu,
+  title    = "Nonlinear {V1} responses to natural scenes revealed by neural
+              network analysis",
+  author   = "Prenger, Ryan and Wu, Michael C-K and David, Stephen V and
+              Gallant, Jack L",
+  abstract = "A key goal in the study of visual processing is to obtain a
+              comprehensive description of the relationship between visual
+              stimuli and neuronal responses. One way to guide the search for
+              models is to use a general nonparametric regression algorithm,
+              such as a neural network. We have developed a multilayer
+              feed-forward network algorithm that can be used to characterize
+              nonlinear stimulus-response mapping functions of neurons in
+              primary visual cortex (area V1) using natural image stimuli. The
+              network is capable of extracting several known V1 response
+              properties such as: orientation and spatial frequency tuning, the
+              spatial phase invariance of complex cells, and direction
+              selectivity. We present details of a method for training networks
+              and visualizing their properties. We also compare how well
+              conventional explicit models and those developed using neural
+              networks can predict novel responses to natural scenes.",
+  journal  = "Neural Netw.",
+  volume   =  17,
+  number   = "5-6",
+  pages    = "663--679",
+  year     =  2004,
+  keywords = "recurrent;system identification;ERC Consolidator 2023"
 }
 
 @ARTICLE{Macpherson2021-re,
@@ -763,7 +1105,7 @@
   year     =  2021,
   keywords = "Artificial intelligence; Neuroscience; Neural imaging; Visual
               processing; Working memory; Computational psychiatry;4 behavior;4
-              mouse;skimmed;ERC Consolidator 2023"
+              mouse;read;ERC Consolidator 2023"
 }
 
 @ARTICLE{Weichwald2015-ff,
@@ -833,6 +1175,95 @@
                Hyperalignment;system identification;ERC Consolidator 2023"
 }
 
+@ARTICLE{Touryan2005-pi,
+  title    = "Spatial Structure of Complex Cell Receptive Fields Measured with
+              Natural Images",
+  author   = "Touryan, Jon and Felsen, Gidon and Dan, Yang",
+  abstract = "Neuronal receptive fields (RFs) play crucial roles in visual
+              processing. While the linear RFs of early neurons have been well
+              studied, RFs of cortical complex cells are nonlinear and
+              therefore difficult to characterize, especially in the context of
+              natural stimuli. In this study, we used a nonlinear technique to
+              compute the RFs of complex cells from their responses to natural
+              images. We found that each RF is well described by a small number
+              of subunits, which are oriented, localized, and bandpass. These
+              subunits contribute to neuronal responses in a
+              contrast-dependent, polarity-invariant manner, and they can
+              largely predict the orientation and spatial frequency tuning of
+              the cell. Although the RF structures measured with natural images
+              were similar to those measured with random stimuli, natural
+              images were more effective for driving complex cells, thus
+              facilitating rapid identification of the subunits. The subunit RF
+              model provides a useful basis for understanding cortical
+              processing of natural stimuli.",
+  journal  = "Neuron",
+  volume   =  45,
+  number   =  5,
+  pages    = "781--791",
+  year     =  2005,
+  keywords = "read;recurrent;ERC Consolidator 2023"
+}
+
+@ARTICLE{Rust2005-ro,
+  title     = "Spatiotemporal elements of macaque v1 receptive fields",
+  author    = "Rust, Nicole C and Schwartz, Odelia and Movshon, J Anthony and
+               Simoncelli, Eero P",
+  abstract  = "Neurons in primary visual cortex (V1) are commonly classified as
+               simple or complex based upon their sensitivity to the sign of
+               stimulus contrast. The responses of both cell types can be
+               described by a general model in which the outputs of a set of
+               linear filters are nonlinearly combined. We estimated the model
+               for a population of V1 neurons by analyzing the mean and
+               covariance of the spatiotemporal distribution of random bar
+               stimuli that were associated with spikes. This analysis reveals
+               an unsuspected richness of neuronal computation within V1.
+               Specifically, simple and complex cell responses are best
+               described using more linear filters than the one or two found in
+               standard models. Many filters revealed by the model contribute
+               suppressive signals that appear to have a predominantly divisive
+               influence on neuronal firing. Suppressive signals are especially
+               potent in direction-selective cells, where they reduce responses
+               to stimuli moving in the nonpreferred direction.",
+  journal   = "Neuron",
+  publisher = "Elsevier",
+  volume    =  46,
+  number    =  6,
+  pages     = "945--956",
+  year      =  2005,
+  keywords  = "Orientation Selectivity;GLM and DN;contrast gain control;ERC
+               Consolidator 2023"
+}
+
+@ARTICLE{Bezdudnaya2006-ge,
+  title    = "Thalamic Burst Mode and Inattention in the Awake {LGNd}",
+  author   = "Bezdudnaya, Tatiana and Cano, Monica and Bereshpolova, Yulia and
+              Stoelzel, Carl R and Alonso, Jose-Manuel and Swadlow, Harvey A",
+  abstract = "Summary Awake mammals are often inattentive in familiar
+              environments, but must still respond appropriately to relevant
+              visual stimulation. Such ``inattentive vision'' has received
+              little study, perhaps due to difficulties in controlling eye
+              position in this state. In rabbits, eye position is exceedingly
+              stable in both alert and inattentive states. Here, we exploit
+              this stability to examine temporal filtering of visual
+              information in LGNd neurons as rabbits alternate between
+              EEG-defined states. Within a single second of shifting from alert
+              to an inattentive state, both peak temporal frequency and
+              bandwidth were sharply reduced, and burst frequency increased
+              dramatically. However, spatial dimensions of receptive field
+              centers showed no significant state dependence. We conclude that
+              extremely rapid and significant changes in temporal filtering and
+              bursting occur in the LGNd as awake subjects shift between alert
+              and inattentive states.",
+  journal  = "Neuron",
+  volume   =  49,
+  number   =  3,
+  pages    = "421--432",
+  month    =  feb,
+  year     =  2006,
+  keywords = "SYSNEURO;4 behavior;4 brainstate;read next;unread;ERC
+              Consolidator 2023"
+}
+
 @ARTICLE{Niell2010-bs,
   title     = "Modulation of Visual Responses by Behavioral State in Mouse
                Visual Cortex",
@@ -884,7 +1315,7 @@
   pages    = "425--442",
   month    =  nov,
   year     =  2011,
-  keywords = "read next;unread;ERC Consolidator 2023",
+  keywords = "4 behavior;read;ERC Consolidator 2023",
   language = "en"
 }
 
@@ -915,6 +1346,36 @@
   month    =  dec,
   year     =  2011,
   keywords = "4 behavior;4 mouse;read next;unread;ERC Consolidator 2023",
+  language = "en"
+}
+
+@ARTICLE{Bennett2013-rk,
+  title    = "Subthreshold mechanisms underlying state-dependent modulation of
+              visual responses",
+  author   = "Bennett, Corbett and Arroyo, Sergio and Hestrin, Shaul",
+  abstract = "The processing of sensory information varies widely across
+              behavioral states. However, little is known about how behavioral
+              states modulate the intracellular activity of cortical neurons to
+              effect changes in sensory responses. Here, we performed
+              whole-cell recordings from neurons in upper-layer primary visual
+              cortex of awake mice during locomotion and quiet wakefulness. We
+              found that the signal-to-noise ratio for sensory responses was
+              improved during locomotion by two mechanisms: (1) a decrease in
+              membrane potential variability leading to a reduction in
+              background firing rates and (2) an enhancement in the amplitude
+              and reliability of visually evoked subthreshold responses
+              mediated by an increase in total conductance and a depolarization
+              of the stimulus-evoked reversal potential. Consistent with the
+              enhanced signal-to-noise ratio for visual responses during
+              locomotion, we demonstrate that performance is improved in a
+              visual detection task during this behavioral state.",
+  journal  = "Neuron",
+  volume   =  80,
+  number   =  2,
+  pages    = "350--357",
+  month    =  oct,
+  year     =  2013,
+  keywords = "4 behavior;4 brainstate;read next;unread;ERC Consolidator 2023",
   language = "en"
 }
 
@@ -950,6 +1411,39 @@
   year      =  2015,
   keywords  = "4 behavior;read next;unread;ERC Consolidator 2023",
   language  = "en"
+}
+
+@ARTICLE{Wiltschko2015-ey,
+  title    = "Mapping {Sub-Second} Structure in Mouse Behavior",
+  author   = "Wiltschko, Alexander B and Johnson, Matthew J and Iurilli,
+              Giuliano and Peterson, Ralph E and Katon, Jesse M and Pashkovski,
+              Stan L and Abraira, Victoria E and Adams, Ryan P and Datta,
+              Sandeep Robert",
+  abstract = "Complex animal behaviors are likely built from simpler modules,
+              but their systematic identification in mammals remains a
+              significant challenge. Here we use depth imaging to show that 3D
+              mouse pose dynamics are structured at the sub-second timescale.
+              Computational modeling of these fast dynamics effectively
+              describes mouse behavior as a series of reused and stereotyped
+              modules with defined transition probabilities. We demonstrate
+              this combined 3D imaging and machine learning method can be used
+              to unmask potential strategies employed by the brain to adapt to
+              the environment, to capture both predicted and previously hidden
+              phenotypes caused by genetic or neural manipulations, and to
+              systematically expose the global structure of behavior within an
+              experiment. This work reveals that mouse body language is built
+              from identifiable components and is organized in a predictable
+              fashion; deciphering this language establishes an objective
+              framework for characterizing the influence of environmental cues,
+              genes and neural activity on behavior.",
+  journal  = "Neuron",
+  volume   =  88,
+  number   =  6,
+  pages    = "1121--1135",
+  month    =  dec,
+  year     =  2015,
+  keywords = "4 behavior;not read;ERC Consolidator 2023",
+  language = "en"
 }
 
 @ARTICLE{Semedo2019-ll,
@@ -1005,7 +1499,7 @@
   pages    = "11--24",
   month    =  oct,
   year     =  2019,
-  keywords = "read next;unread;ERC Consolidator 2023"
+  keywords = "read;4 behavior;requires action;ERC Consolidator 2023"
 }
 
 @ARTICLE{Voigts2019-sv,
@@ -1036,6 +1530,104 @@
   keywords = "unread;4 topics;ERC Consolidator 2023"
 }
 
+@ARTICLE{Schroder2020-jl,
+  title    = "Arousal Modulates Retinal Output",
+  author   = "Schr{\"o}der, Sylvia and Steinmetz, Nicholas A and Krumin,
+              Michael and Pachitariu, Marius and Rizzi, Matteo and Lagnado,
+              Leon and Harris, Kenneth D and Carandini, Matteo",
+  abstract = "Summary At various stages of the visual system, visual responses
+              are modulated by arousal. Here, we find that in mice this
+              modulation operates as early as in the first synapse from the
+              retina and even in retinal axons. To measure retinal activity in
+              the awake, intact brain, we imaged the synaptic boutons of
+              retinal axons in the superior colliculus. Their activity depended
+              not only on vision but also on running speed and pupil size,
+              regardless of retinal illumination. Arousal typically reduced
+              their visual responses and selectivity for direction and
+              orientation. Recordings from retinal axons in the optic tract
+              revealed that arousal modulates the firing of some retinal
+              ganglion cells. Arousal had similar effects postsynaptically in
+              colliculus neurons, independent of activity in the other main
+              source of visual inputs to the colliculus, the primary visual
+              cortex. These results indicate that arousal modulates activity at
+              every stage of the mouse visual system.",
+  journal  = "Neuron",
+  volume   =  107,
+  number   =  3,
+  pages    = "487--495.e9",
+  month    =  aug,
+  year     =  2020,
+  keywords = "vision; retina; arousal; locomotion; superior colliculus;4
+              behavior;4 brainstate;read next;unread;ERC Consolidator 2023"
+}
+
+@ARTICLE{Kao2021-yf,
+  title    = "Optimal anticipatory control as a theory of motor preparation: A
+              thalamo-cortical circuit model",
+  author   = "Kao, Ta-Chu and Sadabadi, Mahdieh S and Hennequin, Guillaume",
+  abstract = "Across a range of motor and cognitive tasks, cortical activity
+              can be accurately described by low-dimensional dynamics unfolding
+              from specific initial conditions on every trial. These
+              ``preparatory states'' largely determine the subsequent evolution
+              of both neural activity and behavior, and their importance raises
+              questions regarding how they are, or ought to be, set. Here, we
+              formulate motor preparation as optimal anticipatory control of
+              future movements and show that the solution requires a form of
+              internal feedback control of cortical circuit dynamics. In
+              contrast to a simple feedforward strategy, feedback control
+              enables fast movement preparation by selectively controlling the
+              cortical state in the small subspace that matters for the
+              upcoming movement. Feedback but not feedforward control explains
+              the orthogonality between preparatory and movement activity
+              observed in reaching monkeys. We propose a circuit model in which
+              optimal preparatory control is implemented as a thalamo-cortical
+              loop gated by the basal ganglia.",
+  journal  = "Neuron",
+  volume   =  109,
+  number   =  9,
+  pages    = "1567--1581.e12",
+  month    =  may,
+  year     =  2021,
+  keywords = "manifold; movement preparation; neural circuits; neural
+              population dynamics; nullspace; optimal control; thalamo-cortical
+              loop;4 behavior;read next;unread;ERC Consolidator 2023",
+  language = "en"
+}
+
+@ARTICLE{Parker2022-ac,
+  title    = "Joint coding of visual input and eye/head position in {V1} of
+              freely moving mice",
+  author   = "Parker, Philip R L and Abe, Elliott T T and Leonard, Emmalyn S P
+              and Martins, Dylan M and Niell, Cristopher M",
+  abstract = "Visual input during natural behavior is highly dependent on
+              movements of the eyes and head, but how information about eye and
+              head position is integrated with visual processing during free
+              movement is unknown, as visual physiology is generally performed
+              under head fixation. To address this, we performed single-unit
+              electrophysiology in V1 of freely moving mice while
+              simultaneously measuring the mouse's eye position, head
+              orientation, and the visual scene from the mouse's perspective.
+              From these measures, we mapped spatiotemporal receptive fields
+              during free movement based on the gaze-corrected visual input.
+              Furthermore, we found a significant fraction of neurons tuned for
+              eye and head position, and these signals were integrated with
+              visual responses through a multiplicative mechanism in the
+              majority of modulated neurons. These results provide new insight
+              into coding in the mouse V1 and, more generally, provide a
+              paradigm for investigating visual physiology under natural
+              conditions, including active sensing and ethological behavior.",
+  journal  = "Neuron",
+  volume   =  110,
+  number   =  23,
+  pages    = "3897--3906.e5",
+  month    =  dec,
+  year     =  2022,
+  keywords = "ecological perception; gain modulation; receptive fields; visual
+              cortex; visual physiology;4 behavior;4 mouse;requires
+              action;read;ERC Consolidator 2023",
+  language = "en"
+}
+
 @ARTICLE{Parker2020-jz,
   title    = "{Movement-Related} Signals in Sensory Areas: Roles in Natural
               Behavior",
@@ -1058,6 +1650,116 @@
   journal  = "Trends Neurosci.",
   year     =  2020,
   keywords = "unread;read next;behavior;ERC Consolidator 2023"
+}
+
+@ARTICLE{Zipser1988-nh,
+  title    = "A back-propagation programmed network that simulates response
+              properties of a subset of posterior parietal neurons",
+  author   = "Zipser, David and Andersen, Richard A",
+  abstract = "Neurons in area 7a of the posterior parietal cortex of monkeys
+              respond to both the retinal location of a visual stimulus and the
+              position of the eyes and by combining these signals represent the
+              spatial location of external objects. A neural network model,
+              programmed using back-propagation learning, can decode this
+              spatial information from area 7a neurons and accounts for their
+              observed response properties.",
+  journal  = "Nature",
+  volume   =  331,
+  number   =  6158,
+  pages    = "679--684",
+  year     =  1988,
+  keywords = "system identification;recurrent;system identification;ERC
+              Consolidator 2023"
+}
+
+@ARTICLE{Treue1996-lp,
+  title     = "Attentional modulation of visual motion processing in cortical
+               areas {MT} and {MST}",
+  author    = "Treue, Stefan and Maunsell, John H R",
+  abstract  = "THE visual system is constantly inundated with information
+               received by the eyes, only a fraction of which seems to reach
+               visual awareness. This selection process is one of the functions
+               ascribed to visual attention1--6. Although many studies have
+               investigated the role of attention in shaping neuronal
+               representations in the visual cortex, few have focused on
+               attentional modulation of neuronal signals related to visual
+               motion. Here we report that the responses of direction-selective
+               neurons in monkey visual cortex are greatly influenced by
+               attention, and that this modulation occurs as early in the
+               cortical hierarchy as the level of the middle temporal visual
+               area (MT). Our finding demonstrates a stronger and earlier
+               influence of attention on motion processing along the dorsal
+               visual pathway than previously recognized.",
+  journal   = "Nature",
+  publisher = "Nature Publishing Group",
+  volume    =  382,
+  number    =  6591,
+  pages     = "539--541",
+  month     =  aug,
+  year      =  1996,
+  keywords  = "4 behavior;4 brainstate;read next;unread;ERC Consolidator 2023",
+  language  = "en"
+}
+
+@ARTICLE{Pillow2008-me,
+  title    = "Spatio-temporal correlations and visual signalling in a complete
+              neuronal population",
+  author   = "Pillow, Jonathan W and Shlens, Jonathon and Paninski, Liam and
+              Sher, Alexander and Litke, Alan M and Chichilnisky, E J and
+              Simoncelli, Eero P",
+  abstract = "Correlated activity between sensory neurons governs both the
+              stimulus information conveyed by a neural population and how
+              downstream neurons can extract it. Although previous studies
+              looking at pairs of cells have examined correlations, their
+              functional origin and impact on the neural code are still not
+              understood. Pillow et al. address the question in a complete
+              population of primate retinal ganglion cells. Fitting the
+              physiological data to a model of multi-neuron spike responses,
+              the authors find that a significant fraction of what is usually
+              considered single-cell noise in trial-to-trial response
+              variability can be explained by correlations, and that a
+              significant amount of sensory information can be decoded from the
+              correlation structure. The functional significance of correlated
+              firing in a complete population of macaque parasol retinal
+              ganglion cells using a model of multi-neuron spike responses is
+              analysed. Fitting the physiological data to a model of
+              multi-neuron spike responses, it is found that a significant
+              fraction of what is usually considered single-cell noise in
+              trial-to-trial response variability can be explained by
+              correlations, and that a significant amount of sensory
+              information can be decoded from the correlation structure.
+              Statistical dependencies in the responses of sensory neurons
+              govern both the amount of stimulus information conveyed and the
+              means by which downstream neurons can extract it. Although a
+              variety of measurements indicate the existence of such
+              dependencies1,2,3, their origin and importance for neural coding
+              are poorly understood. Here we analyse the functional
+              significance of correlated firing in a complete population of
+              macaque parasol retinal ganglion cells using a model of
+              multi-neuron spike responses4,5. The model, with parameters fit
+              directly to physiological data, simultaneously captures both the
+              stimulus dependence and detailed spatio-temporal correlations in
+              population responses, and provides two insights into the
+              structure of the neural code. First, neural encoding at the
+              population level is less noisy than one would expect from the
+              variability of individual neurons: spike times are more precise,
+              and can be predicted more accurately when the spiking of
+              neighbouring neurons is taken into account. Second, correlations
+              provide additional sensory information: optimal, model-based
+              decoding that exploits the response correlation structure
+              extracts 20\% more information about the visual scene than
+              decoding under the assumption of independence, and preserves 40\%
+              more visual information than optimal linear decoding6. This
+              model-based approach reveals the role of correlated activity in
+              the retinal coding of visual stimuli, and provides a general
+              framework for understanding the importance of correlated activity
+              in populations of neurons.",
+  journal  = "Nature",
+  volume   =  454,
+  number   =  7207,
+  pages    = "995--999",
+  year     =  2008,
+  keywords = "read;system identification;microns;ERC Consolidator 2023"
 }
 
 @ARTICLE{Kao2015-aa,
@@ -1090,6 +1792,41 @@
   number    = "May",
   year      =  2015,
   keywords  = "unread;brain state;ERC Consolidator 2023"
+}
+
+@ARTICLE{Maimon2010-sa,
+  title     = "Active flight increases the gain of visual motion processing in
+               Drosophila",
+  author    = "Maimon, Gaby and Straw, Andrew D and Dickinson, Michael H",
+  abstract  = "This paper reports the first recording from brain neurons of
+               flying Drosophila. The responses of visual interneurons to
+               moving grate stimuli were substantially modulated by flight, as
+               compared with the resting situation. We developed a technique
+               for performing whole-cell patch-clamp recordings from
+               genetically identified neurons in behaving Drosophila. We
+               focused on the properties of visual interneurons during tethered
+               flight, but this technique generalizes to different cell types
+               and behaviors. We found that the peak-to-peak responses of a
+               class of visual motion--processing interneurons, the
+               vertical-system visual neurons (VS cells), doubled when flies
+               were flying compared with when they were at rest. Thus, the gain
+               of the VS cells is not fixed, but is instead behaviorally
+               flexible and changes with locomotor state. Using voltage clamp,
+               we found that the passive membrane resistance of VS cells was
+               reduced during flight, suggesting that the elevated gain was a
+               result of increased synaptic drive from upstream
+               motion-sensitive inputs. The ability to perform patch-clamp
+               recordings in behaving Drosophila promises to help unify the
+               understanding of behavior at the gene, cell and circuit levels.",
+  journal   = "Nat. Neurosci.",
+  publisher = "Nature Publishing Group",
+  volume    =  13,
+  number    =  3,
+  pages     = "393--399",
+  month     =  feb,
+  year      =  2010,
+  keywords  = "4 behavior;4 brainstate;read next;unread;ERC Consolidator 2023",
+  language  = "en"
 }
 
 @ARTICLE{Saleem2013-fx,
@@ -1181,8 +1918,39 @@
   pages     = "907--915",
   month     =  aug,
   year      =  2004,
-  keywords  = "skimmed;4 behavior;ERC Consolidator 2023",
+  keywords  = "4 behavior;read;ERC Consolidator 2023",
   language  = "en"
+}
+
+@ARTICLE{Todorov2002-xj,
+  title    = "Optimal feedback control as a theory of motor coordination",
+  author   = "Todorov, Emanuel and Jordan, Michael I",
+  abstract = "A central problem in motor control is understanding how the many
+              biomechanical degrees of freedom are coordinated to achieve a
+              common goal. An especially puzzling aspect of coordination is
+              that behavioral goals are achieved reliably and repeatedly with
+              movements rarely reproducible in their detail. Existing
+              theoretical frameworks emphasize either goal achievement or the
+              richness of motor variability, but fail to reconcile the two.
+              Here we propose an alternative theory based on stochastic optimal
+              feedback control. We show that the optimal strategy in the face
+              of uncertainty is to allow variability in redundant
+              (task-irrelevant) dimensions. This strategy does not enforce a
+              desired trajectory, but uses feedback more intelligently,
+              correcting only those deviations that interfere with task goals.
+              From this framework, task-constrained variability, goal-directed
+              corrections, motor synergies, controlled parameters, simplifying
+              rules and discrete coordination modes emerge naturally. We
+              present experimental results from a range of motor tasks to
+              support this theory.",
+  journal  = "Nat. Neurosci.",
+  volume   =  5,
+  number   =  11,
+  pages    = "1226--1235",
+  month    =  nov,
+  year     =  2002,
+  keywords = "4 behavior;read next;unread;ERC Consolidator 2023",
+  language = "en"
 }
 
 @ARTICLE{Franke2022-do,
@@ -1219,7 +1987,7 @@
   pages    = "128--134",
   month    =  oct,
   year     =  2022,
-  keywords = "read;ERC Consolidator 2023",
+  keywords = "read;own;ERC Consolidator 2023",
   language = "en"
 }
 
@@ -1300,7 +2068,7 @@
   pages     = "1677--1686",
   month     =  sep,
   year      =  2019,
-  keywords  = "4 behavior;4 mouse;skimmed;ERC Consolidator 2023",
+  keywords  = "4 behavior;4 mouse;read;ERC Consolidator 2023",
   language  = "en"
 }
 
@@ -1331,8 +2099,8 @@
   journal   = "Nat. Neurosci.",
   publisher = "Springer US",
   year      =  2019,
-  keywords  = "\_imported;CRCNS;2021 Reconstruction;U24;SFB 1456 Mathematic of
-               Experiment;ERC Consolidator 2023"
+  keywords  = "own;\_imported;CRCNS;2021 Reconstruction;U24;SFB 1456 Mathematic
+               of Experiment;ERC Consolidator 2023"
 }
 
 @ARTICLE{Richards2019-lm,
@@ -1371,6 +2139,40 @@
   month    =  nov,
   year     =  2019,
   keywords = "4 mouse;read;ERC Consolidator 2023",
+  language = "en"
+}
+
+@ARTICLE{Wiltschko2020-zd,
+  title    = "Revealing the structure of pharmacobehavioral space through
+              motion sequencing",
+  author   = "Wiltschko, Alexander B and Tsukahara, Tatsuya and Zeine, Ayman
+              and Anyoha, Rockwell and Gillis, Winthrop F and Markowitz,
+              Jeffrey E and Peterson, Ralph E and Katon, Jesse and Johnson,
+              Matthew J and Datta, Sandeep Robert",
+  abstract = "Understanding how genes, drugs and neural circuits influence
+              behavior requires the ability to effectively organize information
+              about similarities and differences within complex behavioral
+              datasets. Motion Sequencing (MoSeq) is an ethologically inspired
+              behavioral analysis method that identifies modular components of
+              three-dimensional mouse body language called 'syllables'. Here,
+              we show that MoSeq effectively parses behavioral differences and
+              captures similarities elicited by a panel of neuroactive and
+              psychoactive drugs administered to a cohort of nearly 700 mice.
+              MoSeq identifies syllables that are characteristic of individual
+              drugs, a finding we leverage to reveal specific on- and
+              off-target effects of both established and candidate therapeutics
+              in a mouse model of autism spectrum disorder. These results
+              demonstrate that MoSeq can meaningfully organize large-scale
+              behavioral data, illustrate the power of a fundamentally modular
+              description of behavior and suggest that behavioral syllables
+              represent a new class of druggable target.",
+  journal  = "Nat. Neurosci.",
+  volume   =  23,
+  number   =  11,
+  pages    = "1433--1443",
+  month    =  nov,
+  year     =  2020,
+  keywords = "4 behavior;not read;ERC Consolidator 2023",
   language = "en"
 }
 
@@ -1447,6 +2249,72 @@
   year      =  2022,
   keywords  = "4 behavior;4 mouse;read next;unread;ERC Consolidator 2023",
   language  = "en"
+}
+
+@ARTICLE{Lau2002-gb,
+  title    = "Computational subunits of visual cortical neurons revealed by
+              artificial neural networks",
+  author   = "Lau, B and Stanley, G B and Dan, Y",
+  abstract = "A crucial step toward understanding visual processing is to
+              obtain a comprehensive description of the relationship between
+              visual stimuli and neuronal responses. Many neurons in the visual
+              cortex exhibit nonlinear responses, making it difficult to
+              characterize their stimulus--response relationships. Here, we
+              recorded the responses of primary visual cortical neurons of the
+              cat to spatiotemporal random-bar stimuli and trained artificial
+              neural networks to predict the response of each neuron. The
+              random initial connections in the networks consistently converged
+              to regular patterns. Analyses of these connection patterns showed
+              that the response of each complex cell to the random-bar stimuli
+              could be well approximated by the sum of a small number of
+              subunits resembling simple cells. The direction selectivity of
+              each complex cell measured with drifting gratings was also well
+              predicted by the combination of these subunits, indicating the
+              generality of the model. These results are consistent with a
+              simple functional model for complex cells and demonstrate the
+              usefulness of the neural network method for revealing the
+              stimulus--response transformations of nonlinear neurons.",
+  journal  = "Proceedings of the National Academy of Sciences",
+  volume   =  99,
+  number   =  13,
+  pages    = "8974--8979",
+  year     =  2002,
+  keywords = "system identification;recurrent;ERC Consolidator 2023"
+}
+
+@ARTICLE{Yamins2014-cg,
+  title    = "Performance-optimized hierarchical models predict neural
+              responses in higher visual cortex",
+  author   = "Yamins, Daniel L K and Hong, Ha and Cadieu, Charles F and
+              Solomon, Ethan A and Seibert, Darren and DiCarlo, James J",
+  abstract = "The ventral visual stream underlies key human visual object
+              recognition abilities. However, neural encoding in the higher
+              areas of the ventral stream remains poorly understood. Here, we
+              describe a modeling approach that yields a quantitatively
+              accurate model of inferior temporal (IT) cortex, the highest
+              ventral cortical area. Using high-throughput computational
+              techniques, we discovered that, within a class of biologically
+              plausible hierarchical neural network models, there is a strong
+              correlation between a model's categorization performance and its
+              ability to predict individual IT neural unit response data. To
+              pursue this idea, we then identified a high-performing neural
+              network that matches human performance on a range of recognition
+              tasks. Critically, even though we did not constrain this model to
+              match neural data, its top output layer turns out to be highly
+              predictive of IT spiking responses to complex naturalistic images
+              at both the single site and population levels. Moreover, the
+              model's intermediate layers are highly predictive of neural
+              responses in the V4 cortex, a midlevel visual area that provides
+              the dominant cortical input to IT. These results show that
+              performance optimization---applied in a biologically appropriate
+              model class---can be used to build quantitative predictive models
+              of neural processing.",
+  journal  = "Proceedings of the National Academy of Sciences",
+  volume   =  111,
+  number   =  23,
+  pages    = "8619--8624",
+  year     =  2014,
+  keywords = "\_imported;ERC Consolidator 2023"
 }
 
 @ARTICLE{Tang2018-gn,
@@ -1547,7 +2415,7 @@
   pages     = "337--342",
   month     =  feb,
   year      =  1971,
-  keywords  = "4 behavior;read next;unread;ERC Consolidator 2023"
+  keywords  = "4 behavior;read;ERC Consolidator 2023"
 }
 
 @ARTICLE{Conant1970-td,
@@ -1573,6 +2441,18 @@
   month     =  oct,
   year      =  1970,
   keywords  = "unread;ERC Consolidator 2023"
+}
+
+@ARTICLE{Paninski2004-ax,
+  title    = "Maximum likelihood estimation of cascade point-process neural
+              encoding models",
+  author   = "Paninski, Liam",
+  journal  = "Network: Computation in Neural Systems",
+  volume   =  15,
+  number   =  4,
+  pages    = "243--262",
+  year     =  2004,
+  keywords = "\_imported;ERC Consolidator 2023"
 }
 
 % The entry below contains non-ASCII chars that could not be converted
@@ -1615,6 +2495,43 @@
   keywords = "human vision‌; locomotion; mouse vision; optic flow;
               psychophysics;4 behavior;read;ERC Consolidator 2023",
   language = "en"
+}
+
+@ARTICLE{Cadena2017-rb,
+  title    = "Deep convolutional models improve predictions of macaque {V1}
+              responses to natural images",
+  author   = "Cadena, S A and Denfield, G H and Walker, E Y and Gatys, L A and
+              Tolias, A S and Bethge, M and Ecker, A S",
+  abstract = "Despite great efforts over several decades, our best models of
+              primary visual cortex (V1) still predict neural responses quite
+              poorly when probed with natural stimuli, highlighting our limited
+              understanding of the nonlinear computations in V1. At the same
+              time, recent advances in machine learning have shown that deep
+              neural networks can learn highly nonlinear functions for visual
+              information processing. Two approaches based on deep learning
+              have recently been successfully applied to neural data: transfer
+              learning for predicting neural activity in higher areas of the
+              primate ventral stream and data-driven models to predict retina
+              and V1 neural activity of mice. However, so far there exists no
+              comparison between the two approaches and neither of them has
+              been used to model the early primate visual system. Here, we test
+              the ability of both approaches to predict neural responses to
+              natural images in V1 of awake monkeys. We found that both deep
+              learning approaches outperformed classical linear- nonlinear and
+              wavelet-based feature representations building on existing V1
+              encoding theories. On our dataset, transfer learning and
+              data-driven models performed similarly, while the data-driven
+              model employed a much simpler architecture. Thus, multi-layer
+              CNNs set the new state of the art for predicting neural responses
+              to natural images in primate V1. Having such good predictive
+              in-silico models opens the door for quantitative studies of yet
+              unknown nonlinear computations in V1 without being limited by the
+              available experimental time.",
+  journal  = "PLoS Comput. Biol.",
+  pages    = "201764",
+  year     =  2017,
+  keywords = "read;system identification;\_imported;2021 Reconstruction;2022
+              Lurz, Bashiri;ERC Consolidator 2023"
 }
 
 @ARTICLE{Froudarakis2020-xh,
@@ -1836,6 +2753,40 @@
   language = "en"
 }
 
+@UNPUBLISHED{De_Gee2022-ir,
+  title    = "Mice regulate their attentional intensity and arousal to exploit
+              increases in task utility",
+  author   = "de Gee, J W and Mridha, Z and Hudson, M and Shi, Y and Ramsaywak,
+              H and Smith, S and Karediya, N and Thompson, M and Jaspe, K and
+              Zhang, W and McGinley, M J",
+  abstract = "To meet their survival needs, organisms must continuously select
+              which sensory stimuli to attend to and decide how much attention
+              to pay. Attention's selective aspect has been a cornerstone of
+              behavioral and physiological study, whereas attentional intensity
+              is poorly understood. Autonomic arousal is thought to strongly
+              influence attentional intensity, but evidence is lacking,
+              including regarding if and how organisms self-regulate their
+              arousal to match attentional intensity to its utility. Here, we
+              developed an auditory attentional intensity task for head-fixed
+              mice and vary task utility by changing reward size. We record
+              pupil size and walking speed as proxies of arousal and
+              exploration, respectively. Using simple performance metrics and
+              sequential sampling modeling, we find that mice increase their
+              attentional intensity during periods of high task utility. The
+              utility-related attentional boost is partially mediated by
+              stabilization of pupil-linked arousal around an optimal mid-sized
+              level, and an associated reduction in exploratory behavior. In
+              sum, self-regulation of arousal partially implements strategic
+              attentional intensity allocation. \#\#\# Competing Interest
+              Statement The authors have declared no competing interest.",
+  journal  = "bioRxiv",
+  pages    = "2022.03.04.482962",
+  month    =  mar,
+  year     =  2022,
+  keywords = "4 behavior;4 brainstate;read next;unread;ERC Consolidator 2023",
+  language = "en"
+}
+
 @UNPUBLISHED{Cadena2022-im,
   title    = "Diverse task-driven modeling of macaque {V4} reveals functional
               specialization towards semantic tasks",
@@ -1868,7 +2819,7 @@
   pages    = "2022.05.18.492503",
   month    =  may,
   year     =  2022,
-  keywords = "read;ERC Consolidator 2023",
+  keywords = "read;own;ERC Consolidator 2023",
   language = "en"
 }
 
@@ -1902,6 +2853,51 @@
   month    =  may,
   year     =  2022,
   keywords = "4 mouse;read next;unread;ERC Consolidator 2023",
+  language = "en"
+}
+
+@UNPUBLISHED{Hofling2022-wr,
+  title    = "A chromatic feature detector in the retina signals visual context
+              changes",
+  author   = "H{\"o}fling, Larissa and Szatko, Klaudia P and Behrens, Christian
+              and Qiu, Yongrong and Klindt, David A and Jessen, Zachary and
+              Schwartz, Gregory W and Bethge, Matthias and Berens, Philipp and
+              Franke, Katrin and Ecker, Alexander S and Euler, Thomas",
+  abstract = "The retina transforms patterns of light into visual feature
+              representations supporting behaviour. These representations are
+              distributed across various types of retinal ganglion cells
+              (RGCs), whose spatial and temporal tuning properties have been
+              extensively studied in many model organisms, including the mouse.
+              However, it has been difficult to link the potentially nonlinear
+              retinal transformations of natural visual inputs to specific
+              ethological purposes. Here, we discover a novel selectivity to
+              chromatic contrast in an RGC type that allows the detection of
+              transitions of the horizon across a retinal region. We trained a
+              convolutional neural network (CNN) model on large-scale
+              functional recordings of RGC responses to natural mouse movies,
+              and then used this model to search in silico for stimuli that
+              maximally excite distinct types of RGCs. This procedure predicted
+              centre colour-opponency in transient Suppressed-by-Contrast RGCs
+              (tSbC), a cell type whose function is being debated. We confirmed
+              experimentally that these cells indeed responded very selectively
+              to Green-OFF, UV-ON contrasts, which we found to be
+              characteristic of transitions from ground to sky in the visual
+              scene, as might be elicited by head-or eye-movements across the
+              horizon. Because tSbCs reliably detected these transitions, we
+              suggest a role for this RGC type in providing contextual
+              information (i.e. sky or ground) necessary for the selection of
+              appropriate behavioural responses to other stimuli, such as
+              looming objects. Our work showcases how a combination of
+              experiments with natural stimuli and computational modelling
+              allows discovering novel types of stimulus selectivity and
+              identifying their potential ethological relevance. \#\#\#
+              Competing Interest Statement The authors have declared no
+              competing interest.",
+  journal  = "bioRxiv",
+  pages    = "2022.11.30.518492",
+  month    =  dec,
+  year     =  2022,
+  keywords = "ERC Consolidator 2023",
   language = "en"
 }
 
@@ -1991,7 +2987,7 @@
                only the final layer's weights on a network otherwise trained on
                natural movies. The converse, however, is not true.",
   year      =  2018,
-  keywords  = "read;\_imported;2021 Reconstruction;SFB 1456 Mathematic of
+  keywords  = "read;own;\_imported;2021 Reconstruction;SFB 1456 Mathematic of
                Experiment;ERC Consolidator 2023"
 }
 
@@ -2151,6 +3147,53 @@
   keywords = "unread;man, brains and machines;ERC Consolidator 2023"
 }
 
+@ARTICLE{Schultz1997-xu,
+  title    = "A neural substrate of prediction and reward",
+  author   = "Schultz, W and Dayan, P and Montague, P R",
+  abstract = "The capacity to predict future events permits a creature to
+              detect, model, and manipulate the causal structure of its
+              interactions with its environment. Behavioral experiments suggest
+              that learning is driven by changes in the expectations about
+              future salient events such as rewards and punishments.
+              Physiological work has recently complemented these studies by
+              identifying dopaminergic neurons in the primate whose fluctuating
+              output apparently signals changes or errors in the predictions of
+              future salient and rewarding events. Taken together, these
+              findings can be understood through quantitative theories of
+              adaptive optimizing control.",
+  journal  = "Science",
+  volume   =  275,
+  number   =  5306,
+  pages    = "1593--1599",
+  month    =  mar,
+  year     =  1997,
+  keywords = "4 behavior;read next;unread;ERC Consolidator 2023",
+  language = "en"
+}
+
+@ARTICLE{Spitzer1988-kq,
+  title    = "Increased Attention Enhances Both Behavioral and Neuronal
+              Performance",
+  author   = "Spitzer, Hedva and Desimone, Robert and Moran, Jeffrey",
+  abstract = "Single cells were recorded from cortical area V4 of two rhesus
+              monkeys (Macaca mulatta) trained on a visual discrimination task
+              with two levels of difficulty. Behavioral evidence indicated that
+              the monkeys' discriminative abilities improved when the task was
+              made more difficult. Correspondingly, neuronal responses to
+              stimuli became larger and more selective in the difficult task. A
+              control experiment demonstrated that changes in general arousal
+              could not account for the effects of task difficulty on neuronal
+              responses. It is concluded that increasing the amount of
+              attention directed toward a stimulus can enhance the
+              responsiveness and selectivity of the neurons that process it.",
+  journal  = "Science",
+  volume   =  240,
+  number   =  4850,
+  pages    = "338--340",
+  year     =  1988,
+  keywords = "4 behavior;4 brainstate;read next;unread;ERC Consolidator 2023"
+}
+
 @ARTICLE{Stringer2019-lt,
   title    = "Spontaneous behaviors drive multidimensional, brainwide activity",
   author   = "Stringer, Carsen and Pachitariu, Marius and Steinmetz, Nicholas
@@ -2177,6 +3220,30 @@
   year     =  2019,
   keywords = "4 behavior;4 mouse;read next;unread;brain state;SFB 1456
               Mathematic of Experiment;ERC Consolidator 2023"
+}
+
+@ARTICLE{Bashivan2019-ry,
+  title    = "Neural population control via deep image synthesis",
+  author   = "Bashivan, Pouya and Kar, Kohitij and DiCarlo, James J",
+  abstract = "Particular deep artificial neural networks (ANNs) are today's
+              most accurate models of the primate brain's ventral visual
+              stream. Using an ANN-driven image synthesis method, we found that
+              luminous power patterns (i.e., images) can be applied to primate
+              retinae to predictably push the spiking activity of targeted V4
+              neural sites beyond naturally occurring levels. This method,
+              although not yet perfect, achieves unprecedented independent
+              control of the activity state of entire populations of V4 neural
+              sites, even those with overlapping receptive fields. These
+              results show how the knowledge embedded in today's ANN models
+              might be used to noninvasively set desired internal brain states
+              at neuron-level resolution, and suggest that more accurate ANN
+              models would produce even more accurate control.",
+  journal  = "Science",
+  volume   =  364,
+  number   =  6439,
+  year     =  2019,
+  keywords = "read;MEI \& reconstruction;CRCNS;2021 Reconstruction;ERC
+              Consolidator 2023"
 }
 
 @ARTICLE{Marshel2019-ph,
@@ -2323,6 +3390,278 @@
   language = "en"
 }
 
+@ARTICLE{Mikulasch2022-mc,
+  title    = "Visuomotor Mismatch Responses as a Hallmark of Explaining Away in
+              Causal Inference",
+  author   = "Mikulasch, Fabian A and Rudelt, Lucas and Priesemann, Viola",
+  abstract = "How are visuomotor mismatch responses in primary visual cortex
+              embedded into cortical processing? We here show that mismatch
+              responses can be understood as the result of a cooperation of
+              motor and visual areas to jointly explain optic flow. This
+              cooperation requires that optic flow is not explained redundantly
+              by both areas, meaning that optic flow inputs to V1 that are
+              predictable from motor neurons should be canceled (i.e.,
+              explained away). As a result, neurons in V1 represent only
+              external causes of optic flow, which could allow the animal to
+              easily detect movements that are independent of its own
+              locomotion. We implement the proposed model in a spiking neural
+              network, where coding errors are computed in dendrites and
+              synaptic weights are learned with voltage-dependent plasticity
+              rules. We find that both positive and negative mismatch responses
+              arise, providing an alternative to the prevailing idea that
+              visuomotor mismatch responses are linked to dedicated neurons for
+              error computation. These results also provide a new perspective
+              on several other recent observations of cross-modal neural
+              interactions in cortex.",
+  journal  = "Neural Comput.",
+  volume   =  35,
+  number   =  1,
+  pages    = "27--37",
+  month    =  dec,
+  year     =  2022,
+  keywords = "read next;unread;ERC Consolidator 2023",
+  language = "en"
+}
+
+@ARTICLE{Prins2012-gn,
+  title    = "The psychometric function: the lapse rate revisited",
+  author   = "Prins, Nicolaas",
+  abstract = "In their influential paper, Wichmann and Hill (2001) have shown
+              that the threshold and slope estimates of a psychometric function
+              may be severely biased when it is assumed that the lapse rate
+              equals zero but lapses do, in fact, occur. Based on a large
+              number of simulated experiments, Wichmann and Hill claim that
+              threshold and slope estimates are essentially unbiased when one
+              allows the lapse rate to vary within a rectangular prior during
+              the fitting procedure. Here, I replicate Wichmann and Hill's
+              finding that significant bias in parameter estimates results when
+              one assumes that the lapse rate equals zero but lapses do occur,
+              but fail to replicate their finding that freeing the lapse rate
+              eliminates this bias. Instead, I show that significant and
+              systematic bias remains in both threshold and slope estimates
+              even when one frees the lapse rate according to Wichmann and
+              Hill's suggestion. I explain the mechanisms behind the bias and
+              propose an alternative strategy to incorporate the lapse rate
+              into psychometric function models, which does result in
+              essentially unbiased parameter estimates.",
+  journal  = "J. Vis.",
+  volume   =  12,
+  number   =  6,
+  month    =  jun,
+  year     =  2012,
+  keywords = "4 behavior;read next;unread;ERC Consolidator 2023",
+  language = "en"
+}
+
+@ARTICLE{Datta2019-vq,
+  title    = "{Q\&A}: Understanding the composition of behavior",
+  author   = "Datta, Sandeep Robert",
+  abstract = "Understanding the brain requires understanding behavior. New
+              machine vision and learning techniques are poised to
+              revolutionize our ability to analyze behaviors exhibited by
+              animals in the laboratory. Here we describe one such method,
+              Motion Sequencing (MoSeq), which combines three-dimensional (3D)
+              imaging with unsupervised machine learning techniques to identify
+              the syllables and grammar that comprise mouse body language. This
+              Q\&A situates MoSeq within the array of novel methods currently
+              being developed for behavioral analysis, enumerates its relative
+              strengths and weaknesses, and describes its future trajectory.",
+  journal  = "BMC Biol.",
+  volume   =  17,
+  number   =  1,
+  pages    = "44",
+  month    =  may,
+  year     =  2019,
+  keywords = "4 behavior;read;ERC Consolidator 2023",
+  language = "en"
+}
+
+@INPROCEEDINGS{Klindt2017-sb,
+  title     = "Neural system identification for large populations separating
+               ``what'' and ``where''",
+  booktitle = "Advances in Neural Information Processing Systems",
+  author    = "Klindt, D A and Ecker, A S and Euler, T and Bethge, M",
+  abstract  = "Neuroscientists classify neurons into different types that
+               perform similar computations at different locations in the
+               visual field. Traditional methods for neural system
+               identification do not capitalize on this separation of 'what'
+               and 'where'. Learning deep convolutional feature spaces that are
+               shared among many neurons provides an exciting path forward, but
+               the architectural design needs to account for data limitations:
+               While new experimental techniques enable recordings from
+               thousands of neurons, experimental time is limited so that one
+               can sample only a small fraction of each neuron's response
+               space. Here, we show that a major bottleneck for fitting
+               convolutional neural networks (CNNs) to neural data is the
+               estimation of the individual receptive field locations, a
+               problem that has been scratched only at the surface thus far. We
+               propose a CNN architecture with a sparse readout layer
+               factorizing the spatial (where) and feature (what) dimensions.
+               Our network scales well to thousands of neurons and short
+               recordings and can be trained end-to-end. We evaluate this
+               architecture on ground-truth data to explore the challenges and
+               limitations of CNN-based system identification. Moreover, we
+               show that our network model outperforms current state-of-the art
+               system identification models of mouse primary visual cortex.",
+  pages     = "4--6",
+  year      =  2017,
+  keywords  = "system identification;ERC Consolidator 2023"
+}
+
+@ARTICLE{Adelson1985-re,
+  title    = "Spatiotemporal energy models for the perception of motion",
+  author   = "Adelson, E H and Bergen, J R",
+  abstract = "A motion sequence may be represented as a single pattern in x-y-t
+              space; a velocity of motion corresponds to a three-dimensional
+              orientation in this space. Motion sinformation can be extracted
+              by a system that responds to the oriented spatiotemporal energy.
+              We discuss a class of models for human motion mechanisms in which
+              the first stage consists of linear filters that are oriented in
+              space-time and tuned in spatial frequency. The outputs of
+              quadrature pairs of such filters are squared and summed to give a
+              measure of motion energy. These responses are then fed into an
+              opponent stage. Energy models can be built from elements that are
+              consistent with known physiology and psychophysics, and they
+              permit a qualitative understanding of a variety of motion
+              phenomena.",
+  journal  = "J. Opt. Soc. Am.",
+  volume   =  2,
+  number   =  2,
+  pages    = "284--299",
+  month    =  feb,
+  year     =  1985,
+  keywords = "\_imported;ERC Consolidator 2023"
+}
+
+@ARTICLE{Cadieu2014-gc,
+  title    = "Deep neural networks rival the representation of primate {IT}
+              cortex for core visual object recognition",
+  author   = "Cadieu, Charles F and Hong, Ha and Yamins, Daniel L K and Pinto,
+              Nicolas and Ardila, Diego and Solomon, Ethan A and Majaj, Najib J
+              and DiCarlo, James J",
+  abstract = "The primate visual system achieves remarkable visual object
+              recognition performance even in brief presentations, and under
+              changes to object exemplar, geometric transformations, and
+              background variation (a.k.a. core visual object recognition).
+              This remarkable performance is mediated by the representation
+              formed in inferior temporal (IT) cortex. In parallel, recent
+              advances in machine learning have led to ever higher performing
+              models of object recognition using artificial deep neural
+              networks (DNNs). It remains unclear, however, whether the
+              representational performance of DNNs rivals that of the brain. To
+              accurately produce such a comparison, a major difficulty has been
+              a unifying metric that accounts for experimental limitations,
+              such as the amount of noise, the number of neural recording
+              sites, and the number of trials, and computational limitations,
+              such as the complexity of the decoding classifier and the number
+              of classifier training examples. In this work, we perform a
+              direct comparison that corrects for these experimental
+              limitations and computational considerations. As part of our
+              methodology, we propose an extension of ``kernel analysis'' that
+              measures the generalization accuracy as a function of
+              representational complexity. Our evaluations show that, unlike
+              previous bio-inspired models, the latest DNNs rival the
+              representational performance of IT cortex on this visual object
+              recognition task. Furthermore, we show that models that perform
+              well on measures of representational performance also perform
+              well on measures of representational similarity to IT, and on
+              measures of predicting individual IT multi-unit responses.
+              Whether these DNNs rely on computational mechanisms similar to
+              the primate visual system is yet to be determined, but, unlike
+              all previous bio-inspired models, that possibility cannot be
+              ruled out merely on representational performance grounds.",
+  journal  = "PLoS Comput. Biol.",
+  volume   =  10,
+  number   =  12,
+  pages    = "e1003963",
+  year     =  2014,
+  keywords = "\_imported;ERC Consolidator 2023"
+}
+
+@ARTICLE{Antolik2016-va,
+  title    = "Model Constrained by Visual Hierarchy Improves Prediction of
+              Neural Responses to Natural Scenes",
+  author   = "Antol{\'\i}k, J and Hofer, S B and Bednar, J A and Mrsic-flogel,
+              T D",
+  journal  = "PLoS Comput. Biol.",
+  pages    = "1--22",
+  year     =  2016,
+  keywords = "microns;ERC Consolidator 2023"
+}
+
+@ARTICLE{Burg2021-yg,
+  title    = "Learning divisive normalization in primary visual cortex",
+  author   = "Burg, Max F and Cadena, Santiago A and Denfield, George H and
+              Walker, Edgar Y and Tolias, Andreas S and Bethge, Matthias and
+              Ecker, Alexander S",
+  abstract = "Divisive normalization (DN) is a prominent computational building
+              block in the brain that has been proposed as a canonical cortical
+              operation. Numerous experimental studies have verified its
+              importance for capturing nonlinear neural response properties to
+              simple, artificial stimuli, and computational studies suggest
+              that DN is also an important component for processing natural
+              stimuli. However, we lack quantitative models of DN that are
+              directly informed by measurements of spiking responses in the
+              brain and applicable to arbitrary stimuli. Here, we propose a DN
+              model that is applicable to arbitrary input images. We test its
+              ability to predict how neurons in macaque primary visual cortex
+              (V1) respond to natural images, with a focus on nonlinear
+              response properties within the classical receptive field. Our
+              model consists of one layer of subunits followed by learned
+              orientation-specific DN. It outperforms linear-nonlinear and
+              wavelet-based feature representations and makes a significant
+              step towards the performance of state-of-the-art convolutional
+              neural network (CNN) models. Unlike deep CNNs, our compact DN
+              model offers a direct interpretation of the nature of
+              normalization. By inspecting the learned normalization pool of
+              our model, we gained insights into a long-standing question about
+              the tuning properties of DN that update the current textbook
+              description: we found that within the receptive field oriented
+              features were normalized preferentially by features with similar
+              orientation rather than non-specifically as currently assumed.",
+  journal  = "PLoS Comput. Biol.",
+  volume   =  17,
+  number   =  6,
+  pages    = "e1009028",
+  month    =  jun,
+  year     =  2021,
+  keywords = "read;ERC Consolidator 2023",
+  language = "en"
+}
+
+@ARTICLE{Chebolu2022-tb,
+  title    = "Vigilance, arousal, and acetylcholine: Optimal control of
+              attention in a simple detection task",
+  author   = "Chebolu, Sahiti and Dayan, Peter and Lloyd, Kevin",
+  abstract = "Paying attention to particular aspects of the world or being more
+              vigilant in general can be interpreted as forms of 'internal'
+              action. Such arousal-related choices come with the benefit of
+              increasing the quality and situational appropriateness of
+              information acquisition and processing, but incur potentially
+              expensive energetic and opportunity costs. One implementational
+              route for these choices is widespread ascending neuromodulation,
+              including by acetylcholine (ACh). The key computational question
+              that elective attention poses for sensory processing is when it
+              is worthwhile paying these costs, and this includes consideration
+              of whether sufficient information has yet been collected to
+              justify the higher signal-to-noise ratio afforded by greater
+              attention and, particularly if a change in attentional state is
+              more expensive than its maintenance, when states of heightened
+              attention ought to persist. We offer a partially observable
+              Markov decision-process treatment of optional attention in a
+              detection task, and use it to provide a qualitative model of the
+              results of studies using modern techniques to measure and
+              manipulate ACh in rodents performing a similar task.",
+  journal  = "PLoS Comput. Biol.",
+  volume   =  18,
+  number   =  10,
+  pages    = "e1010642",
+  month    =  oct,
+  year     =  2022,
+  keywords = "4 behavior;read;ERC Consolidator 2023",
+  language = "en"
+}
+
 @ARTICLE{Glaser2020-ax,
   title    = "Machine Learning for Neural Decoding",
   author   = "Glaser, Joshua I and Benjamin, Ari S and Chowdhury, Raeed H and
@@ -2429,6 +3768,42 @@
   keywords = "artificial neural networks; behavior; cognition; neuromodulators;
               plasticity; vision;4 mouse;read next;unread;ERC Consolidator 2023",
   language = "en"
+}
+
+@ARTICLE{McAdams1999-cs,
+  title     = "Effects of Attention on {Orientation-Tuning} Functions of Single
+               Neurons in Macaque Cortical Area {V4}",
+  author    = "McAdams, Carrie J and Maunsell, John H R",
+  abstract  = "We examined how attention affected the orientation tuning of 262
+               isolated neurons in extrastriate area V4 and 135 neurons in area
+               V1 of two rhesus monkeys. The animals were trained to perform a
+               delayed match-to-sample task in which oriented stimuli were
+               presented in the receptive field of the neuron being recorded.
+               On some trials the animals were instructed to pay attention to
+               those stimuli, and on other trials they were instructed to pay
+               attention to other stimuli outside the receptive field. In this
+               way, orientation-tuning curves could be constructed from
+               neuronal responses collected in two behavioral states: one in
+               which those stimuli were attended by the animal and one in which
+               those stimuli were ignored by the animal. We fit Gaussians to
+               the neuronal responses to twelve different orientations for each
+               behavioral state. Although attention enhanced the responses of
+               V4 neurons (median 26\% increase) and V1 neurons (median 8\%
+               increase), selectivity, as measured by the width of its
+               orientation-tuning curve, was not systematically altered by
+               attention. The effects of attention were consistent with a
+               multiplicative scaling of the driven response to all
+               orientations. We also found that attention did not cause
+               systematic changes in the undriven activity of the neurons.",
+  journal   = "J. Neurosci.",
+  publisher = "Society for Neuroscience",
+  volume    =  19,
+  number    =  1,
+  pages     = "431--441",
+  month     =  jan,
+  year      =  1999,
+  keywords  = "4 behavior;4 brainstate;read next;unread;ERC Consolidator 2023",
+  language  = "en"
 }
 
 @ARTICLE{Zagha2022-fc,
@@ -2603,6 +3978,50 @@
   keywords = "read;behavior;brain state;color MEI;ERC Consolidator 2023"
 }
 
+@ARTICLE{Vintch2015-gc,
+  title    = "A Convolutional Subunit Model for Neuronal Responses in Macaque
+              {V1}",
+  author   = "Vintch, B and Movshon, J A and Simoncelli, E P",
+  abstract = "The response properties of neurons in the early stages of the
+              visual system can be described using the rectified responses of a
+              set of self-similar, spatially shifted linear filters. In macaque
+              primary visual cortex (V1), simple cell responses can be captured
+              with a single filter, whereas complex cells combine a set of
+              filters, creating position invariance. These filters cannot be
+              estimated using standard methods, such as spike-triggered
+              averaging. Subspace methods like spike-triggered covariance can
+              recover multiple filters but require substantial amounts of data,
+              and recover an orthogonal basis for the subspace in which the
+              filters reside, rather than the filters themselves. Here, we
+              assume a linear-nonlinear-linear-nonlinear (LN-LN) cascade model
+              in which the first LN stage consists of shifted
+              (``convolutional'') copies of a single filter, followed by a
+              common instantaneous nonlinearity. We refer to these initial LN
+              elements as the ``subunits'' of the receptive field, and we allow
+              two independent sets of subunits, each with its own filter and
+              nonlinearity. The second linear stage computes a weighted sum of
+              the subunit responses and passes the result through a final
+              instantaneous nonlinearity. We develop a procedure to directly
+              fit this model to electrophysiological data. When fit to data
+              from macaque V1, the subunit model significantly outperforms
+              three alternatives in terms of cross-validated accuracy and
+              efficiency, and provides a robust, biologically plausible account
+              of receptive field structure for all cell types encountered in
+              V1. SIGNIFICANCE STATEMENT We present a new subunit model for
+              neurons in primary visual cortex that significantly outperforms
+              three alternative models in terms of cross-validated accuracy and
+              efficiency, and provides a robust and biologically plausible
+              account of the receptive field structure in these neurons across
+              the full spectrum of response properties.",
+  journal  = "J. Neurosci.",
+  volume   =  35,
+  number   =  44,
+  pages    = "14829--14841",
+  year     =  2015,
+  keywords = "V1; model; receptive field;
+              subunits;netgard;microns;recurrent;ERC Consolidator 2023"
+}
+
 @ARTICLE{Mineault2016-fk,
   title    = "Enhanced Spatial Resolution During Locomotion and Heightened
               Attention in Mouse Primary Visual Cortex",
@@ -2683,6 +4102,19 @@
   keywords = "ERC Consolidator 2023"
 }
 
+@ARTICLE{Hilton2020-jz,
+  title     = "Understanding {RL} vision",
+  author    = "Hilton, Jacob and Cammarata, Nick and Carter, Shan and Goh,
+               Gabriel and Olah, Chris",
+  journal   = "Distill",
+  publisher = "Distill Working Group",
+  volume    =  5,
+  number    =  11,
+  month     =  nov,
+  year      =  2020,
+  keywords  = "4 behavior;read next;unread;ERC Consolidator 2023"
+}
+
 @UNPUBLISHED{Bowers2022-oq,
   title    = "Deep Problems with Neural Network Models of Human Vision",
   author   = "Bowers, Jeffrey S and Malhotra, Gaurav and Dujmovi{\'c}, Marin
@@ -2721,6 +4153,51 @@
               Network; Deep Neural Networks; Human Vision; Object
               Identification; Object Recognition; Representational Similarity
               Analysis;unread;complexity;complexity;ERC Consolidator 2023"
+}
+
+@ARTICLE{Benyamini2015-sr,
+  title    = "Optimal feedback control successfully explains changes in neural
+              modulations during experiments with brain-machine interfaces",
+  author   = "Benyamini, Miri and Zacksenhouse, Miriam",
+  abstract = "Recent experiments with brain-machine-interfaces (BMIs) indicate
+              that the extent of neural modulations increased abruptly upon
+              starting to operate the interface, and especially after the
+              monkey stopped moving its hand. In contrast, neural modulations
+              that are correlated with the kinematics of the movement remained
+              relatively unchanged. Here we demonstrate that similar changes
+              are produced by simulated neurons that encode the relevant
+              signals generated by an optimal feedback controller during
+              simulated BMI experiments. The optimal feedback controller relies
+              on state estimation that integrates both visual and
+              proprioceptive feedback with prior estimations from an internal
+              model. The processing required for optimal state estimation and
+              control were conducted in the state-space, and neural recording
+              was simulated by modeling two populations of neurons that encode
+              either only the estimated state or also the control signal. Spike
+              counts were generated as realizations of doubly stochastic
+              Poisson processes with linear tuning curves. The model
+              successfully reconstructs the main features of the kinematics and
+              neural activity during regular reaching movements. Most
+              importantly, the activity of the simulated neurons successfully
+              reproduces the observed changes in neural modulations upon
+              switching to brain control. Further theoretical analysis and
+              simulations indicate that increasing the process noise during
+              normal reaching movement results in similar changes in neural
+              modulations. Thus, we conclude that the observed changes in
+              neural modulations during BMI experiments can be attributed to
+              increasing process noise associated with the imperfect BMI
+              filter, and, more directly, to the resulting increase in the
+              variance of the encoded signals associated with state estimation
+              and the required control signal.",
+  journal  = "Front. Syst. Neurosci.",
+  volume   =  9,
+  pages    = "71",
+  month    =  may,
+  year     =  2015,
+  keywords = "brain-machine interfaces; computational motor control; neural
+              modulations; optimal feedback control; process noise;4
+              behavior;read next;unread;ERC Consolidator 2023",
+  language = "en"
 }
 
 @ARTICLE{Bohnslav2021-gz,
@@ -2795,7 +4272,7 @@
   year     =  2021,
   keywords = "eye movements; freely moving behavior; methods development;
               mouse; neuroscience; optic flow; prey capture; vision;4
-              behavior;4 mouse;skimmed;ERC Consolidator 2023",
+              behavior;4 mouse;read;ERC Consolidator 2023",
   language = "en"
 }
 
@@ -2866,6 +4343,41 @@
   keywords = "unread;normative theories;ERC Consolidator 2023"
 }
 
+@UNPUBLISHED{Cadena2019-jw,
+  title    = "How well do deep neural networks trained on object recognition
+              characterize the mouse visual system?",
+  author   = "Cadena, Santiago A and Sinz, Fabian H and Muhammad, Taliah and
+              Froudarakis, Emmanouil and Cobos, Erick and Walker, Edgar Y and
+              Reimer, Jake and Bethge, Matthias and Tolias, Andreas and Ecker,
+              Alexander S",
+  abstract = "Recent work on modeling neural responses in the primate visual
+              system has benefited from deep neural networks trained on
+              large-scale object recognition, and found a hierarchical
+              correspondence between layers of the artificial neural network
+              and brain areas along the ventral visual stream. However, we
+              neither know whether such task-optimized networks enable equally
+              good models of the rodent visual system, nor if a similar
+              hierarchical correspondence exists. Here, we address these
+              questions in the mouse visual system by extracting features at
+              several layers of a convolutional neural network (CNN) trained on
+              ImageNet to predict the responses of thousands of neurons in four
+              visual areas (V1, LM, AL, RL) to natural images. We found that
+              the CNN features outperform classical subunit energy models, but
+              found no evidence for an order of the areas we recorded via a
+              correspondence to the hierarchy of CNN layers. Moreover, the same
+              CNN but with random weights provided an equivalently useful
+              feature space for predicting neural responses. Our results
+              suggest that object recognition as a high-level task does not
+              provide more discriminative features to characterize the mouse
+              visual system than a random network. Unlike in the primate,
+              training on ethologically relevant visually guided behaviors --
+              beyond static object recognition -- may be needed to unveil the
+              functional organization of the mouse visual cortex.",
+  month    =  sep,
+  year     =  2019,
+  keywords = "own;SFB 1456 Mathematic of Experiment;ERC Consolidator 2023"
+}
+
 @ARTICLE{Schultheis2021-pu,
   title    = "Inverse optimal control adapted to the noise characteristics of
               the human sensorimotor system",
@@ -2875,35 +4387,37 @@
   volume   =  34,
   pages    = "9429--9442",
   year     =  2021,
-  keywords = "skimmed;ERC Consolidator 2023"
+  keywords = "read;ERC Consolidator 2023"
 }
 
-@UNPUBLISHED{Merel2022-hf,
-  title    = "Deep neuroethology of a virtual rodent",
-  author   = "Merel, Josh and Aldarondo, Diego and Marshall, Jesse and Tassa,
-              Yuval and Wayne, Greg and Olveczky, Bence",
-  abstract = "Parallel developments in neuroscience and deep learning have led
-              to mutually productive exchanges, pushing our understanding of
-              real and artificial neural networks in sensory and cognitive
-              systems. However, this interaction between fields is less
-              developed in the study of motor control. In this work, we develop
-              a virtual rodent as a platform for the grounded study of motor
-              activity in artificial models of embodied control. We then use
-              this platform to study motor activity across contexts by training
-              a model to solve four complex tasks. Using methods familiar to
-              neuroscientists, we describe the behavioral representations and
-              algorithms employed by different layers of the network using a
-              neuroethological approach to characterize motor activity relative
-              to the rodent's behavior and goals. We find that the model uses
-              two classes of representations which respectively encode the
-              task-specific behavioral strategies and task-invariant behavioral
-              kinematics. These representations are reflected in the sequential
-              activity and population dynamics of neural subpopulations.
-              Overall, the virtual rodent facilitates grounded collaborations
-              between deep reinforcement learning and motor neuroscience.",
-  month    =  feb,
-  year     =  2022,
-  keywords = "skimmed;4 mouse;4 behavior;ERC Consolidator 2023"
+@INPROCEEDINGS{Merel2020-hf,
+  title     = "Deep neuroethology of a virtual rodent",
+  booktitle = "International Conference on Learning Representations",
+  author    = "Merel, Josh and Aldarondo, Diego and Marshall, Jesse and Tassa,
+               Yuval and Wayne, Greg and Olveczky, Bence",
+  abstract  = "Parallel developments in neuroscience and deep learning have led
+               to mutually productive exchanges, pushing our understanding of
+               real and artificial neural networks in sensory and cognitive
+               systems. However, this interaction between fields is less
+               developed in the study of motor control. In this work, we
+               develop a virtual rodent as a platform for the grounded study of
+               motor activity in artificial models of embodied control. We then
+               use this platform to study motor activity across contexts by
+               training a model to solve four complex tasks. Using methods
+               familiar to neuroscientists, we describe the behavioral
+               representations and algorithms employed by different layers of
+               the network using a neuroethological approach to characterize
+               motor activity relative to the rodent's behavior and goals. We
+               find that the model uses two classes of representations which
+               respectively encode the task-specific behavioral strategies and
+               task-invariant behavioral kinematics. These representations are
+               reflected in the sequential activity and population dynamics of
+               neural subpopulations. Overall, the virtual rodent facilitates
+               grounded collaborations between deep reinforcement learning and
+               motor neuroscience.",
+  month     =  feb,
+  year      =  2020,
+  keywords  = "4 mouse;4 behavior;read;ERC Consolidator 2023"
 }
 
 @ARTICLE{Rezende2015-mx,
@@ -2981,6 +4495,129 @@
   keywords  = "4 behavior;read next;unread;ERC Consolidator 2023"
 }
 
+@ARTICLE{Lehky1992-wf,
+  title    = "Predicting responses of nonlinear neurons in monkey striate
+              cortex to complex patterns",
+  author   = "Lehky, S R R S R R and Sejnowski, T J J and Desimone, R",
+  abstract = "The overwhelming majority of neurons in primate visual cortex are
+              nonlinear. For those cells, the techniques of linear system
+              analysis, used with some success to model retinal ganglion cells
+              and striate simple cells, are of limited applicability. As a
+              start toward understanding the properties of nonlinear visual
+              neurons, we have recorded responses of striate complex cells to
+              hundreds of images, including both simple stimuli (bars and
+              sinusoids) as well as complex stimuli (random textures and 3-D
+              shaded surfaces). The latter set tended to give the strongest
+              response. We created a neural network model for each neuron using
+              an iterative optimization algorithm. The recorded responses to
+              some stimulus patterns (the training set) were used to create the
+              model, while responses to other patterns were reserved for
+              testing the networks. The networks predicted recorded responses
+              to training set patterns with a median correlation of 0.95. They
+              were able to predict responses to test stimuli not in the
+              training set with a correlation of 0.78 overall, and a
+              correlation of 0.65 for complex stimuli considered alone. Thus,
+              they were able to capture much of the input/output transfer
+              function of the neurons, even for complex patterns. Examining
+              connection strengths within each network, different parts of the
+              network appeared to handle information at different spatial
+              scales. To gain further insights, the network models were
+              inverted to construct ``optimal'' stimuli for each cell, and
+              their receptive fields were mapped with high-resolution spots.
+              The receptive field properties of complex cells could not be
+              reduced to any simpler mathematical formulation than the network
+              models themselves.",
+  journal  = "J. Neurosci.",
+  volume   =  12,
+  number   =  9,
+  pages    = "3568--3581",
+  year     =  1992,
+  keywords = "Animals; Female; Forecasting; Macaca mulatta; Nerve Net; Nerve
+              Net: physiology; Neural Networks (Computer); Neurons; Neurons:
+              physiology; Photic Stimulation; Visual Cortex; Visual Cortex:
+              cytology; Visual Cortex: physiology; Visual Perception; Visual
+              Perception: physiology;recurrent;inception;system
+              identification;ERC Consolidator 2023"
+}
+
+@ARTICLE{Hubel1959-zs,
+  title    = "Receptive fields of single neurones in the cat's striate cortex",
+  author   = "Hubel, D H and Wiesel, T N",
+  journal  = "J. Physiol.",
+  volume   =  148,
+  pages    = "574--591",
+  year     =  1959,
+  keywords = "cerebral cortex; cerebral cortex physiology; neurons; neurons
+              physiology;\_imported;ERC Consolidator 2023"
+}
+
+@INPROCEEDINGS{Ecker2018-gz,
+  title     = "A rotation-equivariant convolutional neural network model of
+               primary visual cortex",
+  booktitle = "International Conference on Learning Representations",
+  author    = "Ecker, Alexander S and Sinz, Fabian H and Froudarakis, Emmanouil
+               and Fahey, Paul G and Cadena, Santiago A and Walker, Edgar Y and
+               Cobos, Erick and Reimer, Jacob and Tolias, Andreas S and Bethge,
+               Matthias",
+  abstract  = "Classical models describe primary visual cortex (V1) as a filter
+               bank of orientation-selective linear-nonlinear (LN) or energy
+               models, but these models fail to predict neural responses to
+               natural stimuli accurately. Recent work shows that convolutional
+               neural networks (CNNs) can be trained to predict V1 activity
+               more accurately, but it remains unclear which features are
+               extracted by V1 neurons beyond orientation selectivity and phase
+               invariance. Here we work towards systematically studying V1
+               computations by categorizing neurons into groups that perform
+               similar computations. We present a framework for identifying
+               common features independent of individual neurons' orientation
+               selectivity by using a rotation-equivariant convolutional neural
+               network, which automatically extracts every feature at multiple
+               different orientations. We fit this rotation-equivariant CNN to
+               responses of a population of 6000 neurons to natural images
+               recorded in mouse primary visual cortex using two-photon
+               imaging. We show that our rotation-equivariant network
+               outperforms a regular CNN with the same number of feature maps
+               and reveals a number of common features, which are shared by
+               many V1 neurons and are pooled sparsely to predict neural
+               activity. Our findings are a first step towards a powerful new
+               tool to study the nonlinear functional organization of visual
+               cortex.",
+  month     =  feb,
+  year      =  2018,
+  keywords  = "4 mouse;read;ERC Consolidator 2023"
+}
+
+@ARTICLE{Kindel2017-xs,
+  title    = "Using deep learning to reveal the neural code for images in
+              primary visual cortex",
+  author   = "Kindel, William F and Christensen, Elijah D and Zylberberg, Joel",
+  abstract = "Primary visual cortex (V1) is the first stage of cortical image
+              processing, and a major effort in systems neuroscience is devoted
+              to understanding how it encodes information about visual stimuli.
+              Within V1, many neurons respond selectively to edges of a given
+              preferred orientation: these are known as simple or complex
+              cells, and they are well-studied. Other neurons respond to
+              localized center-surround image features. Still others respond
+              selectively to certain image stimuli, but the specific features
+              that excite them are unknown. Moreover, even for the simple and
+              complex cells-- the best-understood V1 neurons-- it is
+              challenging to predict how they will respond to natural image
+              stimuli. Thus, there are important gaps in our understanding of
+              how V1 encodes images. To fill this gap, we train deep
+              convolutional neural networks to predict the firing rates of V1
+              neurons in response to natural image stimuli, and find that 15\%
+              of these neurons are within 10\% of their theoretical limit of
+              predictability. For these well predicted neurons, we invert the
+              predictor network to identify the image features (receptive
+              fields) that cause the V1 neurons to spike. In addition to those
+              with previously-characterized receptive fields (Gabor wavelet and
+              center-surround), we identify neurons that respond predictably to
+              higher-level textural image features that are not localized to
+              any particular region of the image.",
+  year     =  2017,
+  keywords = "4 Projects;recurrent;inception;phase coding;ERC Consolidator 2023"
+}
+
 @ARTICLE{Kalweit2020-ru,
   title    = "Deep inverse q-learning with constraints",
   author   = "Kalweit, Gabriel and Huegle, Maria and Werling, Moritz and
@@ -2989,7 +4626,7 @@
   volume   =  33,
   pages    = "14291--14302",
   year     =  2020,
-  keywords = "skimmed;ERC Consolidator 2023"
+  keywords = "read;ERC Consolidator 2023"
 }
 
 @INPROCEEDINGS{Hoogeboom2021-zs,
@@ -2998,6 +4635,30 @@
   author    = "Hoogeboom, Emiel and Cohen, Taco and Tomczak, Jakub Mikolaj",
   year      =  2021,
   keywords  = "read;ERC Consolidator 2023"
+}
+
+@ARTICLE{Heeger1992-xx,
+  title    = "Normalization of cell responses in cat striate cortex",
+  author   = "Heeger, D J",
+  abstract = "Simple cells in the striate cortex have been depicted as
+              half-wave-rectified linear operators. Complex cells have been
+              depicted as energy mechanisms, constructed from the squared sum
+              of the outputs of quadrature pairs of linear operators. However,
+              the linear/energy model falls short of a complete explanation of
+              striate cell responses. In this paper, a modified version of the
+              linear/energy model is presented in which striate cells mutually
+              inhibit one another, effectively normalizing their responses with
+              respect to stimulus contrast. This paper reviews experimental
+              measurements of striate cell responses, and shows that the new
+              model explains a significantly larger body of physiological data.",
+  journal  = "Vis. Neurosci.",
+  volume   =  9,
+  number   =  2,
+  pages    = "181--197",
+  year     =  1992,
+  keywords = "adaptation; animals; biological; cats; contrast sensitivity;
+              mathematics; models; ocular; physiology; visual cortex; visual
+              pathways;\_imported;ERC Consolidator 2023"
 }
 
 @INPROCEEDINGS{Child2022-fw,
@@ -3023,7 +4684,7 @@
                and models at https://github.com/openai/vdvae.",
   month     =  feb,
   year      =  2022,
-  keywords  = "ERC Consolidator 2023"
+  keywords  = "read;ERC Consolidator 2023"
 }
 
 @ARTICLE{Cisek_undated-kf,
@@ -3031,6 +4692,28 @@
               {INTERACTION}",
   author   = "Cisek, Paul",
   keywords = "unread;ERC Consolidator 2023"
+}
+
+@INPROCEEDINGS{Batty2016-do,
+  title    = "Multilayer network models of primate retinal ganglion cells",
+  author   = "Batty, E and Merel, J and Brackbill, N and Heitman, A and Sher, A
+              and Litke, A and Chichilnisky, E J and Paninski, L",
+  year     =  2016,
+  keywords = "microns;recurrent;ERC Consolidator 2023"
+}
+
+@ARTICLE{Safarani2021-yy,
+  title    = "Towards robust vision by multi-task learning on monkey visual
+              cortex",
+  author   = "Safarani, Shahd and Nix, Arne and Willeke, Konstantin and Cadena,
+              Santiago and Restivo, Kelli and Denfield, George and Tolias,
+              Andreas and Sinz, Fabian",
+  journal  = "Adv. Neural Inf. Process. Syst.",
+  volume   =  34,
+  pages    = "739--751",
+  month    =  dec,
+  year     =  2021,
+  keywords = "own;SFB 1456 Mathematic of Experiment;ERC Consolidator 2023"
 }
 
 @ARTICLE{Barlow1972-eh,
@@ -3063,6 +4746,87 @@
                Consolidator 2023"
 }
 
+@MISC{Vasilyev2020-ep,
+  title        = "Optimal control of eye-movements during visual search",
+  author       = "Vasilyev, A Y",
+  abstract     = "We study the problem of an optimal oculomotor control during
+                  the execution of visual search tasks. We introduce a
+                  computational model of human eye movements, which takes into
+                  account various constraints of the human visual and
+                  oculomotor systems. In the model, the choice of the
+                  subsequent fixation location is posed as a problem of a
+                  stochastic optimal control, which relies on reinforcement
+                  learning methods. We show that if biological constraints are
+                  taken into account, the trajectories simulated under a
+                  learned policy share both basic statistical properties and a
+                  scaling behaviour with human eye movements. We validated our
+                  model simulations with human psychophysical eye-tracking
+                  experiments.",
+  year         =  2020,
+  howpublished = "\url{https://api.deepai.org/publication-download-pdf/optimal-control-of-eye-movements-during-visual-search}",
+  note         = "Accessed: 2023-1-3",
+  keywords     = "4 behavior;read next;unread;ERC Consolidator 2023"
+}
+
+@ARTICLE{Rowell1971-zj,
+  title    = "Variable Responsiveness of a Visual Interneurone in the
+              {Free-Moving} Locust, and its Relation to Behaviour and Arousal",
+  author   = "Rowell, C",
+  abstract = "The association between motor activity and dishabituation
+              suggests that the latter derives either from motor system
+              collaterals or from mechanoreceptive reafference, and the
+              probable anatomical and physiological bases for modulation of
+              DCMD responsiveness are discussed. 1. Recorded from a dissected
+              immobilized animal, or from an unrestrained animal which is
+              quiescent, the descending contralateral movement detector (DCMD)
+              neurone shows an exponential decremental response to a repetitive
+              stimulus (habituation), reaching a plateau level characteristic
+              of the stimulus conditions. The process is site-specific on the
+              retina, and movement to a new area of retina gives a complete
+              recovery. In the absence of stimulation responsiveness returns
+              over minutes or hours. 2. Immediate recovery without a rest
+              (dishabituation) can be obtained by a variety of strong sensory
+              stimuli of several different modalities (`extra-stimuli') or by
+              non specific electrical stimulation of parts of the CNS. The
+              dishabituating efficacy of all these wanes with repetition. When
+              the habituating stimulus is moved to a new retinal site the
+              previous site is not dishabituated. 3. Dishabituation is not
+              site-specific but affects the whole retina simultaneously. It
+              appears to reverse the original decremental process (`re-set')
+              rather than to produce an independent enhancement elsewhere in
+              the pathway, as it does not increase the response from a
+              submaximally stimulated, but unhabituated, retinal site. 4. In
+              unrestrained animals dishabituating extra-stimuli also cause
+              behavioural arousal or other motor activity. When motor activity
+              starts, the DCMD is dishabituated and shows no regular
+              decremental trend thereafter until movement ceases. DCMD
+              background activity is also increased. These effects are not due
+              to the visual stimulus of the moving appendages. 5. The
+              association between motor activity and dishabituation suggests
+              that the latter derives either from motor system collaterals or
+              from mechanoreceptive reafference. Stimulation of the antennal
+              nerve of a totally de-efferented brain cause some dishabituation;
+              this eliminates the lower motor system (below command-fibre
+              level) as the source of dishabituation and suggests it is purely
+              sensory. 6. The activity of a thoracic cord unit (of possibly a
+              wide-field mechanoreceptor interneurone) precedes by 5-20 sec,
+              and closely correlates with, changes in responsiveness of the
+              DCMD. It is either an important input to, or an output from, the
+              dishabituating system. 7. Progressive reduction of sensory input
+              to the brain affects DCMD responsiveness as follows: (i)
+              spontaneous dishabituation is less frequent, (ii) dishabituation
+              is less easily induced and smaller, (iii) rate of habituation is
+              increased, (iv) plateau response level after habituation is
+              lower. 8. Electrical stimulation of the circumoesophageal
+              connective can depress DCMD responsiveness for many minutes. 9.
+              The probable anatomical and physiological bases for modulation of
+              DCMD responsiveness are discussed.",
+  journal  = "J. Exp. Biol.",
+  year     =  1971,
+  keywords = "4 behavior;4 brainstate;read next;unread;ERC Consolidator 2023",
+  language = "en"
+}
+
 @ARTICLE{Conwell2021-pw,
   title    = "Neural regression, representational similarity, model zoology \&
               neural taskonomy at scale in rodent visual cortex",
@@ -3073,6 +4837,41 @@
   pages    = "5590--5607",
   year     =  2021,
   keywords = "read;4 mouse;ERC Consolidator 2023"
+}
+
+@INPROCEEDINGS{Baker2022-tj,
+  title     = "Video {PreTraining} ({VPT)}: Learning to Act by Watching
+               Unlabeled Online Videos",
+  booktitle = "Advances in Neural Information Processing Systems",
+  author    = "Baker, Bowen and Akkaya, Ilge and Zhokov, Peter and Huizinga,
+               Joost and Tang, Jie and Ecoffet, Adrien and Houghton, Brandon
+               and Sampedro, Raul and Clune, Jeff",
+  abstract  = "Pretraining on noisy, internet-scale datasets has been heavily
+               studied as a technique for training models with broad, general
+               capabilities for text, images, and other modalities. However,
+               for many sequential decision domains such as robotics, video
+               games, and computer use, publicly available data does not
+               contain the labels required to train behavioral priors in the
+               same way. We extend the internet-scale pretraining paradigm to
+               sequential decision domains through semi-supervised imitation
+               learning wherein agents learn to act by watching online
+               unlabeled videos. Specifically, we show that with a small amount
+               of labeled data we can train an inverse dynamics model accurate
+               enough to label a huge unlabeled source of online data -- here,
+               online videos of people playing Minecraft -- from which we can
+               then train a general behavioral prior. Despite using the native
+               human interface (mouse and keyboard at 20Hz), we show that this
+               behavioral prior has nontrivial zero-shot capabilities and that
+               it can be fine-tuned, with both imitation learning and
+               reinforcement learning, to hard-exploration tasks that are
+               impossible to learn from scratch via reinforcement learning. For
+               many tasks our models exhibit human-level performance, and we
+               are the first to report computer agents that can craft diamond
+               tools, which can take proficient humans upwards of 20 minutes
+               (24,000 environment actions) of gameplay to accomplish.",
+  month     =  oct,
+  year      =  2022,
+  keywords  = "4 behavior;read next;unread;ERC Consolidator 2023"
 }
 
 @INPROCEEDINGS{Lurz2022-up,

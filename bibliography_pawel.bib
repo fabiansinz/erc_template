@@ -1,0 +1,66 @@
+
+@ARTICLE{Baker2022-ph,
+  title         = "Video {PreTraining} ({VPT)}: Learning to Act by Watching
+                   Unlabeled Online Videos",
+  author        = "Baker, Bowen and Akkaya, Ilge and Zhokhov, Peter and
+                   Huizinga, Joost and Tang, Jie and Ecoffet, Adrien and
+                   Houghton, Brandon and Sampedro, Raul and Clune, Jeff",
+  abstract      = "Pretraining on noisy, internet-scale datasets has been
+                   heavily studied as a technique for training models with
+                   broad, general capabilities for text, images, and other
+                   modalities. However, for many sequential decision domains
+                   such as robotics, video games, and computer use, publicly
+                   available data does not contain the labels required to train
+                   behavioral priors in the same way. We extend the
+                   internet-scale pretraining paradigm to sequential decision
+                   domains through semi-supervised imitation learning wherein
+                   agents learn to act by watching online unlabeled videos.
+                   Specifically, we show that with a small amount of labeled
+                   data we can train an inverse dynamics model accurate enough
+                   to label a huge unlabeled source of online data -- here,
+                   online videos of people playing Minecraft -- from which we
+                   can then train a general behavioral prior. Despite using the
+                   native human interface (mouse and keyboard at 20Hz), we show
+                   that this behavioral prior has nontrivial zero-shot
+                   capabilities and that it can be fine-tuned, with both
+                   imitation learning and reinforcement learning, to
+                   hard-exploration tasks that are impossible to learn from
+                   scratch via reinforcement learning. For many tasks our
+                   models exhibit human-level performance, and we are the first
+                   to report computer agents that can craft diamond tools,
+                   which can take proficient humans upwards of 20 minutes
+                   (24,000 environment actions) of gameplay to accomplish.",
+  month         =  jun,
+  year          =  2022,
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.LG",
+  eprint        = "2206.11795"
+}
+
+
+
+@ARTICLE{Cobbe2020-uk,
+  title         = "Phasic Policy Gradient",
+  author        = "Cobbe, Karl and Hilton, Jacob and Klimov, Oleg and Schulman,
+                   John",
+  abstract      = "We introduce Phasic Policy Gradient (PPG), a reinforcement
+                   learning framework which modifies traditional on-policy
+                   actor-critic methods by separating policy and value function
+                   training into distinct phases. In prior methods, one must
+                   choose between using a shared network or separate networks
+                   to represent the policy and value function. Using separate
+                   networks avoids interference between objectives, while using
+                   a shared network allows useful features to be shared. PPG is
+                   able to achieve the best of both worlds by splitting
+                   optimization into two phases, one that advances training and
+                   one that distills features. PPG also enables the value
+                   function to be more aggressively optimized with a higher
+                   level of sample reuse. Compared to PPO, we find that PPG
+                   significantly improves sample efficiency on the challenging
+                   Procgen Benchmark.",
+  month         =  sep,
+  year          =  2020,
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.LG",
+  eprint        = "2009.04416"
+}

@@ -1,0 +1,610 @@
+%PUT STG, COG, ADG as option
+\documentclass[COG,11pt]{ercgrant}
+% put here the year of the call
+\renewcommand{\callyear}{2023}
+\setmainfont{Arial}
+\bibliography{bibliography.bib}
+
+\author{Fabian Sinz}
+\acro{Visual System in Action}
+% \title{Putting data-driven digital twins of mouse visual cortex into action.}
+% \title{Towards a meta-verse for the mouse visual system}
+\title{Building a data driven model for mouse visual cortex in the context of free and task-driven behavior}
+\institution{Georg August Universität Göttingen}
+
+% ====== BODY OF THE DOCUMENT ======
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	\textcolor{red}{
+		\input{summary.tex}
+	}
+\end{abstract}
+
+
+%%%%%%%%%%%%% EXTENDED SYNOPSIS %%%%%%%%%%%%%%%%%%%
+
+\section{Extended Synopsis of the Scientific Proposal}
+
+\subsection{Background, state of the art and rationale}
+% Visual features are often only hypothesized to play a role. Behavioral verification is missing
+The purpose of the visual system is to extract actionable information about our environment from the complex and ambiguous light patterns that inform our brain about the world beyond our eyes. 
+It achieves this goal by representing the visual input in the activity of hundreds of thousands of neurons in its visual system.
+Each neuron not only changes its activity as a complex function of the high dimensional visual input, but also as a function of its internal or behavioral state~\parencite{Niell2010-bs, Musall2019-kd, Erisken2014-un,Christensen2017-bx}. 
+While neuroscientists can currently measure the activity of a larger number of neurons and track behavior at a higher level of detail than ever before, understanding how the activity of neurons in the sensory systems relate to behavior remains a challenge~\parencite{Urai2022-fz}.
+The goal of this proposal is to \textbf{build a computational framework to study the interaction between visual representations and behavioral actions in visual cortex of freely behaving mice}. 
+It is motivated by the following two observations: 
+% requirements to make significant progress how complex visual scenes are processed by the brain to enable behavior in real-world contexts: 
+\circled{1} To understand behaviorally relevant visual processing, we need to move towards a \textbf{natural neuroscience} that studies a system in an environment it was made for~\parencite{Huk2018-ez, Datta2019-qj}, and understand how visual input from the natural environment affects the actions of an animal and how the actions of the animal affect visual processing. 
+\circled{2} For studying a neural system under complex natural conditions that cannot easily controlled or repeated in a classical trial structure, we need the necessary computational technology to compile multiple -- necessarily limited -- behavioral or physiological experiments into a single computational model -- a \textbf{functional digital twin} -- that can fill in the unobserved gaps and allows us to make specific experimentally testable predictions.
+% about the complex interplay between visual processing and behavior in a complex natural environment.
+
+To this end, I propose to develop a \textbf{computational data-driven approach to bridge the gap between visual representations and behavior based on deep functional digital twins, behavioral observation and reinforcement learning}. 
+If successful, this framework will be a powerful tool to investigate the link between visual representations and behavior, and derive specific predictions about the change of behavior from causal manipulations of the neurons in the visual system.
+To demonstrate its feasibility and utility, I will use this framework to \textbf{investigate the hypothesis that neurons in visual cortex change their tuning depending on the behavioral context to decrease the uncertainty about behaviorally-relevant latent dimensions in the world.} 
+The framework will not replace experiments, but make it easier, faster and cheaper to generate specific predictions by running experiments \textit{in silico} first before verifying their prediction \textit{in vivo}.
+
+
+
+
+
+
+
+% -- that allows us to disentangle the contribution of the stimulus, the behavioral context, and internal states to neuronal activity across cortex, to characterize the correspondence between behavioral context and modulation of neuronal processing \textit{in silico}, and that makes testable experimental predictions about neuronal processing that depend on behavioral context or on causal manipulations. 
+
+% Why do we need to consider free/natural behavior?
+% - Visual system was made to acquire the information for natural behavior
+% - We need natural stimuli, since the visual system might not be as engaged
+\circled{1}~\textbf{Natural neuroscience} 
+The ultimate question to understand visual representations is \textit{``How does a particular representation serve natural behavior?''}.
+Up until now, the vast majority of visual neuroscience research uses minimalistic artificial stimuli (such as Gabor patches), head-fixed animals, and simple tasks (such as 2AFC).
+However, these generally do not require sophisticated computations and do thus not accurately reflect the complexity of real-world visual processing which is what brains evolved to do.
+Unfortunately, recording rich behavior and large numbers of neurons at the same time is still technically challenging: 
+Experiments with large numbers of neurons are usually done with animals head-fixed to the experimental setup, while the numbers of neurons in freely behaving animals is currently limited to the order of hundreds~\parencite{Parker2022-ac}.
+
+Studying vision in the context of behavior is crucial, because neuronal representations in visual cortex change with the behavioral and internal state of an animal. 
+% This means that at every instance, neuronal activity in visual cortex is a combination of what the mouse sees, what it does, and what its internal state is. 
+Classically, arousal, running or attention are linked to an additive or multiplicative gain on neural response without changing the preferred stimuli of a neuron~\parencite{Dadarlat2017-jw, Mineault2016-fk}.
+We recently showed that arousal can even change the color preference of neurons in primary visual cortex at the timescale of seconds~\parencite{Franke2022-do}. 
+Other work by \textcite{Musall2019-kd} has demonstrated that neuronal activity is substantially modulated by task-unrelated behavior.
+It is likely that there are more ways how behavior changes neuronal tuning. 
+However, a systematic characterization of the correspondence between behavioral context and neuronal function is currently missing. 
+
+Why do visual representations change with behavior? 
+A possible answer could also be derived from behavior:
+% From the perspective of encoding and decoding visual signals, it seems puzzling to change the encoder because the decoder would need to change too. 
+% However, including behavior can offer a possible explanation: 
+When actions need to be chosen on the basis of uncertain information about the state of the world, decreasing uncertainty about those aspects in the world that are relevant for the current behavioral goal becomes important~\parencite{Chebolu2022-tb}. 
+If decreasing uncertainty comes at an energetic cost or at the cost of increasing uncertainty elsewhere, it makes sense to selectively adapt the visual representation most relevant for the current behavior, for instance, by temporarily increasing the signal-to-noise ratio in some neurons through attention.
+% Many known non-visual modulations of neural activity can be understood in that way: 
+% For instance, when attention increases neural activity in certain neurons, it also selectively increases their signal-to-noise ratio. 
+From that viewpoint the characterizing which neurons change their tuning, how they change it, and under which behavioral context might be crucial to understand to what end information from these neurons is used.
+
+% Why do we need to consider large populations? and digital twins
+% - We are not only interested in how a small number of neurons are related to a a task, but how the entire visual cortex solves the task. --> Computational models should account for that if we want to make complex behavioral predictions. 
+%  Studying a neural system under complex natural conditions that cannot easily controlled or repeated in a classical trial structure necessitates the use of modern machine learning techniques for automatic feature extraction and model building. Merging multiple experiments into predictive models of neuronal activity for an entire visual system that account for arbitrary visual video input, complex behavior, and internal states is not feasible with manually crafted low parametric features, but needs techniques from machine learning to extract the currently unknown patterns from the data. 
+% ---> neuromanifest: things that cannot be done otherwise
+\circled{2}~\textbf{Functional digital twins} Studying the visual system with behavior under complex natural conditions comes with new challenges:
+Experimental conditions cannot easily be controlled or repeated in classical trial structures~\parencite{Huk2018-ez}, and the visual input and behavior is complex is not easily parametrized. 
+This makes it hard to come up with specific predictions for an experiment. 
+However, we~\parencite{Walker2019-yw, Cobos2022-rr, Franke2022-do} and others~\parencite{Bashivan2019-ry, Ponce2019-yn, Hofling2022-wr} have demonstrated that deep artificial neural networks (ANNs) can fill that gap by learning complex neuronal representations from data and make novel, specific and experimentally verifiable predictions. 
+In fact, the authors of the \textit{neuroconnectionist research programme}~\parencite{Doerig2022-ex} advocated a ``large-scale research programme centered around ANNs as a computational language for expressing falsifiable theories about brain computation'' that generate ``new and otherwise unreachable insights into the workings of the brain''. 
+
+Because our models are not a simulation, but predict the activity of real neurons and are informed by data from many experiments, we refer to them as \textit{functional digital twins}.
+% However, the tremendous advances in deep learning in recent years have demonstrated that artificial neural networks (ANNs) can learn complex dependencies from data and fill in gaps of our current ignorance. 
+In the last five years, my team and I demonstrated that these models can extract characteristic features of visual cortex from large scale data that generalize across stimuli, neurons, and even animals~\parencite{Sinz2018-sk,Lurz2020-ua,Cobos2022-rr} and can extract meaningful internal states from large scale population recordings~\parencite{Bashiri2021-or}. 
+Models based on our network architectures are currently state of the art in predicting mouse visual cortex\footnote{All winners of  \url{https://sensorium2022.net/} used our base network architecture}. 
+With the help of these models, we have synthesized new optimal stimuli that deviated from previous text book knowledge of visual tuning in mouse V1~\parencite{Walker2019-yw}, and demonstrated that color tuning in mouse V1 can change with behavioral state on the time-scale of seconds~\parencite{Franke2022-do}. Together, these findings provide a strong rationale that data-driven models of mouse visual cortex can extract novel and experimentally verifiable insights from large scale data. Here I propose to take the logical next step and extend this approach to behavior. 
+
+
+\subsection{Approach}
+I propose to build a data-driven functional digital twin of mouse visual cortex merge it with a data-driven models of a freely behaving mouse such that changes of visual computations with behavior and internal state are preserved. 
+This can be broken up into three objectives.
+% The scientific questions laid out above, all require substantial methodological innovations in machine learning for neuroscience, and can be broken into three objectives.
+% . Thus each objective has a technical goal and a scientific question. 
+
+\subsubsection{Objectives}
+\begin{itemize}[leftmargin=2em,topsep=0pt,itemsep=0.62ex,partopsep=0ex,parsep=0.5ex,rightmargin=1ex]
+    \item[\obj{1}] Build a digital twin of mouse visual cortex in freely behaving mice to disambiguate the contributions of stimulus and behavior to neuronal responses in visual cortices.
+    \item[\obj{2}] Find behavioral motifs linked to changes neuronal processing and characterize how tuning changes shape the uncertainty about latent world properties (such as object, curvature, etc.).
+    \item[\obj{3}] Use reinforcement learning to predict behavioral changes upon causal manipulations to establish a causal link between neural activity in higher visual areas and behavior. 
+\end{itemize}
+
+% This digital twin will allow me to \obj{1} disambiguate the contributions of stimulus and behavior to neuronal responses in visual cortices, \obj{2} find behavioral motifs linked to changes neuronal processing, and \obj{3} build a new computational framework to predict the effect of causal manipulations in neuronal firing on free behavior or on mice performing an object recognition task. 
+% {\def\arraystretch{1.5}\tabcolsep=5pt
+% \begin{tabularx}{\textwidth}{l|X|X}
+%  & \textbf{technical goal} & \textbf{scientific goal} \\\hline
+% \obji 
+% & Build a digital twin of mouse visual cortex in freely behaving mice.
+% & How does behavior and internal state modulate visual cortex during free behavior?\\\hline
+% \objii & 
+% Learn a low-dimensional embedding of behavior from data (behavioral motifs) &
+% Find stereotypical behaviors linked to specific changes neuronal processing? \\\hline
+% \objiii & 
+% Use reinforcement learning to predict behavioral changes upon causal manipulations. &
+% Establish a causal link between neural activity in higher visual areas and behavior. \\
+% \end{tabularx}
+% }
+
+\subsubsection{Interdisciplinarity}
+
+This project develops novel machine learning methods for fundamental research questions in neuroscience, and requires strong expertise in both fields. 
+I am trained in bioinformatics (undergraduate), machine learning (since undergraduate), computational neuroscience (PhD), and neuroscience (PostDocs). I have a track record of over 70 peer reviewed publications and preprints on machine learning and neuroscience published in high ranking journals and top tier conferences.
+I was the coordinator for machine learning and computational neuroscience in a consortium\footnote{Machine Intelligence from Cortical Networks: \url{https://www.iarpa.gov/index.php/research-programs/microns}.} that recorded the visual responses and circuit anatomy of about 60,000 neurons to natural, parametric, and rendered movies. Through this project and multiple follow-up projects\footnote{Such as our neuronal prediction challenge \url{https://sensorium2022.net/}} I have access to \hl{several million neuron hours} of responses to natural videos across the entire visual cortex. In addition, my long-time experimental collaborators Dr. Tolias (Baylor College of Medicine in Houston, >20 common papers and preprints) and Dr. Froudarakis (FORTH on Crete, >10 common papers and preprints) will share existing and future physiological and behavioral data from freely behaving mice with me. 
+% % Dr. Tolias will provide data from multiple mice freely behaving in a virtually augmented environment along with eye-tracking, behavior tracking and large scale recordings from neuropixels. Dr. Froudarakis will provide me with data from freely behaving animals in home cages, and mice performing an open field object recognition task with simultaneous mini-scope 2-photon recordings from visual cortex. 
+% % In addition, my lab has access to behavioral data (videos) of freely behaving mice in home cages from current research grants. 
+
+% together with my long term collaborators (Drs. Tolias and Franke at Baylor College of Medicine, Houston, TX, and Dr. Froudarakis, FORTH, Crete). 
+
+
+\subsubsection{Beyond state of the art}
+The proposed project develops crucial computational technology to step away from the typical trial based structure of systems and behavioral neuroscience towards ``natural neuroscience'' that focuses on studying a neural system under complex natural conditions that cannot easily controlled or repeated. Even in classical conditions every trial in a neuronal system depends on uncontrollable factors (e.g. internal state) and can thus not be exactly repeated~\parencite{Urai2022-fz}. 
+% I advocate to embrace this complexity and build models that can compile many experiments in a single model, can disentangle different factors of neuronal processing, yet make specific and verifiable experimental predictions. 
+A model, that can predict neuronal responses of an entire visual cortex under free behavior does not exist, and would merge two major determinants of a neuronal system: stimulus driven neuronal activity and behavior. 
+
+\subsubsection{Potential impact}
+If successful, the project can change our view on visual cortex in mice and how neuronal tuning is changed according to behavioral needs. 
+Furthermore, the proposed approach is straightforward to generalize to include other areas, such as motor or prefrontal areas, or stimulus modalities, such as olfaction or sound. 
+As the volume, detail, and complexity of neuroscientific and behavioral data is increasing, the proposed approach is one step towards a \textit{standard model of systems neuroscience}.
+% In line with the neuroconnectionist research programme~ the technical and scientific advances will lead to a major step towards a ``a cohesive large-scale research programme centered around ANNs as a computational language for expressing falsifiable theories about brain computation''~\parencite{Doerig2022-ex}. As argued by these authors, this approach can generate ``new and otherwise unreachable insights into the workings of the brain''.
+
+
+% computational goal also unclear for mid -level areas
+\subsubsection{Objective 1: An video-driven digital twin of mouse visual cortex during free behavior\hfill\obj{1}}
+\labelobj{1}
+
+\underline{Overview and rationale:}
+Deep learning has set new standards in encoding models that can predict neural responses of thousands of neurons from arbitrary pixel-based visual input. However, most encoding models for visual cortex focus on static images, are built for head-fixed animals, and only take into account very impoverished behavioral variables (such as running vs. not-running, or pupil dilation), 
+% Furthermore, most models focus on predicting a single activity vector for a given input (the mean activity), 
+treating common fluctuations caused by behavior beyond these simple variables or internal state as noise. 
+I propose to build on my work on video based encoding models and latent state models~\parencite{Sinz2018-sk, Bashiri2021-or}, and build a video-driven  digital twin of visual cortex, trained on hundreds of thousands of neurons recorded from multiple areas of visual cortex in head-fixed mice, and transfer it into a digitized environment onto the skeleton graph of a freely behaving mouse carrying a miniscope (so it sees what the mouse sees) \hl{needs figure} in a way that can capture the influence of behavior onto visual representations. 
+To this end, we will identify a shared latent space of neuronal fluctuations in the recordings of the head-fixed mice, and then use this space to identify the latent state of the mouse from fluctuations in the recordings from the miniscope and explain it through its detailed behavior described via trajectories of its skeleton graph.
+
+\underline{Goal:} This model will allow us to disentangle the contributions of visual input, behavior, and internal state to neuronal activity in visual cortex during free behavior, and investigate how behavior influences neuronal processing in visual cortex.
+  
+\underline{Technical innovation:} The model will be the first that predicts the activity of visual cortex under free behavior and accounts for the modulation of neurons from brain state and behavior, and will form the backbone of the analyses in \obj{2} and the model in \obj{3}.
+
+\underline{Approach:} We will build this model in four steps: \circled{1}~\textit{Visual model:} Using a common feature space~\parencite{Sinz2018-sk} and a shared latent space~\parencite{Bashiri2021-or}, we will pre-train a model for visual responses on many thousands of neural responses across visual cortex from head-fixed mice presented with natural and rendered videos. 
+We have demonstrated before on responses to static images that such a model can learn a characteristic features from neural recordings to enable efficient transfer learning to new neurons and animals~\parencite{Lurz2020-ua}. The technical challenge will be to include a latent state that captures non-visually-driven common variability in the neuronal population. \circled{2}~\textit{Behavioral state:} 
+We will extract the movement of the mouse in the cage using 2D keypoints of its skeleton graph~\parencite{Mathis2018-lk}, as well as triangulation or lifting to transfer it to 3D. 
+To that end, we will use a methode, we developed that can deal with temporarily occluded keypoints~\parencite{Pierzchlewicz2022-tq}.
+\circled{3}~\textit{Digitize environment:} 
+We will build a virtual model of the environment using LIDAR, baking images of the animal's cage as texture onto the scanned mesh~\parencite[similar as in][]{Holmgren2021-jv}.
+% % This is established technology can theoretically be done with an iPhone Pro 12, although we will purchase a more high-end solution.
+This allows us to render arbitrary viewpoints in the cage, in particular according to the movement of the mouse.
+Since the cage and lab environment are standardized and static, we can do that for existing scans in hindsight.
+\circled{4}~\textit{Embodied digital twin:} 
+We will place the model from \circled{1} at the approximate eye locations of the mouse inferred in \circled{2} and move it in the environment of \circled{3} according to the movement of the mouse. 
+We will fine-tune the location of the eye using know compensatory eye movements of the mouse\hl{REF} and neuronal activity from the miniscope.
+We will then include the skeleton graph trajectory of the animal as an additional input to the model to explain as much of the latent state from the miniscope recordings as possible. 
+This way, the latent state will translate motor behavior into changes of neuronal activity.
+
+\underline{Expected outcome:} 
+Based on previous work~\parencite{Musall2019-kd, Stringer2019-lt}, I expect the latent activity to be low dimensional. 
+I thus expect to be able to identify the low-dimensional space in experiments with head-fixed animals and determine the exact latent state in the space from the recordings of the miniscope under free behavior. 
+This will allow me to transfer the latent activity between the behavioral and the head-fixed experiments and to disentangle the contributions of visual input, behavior, and internal state to neuron activity during free behavior. 
+In addition, the model and the virtual environment will allow us to predict 
+neuronal activity to completely novel trajectories of the mouse.
+\hl{How do we judge what is good?} \hl{Why not directly fit?}
+% Using this model we will the cluster neurons depending on how they are affected by behavior and internal state.
+% We expect that neurons co-cluster with areas, i.e. that neurons in different areas are differently affected by behavior. 
+
+%-------------------------------------------------------------------------------------
+
+\subsubsection{Objective 2: Find tuning changes and characterize uncertainty in latent dimensions.\hfill\obj{2}}
+\labelobj{2}
+\underline{Overview and rationale:} 
+We have recently demonstrated that tuning of neurons to color in mouse V1 can change with the behavioral state of the animal~\parencite{Franke2022-do}.
+This finding is another example in the row of documented changes in neuronal activity with behavior, but the first to demonstrate a change in the selectivity of neurons. 
+A systematic characterization of the correspondence between behavioral context and neuronal function, in particular for higher visual areas, is currently missing. 
+This objective investigates this questions by searching for correspondences between changes in single cell tuning and behavioral motifs or context.
+To that end, we will use miniscope and behavioral data from freely behaving mice during an open field object recognition task, where animals can freely decide when to engage with the task or not.
+To characterize what these changes mean in terms of visual computation we will relate changes in tuning to changes in uncertainty about semantic and geometric properties of rendered stimuli from the object recognition task and rendered scenes from the digitized environment.
+
+\underline{Goal:} Is there a correspondence between behavioral motifs or context, and changes in neuronal tuning? How do they relate to uncertainty about semantic and geometric properties of a scene?
+
+\underline{Approach:}
+To find behavioral motifs from the 3D trajectories of the postures, we will first fit a latent state probabilistic model to the trajectories that describe the in terms of a low dimensional continuous latent state generative model and a clustering of those embedding into discrete motifs~\parencite{Wiltschko2015-ey, Wiltschko2020-zd}, such as, for instance, walking, rearing, grooming, or licking.
+We will connect it with the model of~\obj{1} to obtain a model in terms of stimulus and latent behavioral embedding: \texttt{neural activity = model(visual input, 3D posture(motif embedding))}.
+Using optimization on \texttt{motif embedding}, we will then find directions in the behavior embedding space that maximally change the response of a given neuron to the same stimulus, i.e. change its tuning.
+In addition, we will compare tuning of neurons when the mouse engages in the task vs. not.
+To investigate my hypothesis that changes in tuning boost the certainty in specific behaviorally relevant world dimensions, we will decode latent world properties, such as object boundaries, depth, curvature, slant, texture, and optical flow, under the two extreme states of tuning. 
+The properties are available to us because the scene and the stimuli are digitized or rendered in the first place.
+We will then quantify which latent world properties change most in accuracy or uncertainty.
+We will subcontract one of our experimental partners to run verification experiments for the properties we identified using established procedures and protocols between our labs~\parencite[used in \textit{e.g.}][]{Walker2019-yw, Franke2022-do}.
+
+\underline{Expected outcome:} 
+I expect the change in tuning to change the certainty and accuracy in specific behaviorally relevant world dimensions.
+For example, figure ground segmentation could increase the upper visual field when the animal is alert~\parencite[similar to findings in ][]{Franke2022-do}.
+In addition I expect tuning changes to be specific to areas and tasks: For instance, object boundaries could be boosted in areas relevant for object detection~\parencite{Froudarakis2019-yt} when the animals engage in the task.
+As we found in \textcite{Franke2022-do}, I also expect the change in tuning to go beyond a simple increase in activity as expected from attention.
+% object boundaries
+% or neurons could become more sensitive to expanding optic flow during still periods to detect approaching objects when the animal is an easy target.
+% \hl{Use example from behavioral task}
+% , or that object borders are boosted during locomotion for better landmark detection. 
+
+%---------------------------------------------------------------------------------
+\subsubsection{Objective 3: Identify causal links between neural representations and behavior.\hfill\obj{3}}
+\labelobj{3}
+
+\underline{Overview and rationale:} 
+The goal of this objective is to establish a causal link between computations in visual cortex and behavior of the animal in a data driven way. 
+The challenge in understanding the role of visual representations for behavior is to establishing \textit{necessity} because the same information can be acquired from the environment in different ways: This means that even when one brain area is experimentally suppressed, there might be other ways for the animal to still reach the behavioral goal. 
+As a consequence, the behavioral changes might be subtle and thus hard to predict or interpret, the experimental intervention must be massive to block the entire flow of information, or the behavioral paradigm needs to be very elaborate to exclude other sources of information. 
+All of that is tedious, expensive, and time consuming. 
+I propose to use the digital twin of \obji~in combination with reinforcement learning to predict the effect of causal manipulation of the stimulus or the neuronal activity onto the behavior of the animal. 
+The solutions found by reinforcement learning will make a prediction about the behavior of the real animal under those causal manipulations. 
+
+\underline{Scientific goal:} Establish a causal link between neuronal computations in different higher visual areas and behavior of the animal. 
+
+\underline{Approach:} 
+We will approach the goal in two steps:  We will first adapt model to causal manipulation: For inhibition of different areas we will use data recorded from animals where different areas are optogenetically suppressed.
+To this end, we will add another input to the models from \obj{1}~that indicates whether the optogenetic intervention is on or not, and model the effect of the optogenetic manipulation on the shared features of the model. 
+Then we will predict the effect on behavior in an object discrimination task with the digital twin in the digitized environment of \obj{1}. 
+To this end, we will explore two strategies: \circled{1} Imitation learning using a decision transformer network~\parencite{Chen2021-ap} that learns to predict the next action (parametrized by clustering/tokenizing the embedding from \obj{2}) of an agent given the current state (defined by the visual input from the digital twin), and the current reward (defined by the task). \circled{2} classical reinforcement learning in the digital environment. 
+Again, the state is modeled by the digital twin and the actions are chosen from the discrete set of action tokens on the embedding from~\obj{2}. 
+We will first make sure that the agent predicts similar solution strategies as real mice solving this task, using a classifier to discriminate real from generated.
+We will then swap out the visual system of the twin with the visual system under causal manipulations and let the agent solve the task in the manipulated condition. 
+We will then compare the two policies of the manipulated and control condition agent to find where the two maximally differ. 
+Note that this approach is indifferent to the type of manipulations and can also be used with a causal manipulation of the stimulus, for instance by using augmented reality. 
+
+\underline{Technical innovation:} Develop an approach to predict the effect of causal manipulation of the stimulus or the neuronal activity onto the behavior of the animal. 
+
+\underline{Expected outcome:} 
+The framework will yield experimentally testable predictions about the effect of causal manipulation of the neuronal population or the stimulus on behavior. 
+We expect that suppression of a particular area will have the most effect on behaviors that also most strongly modulate the neuronal representation, as identified by \objii. 
+
+\subsection{Risk Management}
+\hl{TODO}
+% \hl{What if we cannot infer the eye movements? -> Eye tracking in Andreas data?}
+% \hl{What if any of the clusterings are not meaningful?}
+% \hl{Is the digitization of the environment rich enough? -> Yes, mice don't see well. }
+% \hl{What about non-visual cues}
+% \hl{What about binocular neurons?}
+%%%%%%%%%%%%% BIBLIOGRAPHY %%%%%%%%%%%%%%%%%%%
+\begin{small}
+\printbibliography
+\end{small}
+
+% \renewcommand\bibsection{\subsection{\refname}}
+% \begin{small}
+% 	\bibliographystyle{aa}
+% 	\bibliography{bibliography}
+% \end{small}
+
+%%%%%%%%%%%%% CURRICULUM VITAE %%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Curriculum vitae}
+
+\subsection{Personal Information: Fabian Sinz}
+\begin{tabular}{p{3cm}l}
+	% Last name, first name: & Sinz, Fabian \\
+	Date of birth:         & 09. October 1979 (German Citizen)     \\
+	Website:               & \url{https://sinzlab.org}     \\
+	ORCID:                 &  \url{https://orcid.org/0000-0002-1348-9736}      \\
+	% Address:               & Campus Institute Data Science \\
+	%                        & Goldschmidtstrasse 1    \\
+	%                        & 37077 Göttingen, Germany     \\
+	% Nationality:           & German      \\
+        Google Scholar:         & \url{https://scholar.google.com/citations?user=xpwMxy8AAAAJ&hl=en&oi=ao}\\
+        H-index  & 26 (3586 citations)
+\end{tabular}
+
+\subsection{Education}
+\begin{tabular}{p{3cm}p{12cm}}
+	2012
+	 & \textbf{Ph.D. in Computational Neuroscience}, Graduate School of Neural and Behavioral Science, International Max Planck Research School, University of Tübingen, Germany, \underline{PhD Supervisor: Matthias Bethge}\\
+    2007 & \textbf{Diploma in Bioinformatics}, University of Tübingen, Germany
+\end{tabular}
+
+\subsection{Current Position}
+\begin{tabular}{p{3cm}p{12cm}}
+    2021 -- 
+	 & \textbf{Full Professor of Machine Learning}, 
+       Campus Institute Data Science \& Institute of Computer Science,
+       University of Göttingen, Germany\\
+    2018 -- 2023
+      & \textbf{Independent Group Leader}, 
+       % Institute of Computer Science 
+       University of Tübingen, Germany\\
+    2018 -- 
+      & \textbf{Adjunct Assistant Professor},
+       Center for Neuroscience and Artificial Intelligence,
+       Baylor College of Medicine, Houston, Texas, USA
+\end{tabular}
+
+\subsection{Previous Positions}
+\begin{tabular}{p{3cm}p{12cm}}
+    2018 -- 
+      & \textbf{Research Assistant Professor},
+       Center for Neuroscience and Artificial Intelligence, 
+       Baylor College of Medicine, Houston, Texas, USA\\
+    2015 -- 2018 
+      & \textbf{Postdoctoral Associate},
+       Center for Neuroscience and Artificial Intelligence,
+       Baylor College of Medicine, Houston, Texas, USA\\
+    2012 -- 2015 
+      & \textbf{Postdoc},
+       Dept. for Neuroethology, 
+       University of Tübingen, Germany\\
+    2007 -- 2012 
+      & \textbf{Ph.D. student in Computational Neuroscience}, Max Planck Institute for Biological Cybernetics, Tübingen, Germany\\
+\end{tabular}
+\color{black}
+
+\subsection{Fellowships and Awards}
+\begin{tabular}{p{3cm}p{12cm}}
+2019 & AWS Machine Learning Research Award, Amazon\\
+2013 & Society of General Physiologists, MBL Scholarship Award\\
+2006 & Best paper award, International Conference on Machine Learning\\
+2013 & MBL scholarship, Marine Biological Laboratories
+  scholarship for {\em Neural Systems and Behavior} (independent of the above award)\\
+2008 -- 2010 & Ph.D. scholarship, German National Academic Foundation
+\end{tabular}
+
+\subsection{Supervision Of Graduate Students And Postdoctoral Fellows}
+\begin{tabular}{p{3cm}p{12cm}}
+2018 -- 2021 & 1 Postdoc: Edgar Y. Walker, Ph.D. (now Assistant Prof. at University of Washington, Seattle)\\
+2019 -- & 4 Ph.D. students: Konstantin-Klemens Lurz, Konstantin Willeke, Mohammad Bashiri, Arne Nix\\
+2021 -- & 2 Ph.D. students: Suhas Shrinivasan, Pawel Pierzchlewicz\\
+2022 -- & 2 Ph.D. students: Dominik Becker, Pavithra Elumalai
+\end{tabular}
+
+\subsection{Teaching Activities}
+\begin{tabular}{p{3.5cm}p{11.5cm}}
+2021 --  & Probabilistic Machine Learning (2x, with Dr. Johannes Söding), Data Science (2x), Challenges and Perspectives in Neural Data Sciences (2x, lecture series, organizer), Seminar Current Topics in Machine Learning (1x, seminar), University Göttingen\\
+% 2022 -- & , University Göttingen\\
+2019 & Seminar on Causal Inference, Graduate School for Neural Information Processing, University Tübingen \\
+2014, 2015, 2017  & G-Node Short Course on Neural Data Analysis, German Neuroinformatics Node, Ludwig Maximilian University Munich\\
+% 2015 & 7th G-Node Winter Course on Neural Data Analysis, German Neuroinformatics Node, Ludwig Maximilian University of Munich\\
+2014 -- 2015 &  Scientific Computing, University T\"ubingen\\
+2012 -- 2015 & Essential Statistics (3x), University T\"ubingen \\
+% 2014 & 6th G-Node Winter Course on Neural Data Analysis, German Neuroinformatics Node, Ludwig Maximilian University of Munich\\
+2012 -- 2014 & Models of Neuronal Systems, University T\"ubingen\\
+2007 -- 2010 & Essential Mathematics for Neuroscience (3x), University T\"ubingen\\
+2006 & Ethics for Computer Scientists, University T\"ubingen, Seminar\\
+2004 & Machine Learning and Neuroscience, University T\"ubingen, Seminar\\ 
+% 2002 & Practical  Course on Technical Computer Science, University of T\"ubingen (as teaching assistant)
+\end{tabular}
+
+\subsection{Organization of Scientific Meetings}
+\begin{tabular}{p{3cm}p{12cm}}
+2022 & \url{https://sensorium2022.net} competition at NeurIPS 2022\\
+2018, 2019  & Workshop ``Deep Learning in Computational Neuroscience'' (2x), Bernstein Conference for Computational Neuroscience, Berlin, Germany\\
+2017 & 8th G-Node Short Course on Neural Data Analysis, German Neuroinformatics Node, Ludwig Maximilian University of Munich\\
+\end{tabular}
+
+
+\subsection{Institutional Responsibilities}
+\begin{tabular}{p{3cm}p{12cm}}
+2022 -- & Deputy Board Member, Campus Institute Data Science, U. Göttingen\\
+2022 -- & Anti-Discrimination Commission, University Göttingen\\
+2021 -- & Habilitation (Full) \& Study (Deputy) Commission, University Göttingen\\
+% 2021 -- & Study Commission (Deputy Member), University Göttingen\\
+2021 -- & Coordinator: BSc Program Applied Data Science, University Göttingen\\
+2021-- & Equal Opportunity Representative, CRC 1233, University T{\"u}bingen\\
+2019 -- 2023 & Founding Member, Institute for Bioinformatics and Medical Informatics (IBMI), University T{\"u}bingen \\
+% 2018-- & Faculty Member, International Max Planck Research School for Intelligent Systems, T{\"u}bingen\\
+% 2012 -- 2015 & Faculty Member, International Max Planck Research School for Neural and Behavioural Sciences, University T{\"u}bingen\\
+% 2011 -- 2012 & Student Representative, Graduate School for Neural Information Processing, University T{\"u}bingen
+\end{tabular}
+
+\subsection{Reviewing Activities}
+\begin{tabular}{p{3cm}p{12cm}}
+Journals & Journal of Neuroscience; PLoS Computational Biology; Vision Research; Journal of Vision; Annals of Applied Statistics; Journal of Machine Learning Research; Pattern Recognition; Neural Computation; IEEE Pattern Analysis and Machine Intelligence; IEEE Transactions on Systems, Man, and Cybernetics – Part B; IEEE Transactions on Neural Networks and Learning Systems; Advances in Statistical Analysis (AStA); Machine Learning; eLife; Apidologie; Nat. Machine Intelligence\\
+Conferences & CoSyNe; NeurIPS; AAAI; ICML; AIStats\\
+Funding Agency & EU ERC; German Research Foundation (DFG); Alexander von Humboldt Foundation\\
+\end{tabular}
+
+\subsection{Memberships of Scientific Societies}
+Member of the European Laboratory for Learning and Intelligent Systems (ELLIS); Bernstein Network for Computational Neuroscience
+% \begin{itemize}
+%     \item Member of the European Laboratory for Learning and Intelligent Systems (ELLIS)
+%     \item Bernstein Network for Computational Neuroscience
+%     % \item SMART Start Training Program for Computational Neuroscience, Bernstein Network and Volkswagen Stiftung (faculty)
+%     % \item International Max Planck Research School for Intelligent Systems (faculty)
+%     % \item Excellence Cluster Machine Learning in Science, University T{\"u}bingen
+%     % \item Bernstein Center for Computational Neuroscience, Universities T{\"u}bingen \& Göttingen
+%     % \item Tübingen AI Competence Center, Member
+%     % \item Göttingen AI Service Center (KISSKI)
+% \end{itemize}
+
+\subsection{Major Collaborations}
+Andreas Tolias \& Katrin Franke (Baylor College of Medicine, Houston); ‪‪Emmanouil Froudarakis (FORTH, Crete); Kathrin Brockmann (Hertie Institute for Clinical Brain Science, Tübingen); Leif Saager (University Hospital Göttingen); Alexander Gail (German Primate Center, Göttingen) 
+% \subsection{Career Breaks}
+% \subsection{Covid-19 Impact to Scientific Productivity}
+% \begin{itemize}
+    % \item 
+% \end{itemize}
+
+%%%%%%%%%%%%% APPENDIX %%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{Appendix:\\ All ongoing and submitted grants and funding of the PI (Funding ID)}
+\subsection{On-going Grants}
+\begin{footnotesize}
+	\def\arraystretch{1.5}
+	\begin{tabular}{|p{3.9cm}|p{2.5cm}|p{1.5cm}|p{1.3cm}|p{1.8cm}|p{2.4cm}|}
+		\hline
+		\rowcolor{black!20}
+		\textbf{Project Title}         &
+		\textbf{Funding source}        &
+		\textbf{Amount\newline(Euros)} &
+		\textbf{Period}                &
+		\textbf{Role of the PI}        &
+		\textbf{Relation to \newline current ERC \newline proposal}          \\
+		\hline
+		Mechanisms of Representation Transfer  
+            & CyberValley Research Fund 
+            & \EUR{204,000} 
+            & 2019 -- 2023 
+            & PI 
+            & None \\
+		\hline
+		KI-basiertes Tracking-System zur automatisierten, objektiven und reproduzierbaren Durchführung von Verhaltensstudien an Maus-Modellen zur Erforschung des Epilepsie- Spektrums (KI-Track)  
+        & Federal Ministry for Economic Affairs and Climate Action 
+        & \EUR{188,062} 
+        & 2019 -- 2024 
+        & PI 
+        & Develops methods for 2D-3D pose lifting and \textit{supervised} action classification in mice (used in the proposal)\\
+		\hline
+	A collaborative data management platform for reproducible neuroscience and machine learning 
+        & German Research Foundation: CRC 1233 ``Robust Vision'', University Tübingen
+        &\EUR{242,700} (own part) & 2020 -- 2024 
+        & Co-PI with Philipp Berens, University Hospital Tübingen & None \\\hline
+    	Top-down control of visual inference in sensory representations in early visual cortex 
+        & German Research Foundation: CRC 1233 ``Robust Vision'', University Tübingen &\EUR{213,020} (own part) & 2020 -- 2024 & Co-PI with Jakob Macke & Develops trainable normative models for macaque V1 \\\hline
+        Predictive models and frame of reference in macaque sensorimotor cortex under natural conditions	
+        & German Research Foundation: CRC 1456 ``Mathematics of Experiment'', University Göttingen
+        &  \EUR{145,400} (own part) 
+        & 2023 -- 2024
+        & Co-PI with Alexander Gail, German Primate Center
+        & Develops graph based predictive models for the sensorimotor system of macaques \\\hline
+	Predicting clinical progression in Parkinson's disease patients using genetic and cerebrospinal fluid-based biomarkers. 
+        & ClinBrAIn Else Kröner Medical Scientist Kollegs 
+        &  \EUR{75,000} (own part)
+        & 2023 -- 2025 
+        & Co-PI with Kathrin Brockmann, Hertie Institute for Clinical Brain Science 
+        & None \\\hline
+	Inception loops for interpretable tuning in macaque area V4 
+        & Collaborative Research in Computational Neuroscience (CRCNS; National Science Foundation and Federal Ministry of Education and Research) 
+        &  \EUR{275,774} (own part)
+        & 2022 -- 2024 
+        & Co-PI with Andreas Tolias, Baylor College of Medicine 
+        & Develops predictive models for macaque V4 under free viewing \\\hline
+	\end{tabular}
+
+	\begin{tabular}{|p{3.9cm}|p{2.5cm}|p{1.5cm}|p{1.3cm}|p{1.8cm}|p{2.4cm}|}
+		\hline
+		\rowcolor{black!20}
+		\textbf{Project Title}         &
+		\textbf{Funding source}        &
+		\textbf{Amount\newline(Euros)} &
+		\textbf{Period}                &
+		\textbf{Role of the PI}        &
+		\textbf{Relation to \newline current ERC \newline proposal}          \\
+		\hline      
+        Lung protective ventilation & University Göttingen Intramural Funding 
+        & \EUR{10,157} (own part) 
+        & 2023 
+        & Co-PI with Anne-Christin Hauschild, University Hospital Göttingen
+        & None\\\hline
+        KI-EIT: Evaluation des Potenzials künstlicher Intelligenz (KI) zur Erfassung von beginnenden Lungengewebsschädigungen mittels Elektrischer Impedanztomographie (EIT) durch Langzeitmonitoring
+        & German Aerospace Center
+        & \EUR{253,509} (own part)
+        & 2022-2025 
+        & Co-PI with Leif Saager, University Hospital Göttingen
+        & None\\\hline
+	\end{tabular}
+\end{footnotesize}
+\color{black}
+
+\subsection{Applications}
+\begin{footnotesize}
+	\def\arraystretch{1.5}
+	\begin{tabular}{|p{3.9cm}|p{2.5cm}|p{1.5cm}|p{1.3cm}|p{1.8cm}|p{2.4cm}|}
+		\hline
+		\rowcolor{black!20}
+		\textbf{Project Title}         &
+		\textbf{Funding source}        &
+		\textbf{Amount\newline(Euros)} &
+		\textbf{Period}                &
+		\textbf{Role of the PI}        &
+		\textbf{Relation to \newline current ERC \newline proposal}          \\
+		\hline
+		Mechanistic dissection of ethological visual inference during prey capture                           & National Institute of Health (NIH) U19 & \EUR{491,382} (own part) & 2023-2027 & Co-Investigator on Project 3 & Proposes to study visual representations along mouse cortical hierarchy during hunting (some of the data could be used for the ERC, but methods/goals are different: no embodied twin, no reinforcement learning, focuses on disentangled neuronal populations)\\
+		\hline
+		Brain CoLaboratory: Accelerating scientific discovery though a community effort using inception loops
+        & National Institute of Health (NIH) U24 
+        & \EUR{676,912} (own part) 
+        & 2023-2027 & Co-Investigator with Andreas Tolias, Baylor College of Medicine
+        & None\\
+		\hline
+	Curiosity
+        & Research Training Center, German Research Foundation
+        & \EUR{454,600} (own part) 
+        & 2024-2029 & Co-PI with Nivedita Mani, University Göttingen
+        & None\\
+		\hline
+        Identifying molecular endophenotypes and clinical PD subtypes by modelling demographic, lifestyle, genetic and CSF biomarker signatures 
+        & Michael J. Fox Foundation
+        & \EUR{126,410} (own part) 
+        & 2023-2026 & Co-PI with Kathrin Brockmann, Hertie Institute for Clinical Brain Research
+        & None\\
+		\hline
+	\end{tabular}
+\end{footnotesize}
+
+%%%%%%%%%%%%% APPENDIX %%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Early achievements track-record}
+\subsection{Highlights}
+\begin{itemize}
+    \item Raised more than \EUR{1.8M} in third party funding (counting own share only).
+    \item $>$3500 citations, h-index 26 (google scholar), 8 publications from my undergraduate work (6 conference, 1 journal, 1 book chapter).
+    \item Best paper award (2nd author) at ICML 2006 (top tier conference).
+    \item Over 20 peer reviewed paper in top tier conferences (\textit{i.a.} NeurIPS, ICLR) and high impact journals (\textit{i.a.} Nature, Nature Neuroscience, Nature Communications, Neuron), and over 10 preprints \textbf{since the start of my own lab} in late 2018 (7 journal, 10  conference, 5 workshop, 13 preprints).
+    \item In executive leadership team (machine learning coordinator, 2016--2021) of \$20M \href{https://www.ninai.org/}{international consortium (MICrONS)} of multiple research institutions (\textit{i.a.} Baylor College of Medicine, Princeton, CalTech, Columbia, Allen Institute, Vector Institute/U Toronto) to understand algorithms of vision.
+    \item Independent Group Leader at Europe's largest AI research consortium (\href{https://cyber-valley.de/}{CyberValley}).
+    \item Tenured full professor and institute board member. 
+\end{itemize}
+
+\subsection{Scientific independence, interdisciplinarity, and leadership}
+Throughout my career, I have always strived for scientific independence and breadth. Even before I obtained my diploma (master's degree), I independently worked on my own  projects as a student assistant at the Max Planck Institute for Biological Cybernetics in the department of Bernhard Schölkopf and as an intern at NEC research in Princeton. My undergraduate work resulted in eight publications, one of them a best paper award at the top tier International Conference for Machine Learning (ICML) and one of them with one of the fathers of statistical machine learning (Vladimir Vapnik). I continued this during my time as a graduate student, where I secured my own funding through a Ph.D. scholarship, independently started and completed a collaboration with an HHMI investigator (Eero Simoncelli), or independently developed and taught my own lectures for master students. My graduate work resulted in nine publications, seven of them as first author. 
+
+My scientific passion is to understand the building blocks of biological intelligence, using computational tools from artificial intelligence. After my Ph.D., I thus decided to do some experimental neuroscience work as a postdoc. I first spent three years in an electric fish lab until I joint the lab of Andreas Tolias in Houston where I got the opportunity to join both of my interests in a large multi-university consortium (MICrONs). I quickly became part of the executive leadership team (machine learning coordinator), where I made several key conceptual contributions that led our consortium to be the only one (out of three) that made it through all three funding phases (consortia led by Harvard and CMU were eliminated earlier). Subsequently, I became a research assistant professor at Baylor College of Medicine in Houston in 2018, an independent group leader in Europe's largest consortium for AI research  (\href{https://cyber-valley.de/}{CyberValley}) in 2018, before accepting a fully tenured W3 professorship in Göttingen (2021).
+
+The focus of my research group today is develop machine learning models for complex life science data, in particular neuroscience. We draw great scientific satisfaction from compiling multiple experimental datasets into predictive models (functional digital twins) that can make predictions which would have been infeasible to find experimentally, but that can be verified experimentally (because searching is hard in experiments, but feasible in computational models). For that, we are very fortunate to work with experimentalists (A. Tolias \& K. Franke in Houston, E. Froudarakis on Crete, A. Gail in Göttingen) who trust us with their data and run the verification experiments.
+
+\subsection{Selected publications as (joint$^{\color{red}\fstar}$) senior author (none with Ph.D. supervisor)}
+\begin{itemize}[topsep=0pt,itemsep=0.62ex,partopsep=0ex,parsep=0.5ex]
+    \item Franke K, Willeke KF, Ponder K, Galdamez M, Muhammad T, Patel S, Froudarakis E, Reimer J, \textbf{Sinz FH}$^{\color{red}\fstar}$, Tolias AS$^{\color{red}\fstar}$ (2022). \textit{Behavioral state tunes mouse vision to ethological features through pupil dilation}. \textbf{Nature}. \href{https://www.nature.com/articles/s41586-022-05270-3}{Link}
+    
+    $\rightarrow$~\textit{Joint last authorship (computational PI). Uses functional digital twins combined with experiments to show that color tuning can change in mouse visual cortex on the order of seconds. }
+    
+    \item Bashiri M, Walker EY, Lurz KK, Jagadish AK, Muhammad T, Ding Z, Ding Z, Tolias AS, \textbf{Sinz FH} (2021). \textit{A flow-based latent state generative model of neural population responses to natural images} \textbf{NeurIPS}. \href{https://openreview.net/forum?id=1yeYYtLqq7K}{Link}
+    
+    $\rightarrow$~\textit{First full image driven neuronal encoding model with latent state for thousands of neurons from multiple areas. Selected as spotlight. NeurIPS is the top tier machine learning conference (2021: 25.8\% acceptance rate, 12\% spotlight)}.
+    
+    \item Lurz KK, Bashiri M, Willeke KF, Jagadish AK, Wang E, Walker EY, Cadena S, Muhammad T, Cobos E, Tolias AS, Ecker AS, \textbf{Sinz FH} (2021) \textit{Generalization in data-driven models of primary visual cortex.} \textbf{ICLR}. \href{https://openreview.net/forum?id=Tp7kI90Htd}{Link}
+    
+    $\rightarrow$~\textit{First paper to demonstrate that data-driven models of mouse visual cortex learn characteristic features that generalize between animals. De-facto state of the art architecture for neural prediction in mouse visual cortex. Selected as spotlight at ICLR. ICLR is among the top-tier conferences for machine learning (2021: 28.7\% acceptance rate, 3\% spotlight)}.
+\end{itemize}
+
+\subsection{Selected publications as (joint$^{\color{red}\fstar}$) first author (none with Ph.D. supervisor)}
+\begin{itemize}[topsep=0pt,itemsep=0.62ex,partopsep=0ex,parsep=0.5ex]
+    \item Walker EY$^{\color{red}\fstar}$, \textbf{Sinz FH}$^{\color{red}\fstar}$, Cobos E, Muhammad T,  Froudarakis E, Fahey PG, Ecker AS, Reimer J, Pitkow X, Tolias AS (2019) \textit{Inception loops discover what excites neurons most using deep predictive models} \textbf{Nature Neuroscience}. \href{https://www.nature.com/articles/s41593-019-0517-x}{Link}
+
+    $\rightarrow$~\textit{One of the three first papers to show that data-driven functional digital twin models can be used to derive novel insights about single neurons in visual cortex. Two similar papers (\href{https://www.science.org/doi/10.1126/science.aav9436}{Bashivan et al. 2019}, \href{https://www.sciencedirect.com/science/article/pii/S0092867419303915}{Ponce et al. 2019}) were published concurrently}.
+ 
+    \item \textbf{Sinz FH}, Ecker AS, Fahey PG, Walker EY, Cobos E, Froudarakis E, Yatsenko D, Pitkow X, Reimer J, Tolias AS (2018) \textit{Stimulus domain transfer in recurrent models for large scale cortical population prediction on video}. \textbf{NeurIPS}. \href{https://proceedings.neurips.cc/paper/2018/file/9d684c589d67031a627ad33d59db65e5-Paper.pdf}{Link}
+
+    $\rightarrow$~\textit{First deep learning based functional digital twin model for visual cortex on video. Reproduces tuning properties of single neurons when trained on natural videos only. NeurIPS is the top tier conference in machine learning (2018: acceptance rate 20.8\%)}.
+\end{itemize}
+
+
+\subsection{Scientific achievements}
+\begin{itemize}[topsep=0pt,itemsep=0.62ex,partopsep=0ex,parsep=0.5ex]
+    \item I am the co-developer of the \textit{Inception Loop} method (Walker, Sinz et al., 2019) that uses deep learning models to learn a functional copy of a neural system from responses to natural stimuli, to derive predictions \textit{in silico} (such as optimal stimuli) and to verify them \textit{in vivo}. This method is an effective way to circumvent many experimental difficulties by ``outsourcing'' searching (for best stimuli, invariances, etc.) to a computational model.    
+    Using inception loops, we (computationally and experimentally) demonstrated striking deviations of mouse primary visual cortex from existing textbook models (Walker, Sinz et al., 2019), and showed that visual cortex can change selectivity with behavioral states on the order of seconds (Franke et al, 2022).
+    \item I pioneered scalable data-driven deep learning models of the primary visual cortex on video (Sinz et al., 2018) and deep latent (brain) state models that can be driven by arbitrary images (Bashiri et al., 2021). These models are trained on responses to natural images and extrapolate non-trivially to meaningful properties of the real neurons, such as direction tuning or brain area membership. These models form the basis for the work proposed here.  
+    \item During my Ph.D. I derived novel parametric distributions for natural images (Sinz, Bethge, 2010; Sinz, Simoncelli, Bethge, 2009) that were state of the art at the time, and derived a non-trivial characterization of the Gaussian distribution to non-Euclidean norms (Sinz, Gerwinn, Bethge, 2009). The original result for Gaussians is attributed to Maxwell.
+\end{itemize}
+
+
+% \subsection{Talks}
+% \subsubsection{\textit{Selected Colloquia}}
+
+% \begin{longtable}{p{7.5cm}p{6cm}l}
+% 	Seminar & A University & date \\
+% 	Seminar & B University & date \\
+% \end{longtable}
+
+% \subsection{\textit{Selected Conference Talks}}
+
+% \begin{longtable}{p{7.5cm}p{6cm}l}
+% 	Invited review on Blabla & City & date \\
+% \end{longtable}
+
+\end{document}

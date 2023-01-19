@@ -66,6 +66,75 @@ In summary, to make significant progress in understanding the computational rele
 
 \hl{What I propose to do} Here I propose to mitigate this problem by building a data-driven embodied digital twin of mouse visual cortex that merges large scale recordings of neuronal activity with large scale recordings of free and task-driven behavior in a single model. 
 This digital twin will allow me to \circled{1} disambiguate the contributions of stimulus and behavior to neuronal responses in visual cortices, \circled{2} find specific stereotypical behaviors linked to changes neuronal processing for each higher visual area, and \circled{3} predict the effect of causal manipulations in neuronal firing on free behavior or on mice performing an object recognition task. 
+%-----------------------------
+% Visual features are often only hypothesized to play a role. Behavioral verification is missing
+The purpose of the visual system is to extract actionable information about our environment from the complex and ambiguous light patterns provided by the eyes. 
+% This information forms the informational basis for our behavior.
+In the cortex of mice, visual information is processed in the primary (V1) and multiple higher visual areas (AL, LM, LI, PM, RL, P, AM, POR, A). 
+These areas show a surprisingly similar selectivity for visual stimuli.
+Currently, it is unclear what each area computes and how they differ in their computational properties~\parencite{Conwell2021-pw}. 
+Visual processing in the brain is not a static process, but is actively adapted to the current behavioral context.
+Recent studies show that different behaviors can change neural activity and computation in visual cortex in drastic/complex ways that differ from area to area~\parencite{Musall2019-kd,Stringer2019-lt,Franke2022-do}.
+% While the effects of these changes on neuronal computation remains to be determined, theories of optimal control and active sensing suggest that behavioral objectives should affect upstream computations. 
+% This means, what is computed in a particular area determines to some extent how it is affected by different behavioral tasks. 
+% \hl{optimal control (closed loop) and active sensing dictates that the task should influence how sensory information is acquired (give example)}
+% \hl{This means: What is computed should determine how it is affected by computational goals.}
+% Behavior changes the conditions of sensory acquisition. What type of behavior influences neuronal representations in a particular the most should us something about the tasks this area is optimized to solve/perform. 
+% \textbf{The central hypothesis of this proposal is that higher visual areas in mouse visual cortex are dedicated to different computational tasks. Consequently, the computational differences between them can be understood by characterizing which types of natural behavior most change their response properties.} 
+\textbf{The central hypothesis of this proposal is that there is a correspondence between what is computed in a visual brain area and what types of natural behavior most change the response properties of its neurons.} Consequently, the computational differences between mouse higher visual areas can be understood by characterizing which types of natural behavior change their response properties the most.
+
+The difference between mouse higher visual areas and their functional relevance are currently not well understood. Mouse visual cortex consists of the primary visual cortex (V1) and at least nine different higher visual areas that are conntected to it \parencite[AL, LM, LI, PM, RL, P, AM, POR, A, see ][]{Garrett2014-zm,Froudarakis2019-yt}. 
+% Six out of these are retinotopically organized  (AL, LM, LI, PM, RL, P), meaning that neighboring neurons are also sensitive to neighboring locations in the visual field. 
+While slight differences in the selectivity to visual stimuli have been found for neurons in these areas, for instance in terms of spatial frequency, characterizations of these neurons mainly relied on simple parametric stimuli (such as moving gratings, i.e. striped patterns). Preferred stimuli of neurons of these area derived from predictive models trained on responses to natural stimuli qualitatively show very little difference \hl{Fig!}. 
+% A clear distinction between simple oriented features and morphologically more complex features as in the primate visual system has not been found. 
+% Mouse higher visual areas may compute similar features that are used in different behavioral contexts.
+% In primates, previous work with neuronal networks trained for object recognition and other specific tasks revealed a clear hierarchy and separation in different functional purposes \hl{Santi, Yamins, Kriegeskorte, Guclu}.
+In contrast to  humans and other primates \hl{Santi, Yamins, Kriegeskorte, Guclu}, a clear functional separation between different cortical areas in the mouse could been found so far~\parencite{Conwell2021-pw}.
+One possible explanation for that could be that mice have other ethological needs that do not neatly map onto anthropocentric tasks. 
+Another reason could be that higher visual areas of mice compute similar features from the visual input that are used in -- and dyncamically adapted to -- different behavioral contexts. 
+One piece of evidence for this interpretation could be that the sensitivity of different higher visual areas are spatially separated in the visual field: 
+While V1 covers the entire visual field, higher visual areas only represent parts. 
+Since mice do not have a fovea like primates, this suggests that higher visual areas serve different behavioral needs, such as attenting the nasal field where the whiskers are or attending the sky to detect approaching predators~\parencite{Garrett2014-zm, Froudarakis2019-yt, Franke2022-do}\hl{Fig?}. 
+
+Behavior modulates and adapts neuronal processing depending on behavioral context and internal state of the animal.
+Behavior is known to affect visual processing in mice and other animals~\parencite{Niell2010-bs, Musall2019-kd, Erisken2014-un,Christensen2017-bx}. 
+While running is mostly linked to an additive or multiplicative gain on neural response without changing their stimulus preferences~\parencite{Dadarlat2017-jw, Mineault2016-fk}, it can also change the stimulus preferences (tuning) of neurons. 
+One previous study found increased activity in V1, AL, LM, RL, PM, AM, and A during figure ground segmentation for line based stimuli~\parencite{Schnabel2018-tb}.
+Furthermore, locomotion has previously been linked to changes in preference for visual speed~\parencite{Andermann2011-vw}, as well as changes in functional connectivity between areas~\parencite{Clancy2019-ta} and changes in the structure of the stimulus independent activity of an entire neuronal population~\parencite{Horrocks2021-re,Stringer2019-lt}. 
+We recently showed that arousal, which correlates with a widened pupil and running in mice, can change the color preference of neurons in primary visual cortex at the timescale of seconds~\parencite{Franke2022-do}. 
+
+The relevance of higher visual areas for behavioral tasks are not well understood.
+Previous studies silenced or suppressed activity in different higher visual areas \hl{REFs}. 
+However, the effects of these manipulations have mainly been studied for simple stimuli or tasks. 
+The observed consequences were often complex and not easily understood~\parencite{Froudarakis2019-yt}. 
+A necessary role of different areas in specific behavioral contexts could not be established so far. 
+One possible reason for that could be those causal manipulation where performed in passively viewing mice that did not engage in a task, or on simple tasks that might be too far from the natural context the mouse visual system is used in. 
+These stimuli and tasks are usually very simple and unnatural and might therefore not engage a system that was made for inferring properties of a complex natural world during natural behavior from high dimensional visual input, failing to show a clear difference.
+% It might thus be that the visual system, made for inferring environmental properties in a complex world, was simply not engaged enough to show a clear difference. 
+% Thus 
+Detecting and understanding the functional relevance might thus require us to study neuronal processing during natural behavior and natural stimulation together, which is what the system was made for. 
+
+Unfortunately, while neuroscientists can currently measure the activity of a larger number of neurons and track behavior at a higher level of detail than ever before, understanding how sensory input and behavior are integrated into the neural activity of thousands of neurons across different brain areas and how this activity relates to neuronal computation, remains a challenge.
+In experiments that can record a large number of neurons (e.g. using 2-photon microscopy), animals are usually head-fixed which severely limits behavior. 
+In recordings of freely behaving mice, the number of simultaneously observable neurons is limited and the exact visual input to the system is usually unknown. 
+The common approach to this problem is to treat modulations of neural activity caused by external or internal factors that cannot be simultaneously observed as ``noise''.
+However, since these modulations might be meaningful in the respective behavioral context, ignoring them might prevent us from understanding the bigger picture~\parencite{Urai2022-fz}.
+
+In summary, to make significant progress in understanding the computational relevance of different higher visual areas in mouse visual cortex, we need to crucial steps: \circledpri{1} We need to embrace the complexity studying neuronal responses under natural stimulation and behavior, and move towards a ``natural neuroscience'' that studies single trials from a system in an environment it was made for. \circledpri{2} We need the necessary technology to merge different behavioral and physiological observations in a single computational model that allows us to disentangle the contribution of the stimulus, the behavioral context, and internal states to neuronal activity across cortex, to characterize the correspondence between behavioral context and modulation of neuronal processing in silico, and that makes testable experimental predictions about neuronal processing that depend on behavioral context or on causal manipulations. 
+
+\hl{I get the data from long term collaborator and microns}
+
+\hl{Datasets like these put neuroscience in the area of big data} Manual inspection is no longer feasible. To facilitate scientific discovery we need computational methods that can infer patterns in the data in a data-driven non-anthropocentric way. 
+
+\hl{I recently have done a lot of work on that}
+% We built deep predictive models for mouse visual cortex to natural images and video that yielded novel and experimentally verified insights \parencite{Walker2019-yw, Franke2022-do, Sinz2018-sk}. \hl{more details}
+
+% Cite neuroconnectioninst research programme.
+
+% Complex datasets like these put neuroscience in the area of big data and cannot be simply analyzed by techniques that focus on single neurons and low parametric stimuli, but require tools of modern machine learning and neural data science to connect and interpret the different high dimensional observations. My work over the last five years has focussed on exactly that. 
+
+\hl{What I propose to do} Here I propose to mitigate this problem by building a data-driven embodied digital twin of mouse visual cortex that merges large scale recordings of neuronal activity with large scale recordings of free and task-driven behavior in a single model. 
+This digital twin will allow me to \circled{1} disambiguate the contributions of stimulus and behavior to neuronal responses in visual cortices, \circled{2} find specific stereotypical behaviors linked to changes neuronal processing for each higher visual area, and \circled{3} predict the effect of causal manipulations in neuronal firing on free behavior or on mice performing an object recognition task. 
 %------------------------------------------------------------------------------
 % The goal of  visual perception is to provide the organism with actionable information about the state of the world inferred from light that enters the eye. 
 % Processing of visual information in the brain is not a fixed process but actively changes with the behavioral context of the animal, for instance through attention or by actively selecting what information is acquired through eye movements and behavior. 

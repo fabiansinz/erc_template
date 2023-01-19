@@ -15,7 +15,7 @@
 \DeclareOption{COG}{\renewcommand{\proposaltype}{Consolidator Grant}}
 \DeclareOption{ADG}{\renewcommand{\proposaltype}{Advanced Grant}}
 \newcommand{\callyear}{2023}
-
+ 
 \ProcessOptions
 
 \LoadClass{scrreprt}
@@ -30,6 +30,8 @@
 \RequirePackage[english]{babel}
 \RequirePackage[right]{eurosym}
 \RequirePackage{soul}
+\RequirePackage{pgfgantt}
+
 \RequirePackage{tabularx}
 \RequirePackage{marginnote}
 \setlength{\footskip}{1.45\baselineskip}
@@ -62,14 +64,22 @@
 \definecolor{lightgreen}{rgb} {0.56,0.88,0.28}
 
 % primary colors
+\definecolor{phd1}{HTML}{1b9e77}
+\definecolor{phd2}{HTML}{d95f02}
+\definecolor{postdoc1}{HTML}{7570b3}
+
 \definecolor{goe_blue}{HTML}{003665}
-\definecolor{obji}{HTML}{003665}
+% \definecolor{obji}{HTML}{003665}
+\definecolor{obj1}{HTML}{003665}
 \definecolor{light_blue}{HTML}{BDCEE3}
 \definecolor{neon_blue}{HTML}{04D9FF}
 % secondary colors
 \definecolor{sec_dark_blue}{HTML}{006597}
 \definecolor{sec_mid_blue}{HTML}{0093c7}
-\definecolor{objii}{HTML}{0093c7}
+% \definecolor{objii}{HTML}{0093c7}
+\definecolor{midblue}{HTML}{0093c7}
+
+\definecolor{obj2}{HTML}{0093c7}
 \definecolor{sec_sky_blue}{HTML}{84bfea}
 \definecolor{objiv}{HTML}{84bfea}
 \definecolor{sec_chamois}{HTML}{e9e1d7}
@@ -79,7 +89,7 @@
 \definecolor{deeppink}{HTML}{ff1493}
 
 \definecolor{cs_orange}{HTML}{E58143}
-\definecolor{objiii}{HTML}{E58143}
+\definecolor{obj3}{HTML}{E58143}
 \definecolor{grey_2}{HTML}{575556}
 \definecolor{grey_1}{HTML}{3C3B39}
 \definecolor{grey_3}{HTML}{878787}
@@ -110,10 +120,14 @@
 
 \RequirePackage[parfill]{parskip}
 
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\eg}{\textit{e.g.}}
+\newcommand{\ia}{\textit{i.a.}}
+
 % ========== BIBLIOGRAPHY STUFF ============
 
 % \RequirePackage{natbib}
-\RequirePackage[style=authoryear]{biblatex}
+\RequirePackage[style=numeric-comp,sorting=none]{biblatex}
 \RequirePackage{csquotes}
 % \bibpunct{(}{)}{;}{a}{,}{,}
 \input{abbrev.tex}
@@ -155,8 +169,8 @@
 %###
 \setlength{\belowcaptionskip}{0.0cm}
 
-\RedeclareSectionCommands[indent=0pt, beforeskip=0.2em, afterskip=0.3em]{chapter,section}
-\RedeclareSectionCommands[indent=0pt, beforeskip=.2em, afterskip=0.2em]{subsection,subsubsection,paragraph}
+\RedeclareSectionCommands[indent=0pt, beforeskip=0.2em, afterskip=0.6em]{chapter,section}
+\RedeclareSectionCommands[indent=0pt, beforeskip=.2em, afterskip=0.3em, font=\bfseries\large]{subsection,subsubsection,paragraph}
 
 
 %###
@@ -212,25 +226,39 @@
 \RequirePackage{enumitem}
 \RequirePackage{tikz}
 
-\newcommand\bboxed[2]{%
-  \tikz[baseline=(X.base)] 
-    \node (X) [draw=none, inner sep=0, fill=#2, text=white] {\strut \footnotesize~#1\;};%
+\DeclareRobustCommand\bboxed[2]{%
+  \tikz[baseline={([yshift=-.55ex]current bounding box.center)}]%(X.base)] 
+    \node (X) [draw=none, inner sep=-1, fill=#2, text=white,rounded corners=4] {\strut \footnotesize~#1\;};%
 }
-\newcommand{\obji}{\bboxed{\hyperref[sub:obji]{\color{white}O-1}}{obji}}
-\newcommand{\objii}{\bboxed{\hyperref[sub:objii]{\color{white}O-2}}{objii}}
-\newcommand{\objiii}{\bboxed{\hyperref[sub:objiii]{\color{white}O-3}}{objiii}}
-\newcommand{\objiv}{\bboxed{\hyperref[sub:objiv]{O-4}}{objiv}}
+
+
+% \newcommand{\obji}{\bboxed{\hyperref[sub:obj1]{\color{white}O-1}}{obj1}}
+% \newcommand{\objii}{\bboxed{\hyperref[sub:obj2]{\color{white}O-2}}{obj2}}
+% \newcommand{\objiii}{\bboxed{\hyperref[sub:obj3]{\color{white}O-3}}{obj3}}
+% \newcommand{\objiv}{\bboxed{\hyperref[sub:objiv]{O-4}}{objiv}}
+
+\newcommand{\obj}[1]{\bboxed{\hyperref[obj#1]{\color{white}O#1}}{obj#1}}
+\newcommand{\objwp}[2]{\bboxed{\hyperref[obj#1-wp#2]{\color{white}O#1-WP#2}}{obj#1}}
+\newcommand{\labelobjwp}[2]{\label{obj#1-wp#2}}
+\newcommand{\labelobj}[1]{\label{obj#1}}
+\newcommand{\obji}{\obj{1}}
+\newcommand{\objii}{\obj{2}}
+\newcommand{\objiii}{\obj{3}}
+
 % \newcommand{\objii}{\bboxed{Obj.~2}{objii}}
 % \newcommand{\objiii}{\bboxed{Obj.~3}{objiii}}
 % \newcommand{\objiv}{\bboxed{\color{black}Obj.~4}{objiv}}
+\RequirePackage{xparse}
+\NewDocumentCommand{\circled}{ O{grey_4} O{black} O{black} m }{\tikz[baseline={([yshift=-.65ex]current bounding box.center)}]{%
+            \node[shape=circle,fill=#1,draw=#2,inner sep=1pt] (char) {\textcolor{#3}{\footnotesize #4}};}}
 
-\newcommand*\circled[1]{\tikz[baseline=(char.base)]{%
-            \node[shape=circle,fill=grey_4,draw=black,inner sep=1pt] (char) {\footnotesize #1};}}
+% \newcommand*\circled[3][black, grey_4]{\tikz[baseline=(char.base)]{%
+            % \node[shape=circle,fill=#2,draw=#1,inner sep=1pt] (char) {\footnotesize #1};}}
 
-\newcommand*\circledpri[1]{\tikz[baseline=(char.base)]{%
-            \node[shape=circle,fill=goe_blue,draw=goe_blue,inner sep=1pt] (char) {\color{white}#1};}}
-\newcommand*\circledsec[1]{\tikz[baseline=(char.base)]{%
-            \node[shape=circle,fill=sec_mid_blue,draw=sec_mid_blue,inner sep=1pt] (char) {\color{white}#1};}}
+% \newcommand*\circledpri[1]{\tikz[baseline=(char.base)]{%
+%             \node[shape=circle,fill=goe_blue,draw=goe_blue,inner sep=1pt] (char) {\color{white}#1};}}
+% \newcommand*\circledsec[1]{\tikz[baseline=(char.base)]{%
+%             \node[shape=circle,fill=sec_mid_blue,draw=sec_mid_blue,inner sep=1pt] (char) {\color{white}#1};}}
 
 \setitemize{noitemsep,topsep=0ex,parsep=0.25ex,partopsep=0pt,leftmargin=*}
 \setenumerate{topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*}
