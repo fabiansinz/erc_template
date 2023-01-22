@@ -7,12 +7,12 @@
 \bibliography{bibliography.bib}
 \bibliography{bibliography_pawel.bib}
 
-\author{Fabian Sinz}
-\acro{Visual System in Action}
-\title{Data-driven embodied digital twins of mouse visual cortex.}
-\institution{Georg August Universität Göttingen}
+% \author{Fabian Sinz}
+% \acro{Visual System in Action}
+% \title{Data-driven embodied digital twins of mouse visual cortex.}
+% \institution{Georg August Universität Göttingen}
 
-
+\input{titles.tex}
 % \renewcommand{\callyear}{2050}
 
 % \author{\textcolor{red}{Dr. Jane/John Doe}}
@@ -50,9 +50,9 @@ This is because it is a fundamentally causal question: What would the behavioral
 
 To tackle these challenges, I propose to \textbf{build a computational framework based on data-driven deep neural network models of the visual system, detailed motor behavior captured by skeleton graphs of freely behaving mice, digitized real environments and reinforcement learning}.
 
-\begin{figure*}[b]
-\includegraphics[width=\textwidth, height=7cm]{example-image}
-\end{figure*}
+% \begin{figure*}[b]
+\includegraphics[width=\textwidth, height=7cm]{figures/overview.pdf}
+% \end{figure*}
 
 I will build a model for visual cortex under free behavior (\obj{1}), use it to disentangle the contribution of visual input, behavior, and internal state to neuronal activity, and study how behavior and internal state affects neuronal tuning (\obj{2}). Then I will use this model as the visual system in a reinforcement learning agent to predict behavioral strategies of mice in an open field object recognition task. I will use this to study the computational relevance of behavior-associated changes in tuning for task performance (\obj{3}).
 
@@ -243,11 +243,21 @@ It pushes multiple boundaries of model development in neuronal data science with
 \circled[black][black][white]{3} Together they allow a comprehensive characterization of how the visual system adapts with behavioral context. As the volume, detail, and complexity of neuroscientific and behavioral data is increasing, the proposed approach is one step towards a \textit{standard model of systems neuroscience}.
 The framework will not replace experiments, but make it easier, faster and cheaper to generate specific predictions by running experiments \textit{in silico} first before verifying their prediction \textit{in vivo}.
 
+\textbf{Ethics in AI and the use of animals}
+The misuse of machine learning can negatively impact the lives of individuals with respect to privacy, discrimination or bias. 
+My proposed project is about developing computational tools for fundamental research in systems and behavioral neuroscience. 
+Thus, there are no foreseeable direct negative consequences on the life of individuals and it is unlikely that my research will result in negative consequences regarding ethical concerns related to human rights and values.
+
+Although, we study neuronal systems and use large scale neuronal data, my lab will not perform any animal experiments in this project. 
+The experiments for a large fraction of the data volume that we want to use for this project have already been recorded. 
+In addition, I have included a small budget for subcontracting supplementary experiments at the labs of my experimental partners Emmanouil Froudarakis (FORTH, Crete) and Andreas Tolias (Baylor College of Medicine, Houston, Texas).  
+While the success of the project does not depend on these experiments, experimental verification of our predictions will make our results more impactful. 
+They will be carried out in agreement with ethical regulations and protocols approved by \hl{Manolis FORTH} and Baylor College of Medicine Institutional Animal Care and Use Committee (IACUC).
 %%%%%%%%%%%%% METHODOLOGY %%%%%%%%%%%%%%%%%%%
 \section{Methodology}
 % \subsection{A data-driven embodied digital twin of mouse visual cortex}
 % % \subsection{\color{obj1}Objective 1: A data-driven embodied digital twin of mouse visual cortex}
-\subsection{Objective 1: An video-driven digital twin of mouse visual cortex during free behavior}
+\subsection{\colorbox{obj1}{\color{white}Objective 1}: \oonetitle}
 \labelobj{1}
 
 \textbf{Overview and rationale:} Neural activity and tuning in visual cortex is not only determined by visual input, but can be profoundly affected by behavior and the internal state of an animal~\parencite{Niell2010-bs,Musall2019-kd,Stringer2019-lt, Franke2022-do}.
@@ -326,7 +336,7 @@ Importantly, it will allow us to predict neuronal activity to completely novel t
 \hl{Digital twin of 1 not binocular. How to deal with that?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{\colorbox{obj2}{\color{white}Objective 2}: Find tuning changes and characterize uncertainty in latent dimensions.}
+\subsection{\colorbox{obj2}{\color{white}Objective 2}: \otwotitle.}
 % \subsection{\color{obj2} Objective 2: Find tuning changes and characterize uncertainty in latent dimensions.}
 
 \label{sub:obj2}
@@ -374,6 +384,14 @@ To visualize the changes in tuning, we will compute maximally exciting input~\pa
 
 \subsubsection{Workpackage 2.2\hfill \objwp{2}{2}}
 \labelobjwp{2}{2}
+If the tuning change has influence on behavior and the decision of the animal, then natural occurring variations in the neuronal responses should have an influence on the task performance of the mouse. 
+We will thus use the behavioral embedding or, alternatively, the latent state inferred by the model from the neuronal responses, and compute choice correlation to determine whether behavior or tuning changes are informative about the choice, and thus the task performance of the animal. 
+In particular, we will analyze whether either the behavior or the latent state differ between trials where the animal made the correct decision vs. trials when it decided wrong. 
+
+
+\subsubsection{Workpackage 2.3\hfill \objwp{2}{3}}
+\labelobjwp{2}{3}
+
 One of the objectives of stochastic optimal control is to reduce the uncertainty about the state determined (among others senses) by the visual system. 
 Since not every aspect of the environment is equally important for every behavior, we hypothesize that tuning changes corresponding do different behavioral motifs found in~\objwp{2}{1} also affect the certainty about different stimulus dimensions. 
 To investigate this, we will decode latent world properties, such as object boundaries, depth, curvature, slant, texture, and optical flow, that are available to us from rendered stimuli from neuronal responses\hl{where do we have them from; model only or head-fixed; or otherwise?} under the different tunings of the neural population corresponding to different behavioral motifs identified in~\objwp{2}{1}.
@@ -405,39 +423,113 @@ Other possible changes could be that neurons become more invariant to optic flow
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{\colorbox{obj3}{\color{white}Objective 3}:}
+\subsection{\colorbox{obj3}{\color{white}Objective 3}: \othreetitle .}
 \label{sub:obj3}
 
 \textbf{Overview and rationale:} 
+Previous studies reported that modulation of sensory responses resulted in better behavioral performance \parencite{Spitzer1988-kq, Bennett2013-rk, Dadarlat2017-jw, De_Gee2022-ir}.
+I thus hypothesize that tuning changes in general bias visual processing towards task- or behavioral relevant signals.
+\obj{2} identified how changes in tuning \textit{correlate} with behavior.
+However, to determine whether these changes are relevant for downstream mechanisms to determine behavior, we need to establish \textit{necessity}. 
+The goal of this objective is to build a computational framework to predict how behavior and task performance of an animal would change if its visual system did not exhibit behavior-associated changes in tuning. 
+This a challenging causal and counterfactual question.
+To difficulty for making such a prediction for free (open field) behavior results from the redundancy or the visual stimulus or the representation in the visual sytem. 
+Even when a particular neural mechanism is suppressed or altered, there might be other ways for the animal to still achieve the behavioral goal. 
+As a consequence, the behavioral changes might be subtle and thus hard to predict or interpret.
+We will thus build a to the computational framework in several steps. 
+We will first capture the effect of optogenetic manipulations one the neuronal representations in the model using large scale recordings from head-fixed animals. 
+We will then model the effect of these manipulations on the decisions of the mouse in a object recognition task during head-fixed and open field behavior. 
+Since, we will have the corresponding experimental data, this will be a strong test whether our model can indeed capture the effect of causal manipulations on behavior.
+Once that is established, we will use this framework to model how the open field behavior will be affected if we turn-off behavior-associated changes in tuning.
+% The goal of this objective is to build a computational framework to predict how changes in tuning affect goal-driven behavior and task performance of an animal in an open field object recognition task. 
+% , the experimental intervention must be massive to block the entire flow of information, or the behavioral paradigm needs to be very elaborate to exclude other sources of information. 
+% All of that is tedious, expensive, and time consuming. 
+To model the effect of changes in visual representations on behavior in open field behavior, we need to account for the possibility that the animal chooses a different strategy to still solve the same task. 
+This means, we need to allow our model to change its behavior to solve the task. 
+To that end, I propose use the functional twin of in combination with imitation or reinforcement learning.
+The reinforcement learning agent will have the previously learned visual system of a mouse (with and without manipulations) to access the state of the environment.
+The learned behavioral policy of the agent will make predictions about the behavior of the animal. 
+When the manipulation is turned on, the agent can either use the previously learned policy or adapt the policy to compensate for the changes in the visual system.
+Both will make a prediction about the change in behavior of the animal. 
 
-\textbf{Scientific goals:} 
+\textbf{Scientific goals:}  Predict whether behavior-associated changes in visual representation 
+are necessary to predict the behavior and performance of an animal. 
 
 \textbf{Technical innovation:} 
+Build a computational framework based on imitation and reinforcement learning to predict the causal effect of changes in the neuronal representation on behavior. 
 % An unsupervised generative model to tokenize free behavior of mice into single actions, generate novel smooth behavioral trajectories, and automatically extract an ethogram of behavior.
 
-
-\subsubsection{Workpackage 3.1: Reinforcement learning with embodied twin agent\hfill\objwp{3}{1}}
+\subsubsection{Workpackage 3.1: Causal manipulations in head-fixed animals\hfill\objwp{3}{1}}
 \labelobjwp{3}{1}
-Phasic policy gradient (PPG) is a state-of-the art method for learning behavior with a continuous actions space. It has been utilized in the recent work \hl{openAI video pretraining}, which showed that first pre-training a reinforcement learning model using behavioural cloning provides a strong prior over the actions limiting the exploration space to a more meaningful domain. As a result, the following fine-tuning using PPG is more efficient and gives rise to more complex behaviors than were previously possible with only reinforcement learning.
+We will model the effect of optogenetic inhibition of different areas onto decisions of mice in two alternative forced choice object recognition task. 
+The data consists of large-scale recordings from multiple visual areas in different mice performing the object recognition task under normal conditions and when particular areas are optogenetically suppressed\hl{which areas?}.
+We will first model whether we can predict the animals decisions under normal conditions. 
+To that end, we will train a model to predict the correct outcome for each trial from the feature representation of the functional twin (from the core) just using the mean latent state of the model.
+We will then freeze the task decoder and enable the latent state in the visual model. 
+We will infer the latent state from the actual neuronal recordings.
+Then we will compare the decisions of the model with the decisions of the animal. 
+We expect that addition the latent state increase the prediction accuracy of the choices of the animal. 
 
+In the next step, we will extend the model to account for the effect of opto-genetic manipulations. 
+To that end, we will include an additional input to the model that indicates whether the manipulation was on or off. 
+We will freeze the readout of the actually predicted neurons and then only adapt the feature representations (core) to account for the changes in neuronal activity by predicting neuronal activity to natural images under both conditions.
+This will also reflect any changes on neuronal representations on other areas that might mediated through feedback. 
+Since the optogenetic inhibition will be local, we will add positional encoding to the additional input so the core can change spatially localized. 
+Subsequently, we use this model to predict the task outcome like before.
+We will train it with the core where the manipulations are off, and then predict the decisions of the animal when the manipulations are on.
+We expect that our model faithfully generalizes and correctly predicts the decisions of the animal. 
 
-\hl{PAWEL}
-In this workpackage we will first create a 3D model of the experimental environment using Blender. This will involve designing the layout of the environment, placing objects and props, and setting up any necessary lighting and materials.
-Using the pose data recorded during the experiments we will simulate the mouse and capture the mouse point of view (POV).
-
-The rendered frames from the mouse's POV will serve as state observations for our reinforcement learning model. We will utilize the pre-trained neural system identification model for feature extraction followed by a classifier for modeling the policy over binned actions.
-First, similarly to \cite{Baker2022-ph} we will train a foundation model for predicting actions using behavioral cloning i.e. maximizing the likelihood of the actions performed by the mouse given the rendered images.
-Utilizing the real runs for pre-training the behavioral model decreases the initial exploration complexity and provides a meaningful base policy.
-
-We will then fine-tune the foundation model using simulated experiments and reinforcement learning. Specifically we will simulate the behavior of the mouse in the virtual environment and we will update the policy using phasic policy gradient \parencite{Cobbe2020-uk} to maximize the reward obtained in the environment.
-
-\subsubsection{Workpackage 3.2: Quantifying the effect of behavioral tuning changes\hfill\objwp{3}{2}}
+\subsubsection{Workpackage 3.2: Predicting effect of causal manipulations on \textit{decisions} in open field task\hfill\objwp{3}{2}}
 \labelobjwp{3}{2}
+Predicting the effect of circuit manipulations on task performance and decisions of the animal becomes more challenging in the open field task because we need to account for the entire behavioral trace leading up to the decision. 
+To this end, we will put the visual model from \objwp{3}{1} with and without circuit manipulations onto the skeleton graph from the tracked behavior as in \obj{1} and predict miniscope neuronal activity when the optogenetic manipulation is on or off. 
+Then we will train an additional network to decode the right task outcome like in \objwp{3}{1} and test whether it can predict the changes in decision of the animal depending on the latent state inferred from behavior and neuronal recordings, and the optogenetic manipulation. 
 
-\subsubsection{Workpackage 3.3: Quantifying the effect of causal manipulation\hfill\objwp{3}{3}}
+\subsubsection{Workpackage 3.3: Predicting effect of causal manipulations on \textit{behavior} in open field task\hfill\objwp{3}{3}}
 \labelobjwp{3}{3}
+The goal of \objwp{3}{2} was to build a model that predicts the effect of circuit manipulations on the \textit{decisions} of the animal for \textit{actually observed behavior} in the open field task. 
+However, because the visual representation has changed, the animal might use compensaroty strategies which will cause behavior itself to change. 
+In this work package, we want to predict that change in behavior using reinforcement and imitation learning. 
+To that end, we will put the model for the visual system on top of a virtual agent and learn how to solve the task with behavior, \ie predict the actions of the animal to solve the task (maximize the reward). 
+This will predict behavior and task performance of the animal. 
+This step is crucial for \objwp{3}{4} where we want to predict the changes in performance and behavior when turning of behavior-associated tuning changes, since we will not have actually observed behavioral trajectories of the animal under that intervention. 
+
+To predict behavior and performance of an animal in the open field object recognition task, we will use reinforcement with phasic policy gradient~\parencite[PPG,][]{Cobbe2021-op}. 
+% or imitation learning~\parencite{Chen2021-ap} using the functional twin from \obj{1} in the digitized environment. 
+Phasic policy gradient (PPG) is a state-of-the art method for learning behavior with a continuous actions space. 
+It has been utilized in the recent work \hl{openAI video pretraining}, which showed that first pre-training a reinforcement learning model using behavioral cloning provides a strong prior over the actions limiting the exploration space to a more meaningful domain. 
+As a result, the following fine-tuning using PPG is more efficient and gives rise to more complex behaviors than were previously possible with reinforcement learning only.
+We will use the rendered frames from the mouse's point of view as state observations for the reinforcement learning model. 
+We the use the pre-trained video-based neural prediction model for feature extraction followed by a classifier for modeling the policy over binned actions.
+Similarly to \cite{Baker2022-ph}, we will then train a foundation model for predicting actions using behavioral cloning i.e. maximizing the likelihood of the actions performed by the mouse given the rendered images.
+Using the real runs for pre-training the behavioral model decreases the initial exploration complexity and provides a meaningful base policy.
+We will then fine-tune the foundation model using simulated experiments and reinforcement learning. 
+To that end we will simulate the behavior of the mouse in the virtual environment and we will update the policy using phasic policy gradient \parencite{Cobbe2021-op} to maximize the reward obtained in the environment.
+
+We will then test two cases: In the first, we train the agent on the unmanipulated visual model and turn on the manipulation during test time. 
+This will model the situation where the animal has not yet adapted its behavior to the manipulation of the circuit. 
+In the other case, we will learn another policy with the manipulated visual model so the agent can learn to adapt its behavior to the changed visual system. 
+This will model the situation where the animal has potentially developed a different strategy to solve the task. 
+We will quantify how well our approach predicts the behavior by training a classifier that has to distinguish between real trials of the animal and trials generated by our agent. 
+Given the trained model, we can then analyze where the behavior maximally differ by comparing the decisions of the policy classifier under the manipulated and un-manipulated conditions. 
+
+\subsubsection{Workpackage 3.4: Predicting behavioral relevance of tuning changes\hfill\objwp{3}{4}}
+\labelobjwp{3}{4}
+
+After we have validated the framework in \objwp{3}{3}, we will use the model to predict behavioral changes and changes in performance under a different circuit manipulation: When we turn off the behavior-associated changes in the model. 
+This can simply be achieved by feeding a different behavior to the agent. 
+The agent will still take a particular action to achieve the goal, but the feedback to the visual system will get a different behavior, particularly the one we identified in \objwp{2}{2}.
+Then we will repeat the same procedure as in \objwp{3}{3} to predict behavioral and performance changes of the animal under this manipulation. 
+The quantification will be the same as in \objwp{3}{3}.
 
 \subsubsection{Expected outcome} 
+A specific prediction about the behavioral relevance of behavior-associated tuning changes for behavior and task performance in  an open field object recognition task. 
+I expect that en- and disabling tuning changes mostly affects behavior/performance when their associated behavioral motifs are actively used in the task, or when the have been identified to occur in the context of the task (in \obj{2}).
+
+\subsubsection{Risk management} 
+
+\subsection{Dissemination}
+
 
 \subsection{Timeline}
 \begin{ganttchart}[

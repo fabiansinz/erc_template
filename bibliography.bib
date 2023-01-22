@@ -228,32 +228,29 @@
   eprint        = "2006.15055"
 }
 
-@ARTICLE{Cobbe2020-ap,
-  title         = "Phasic Policy Gradient",
-  author        = "Cobbe, Karl and Hilton, Jacob and Klimov, Oleg and Schulman,
-                   John",
-  abstract      = "We introduce Phasic Policy Gradient (PPG), a reinforcement
-                   learning framework which modifies traditional on-policy
-                   actor-critic methods by separating policy and value function
-                   training into distinct phases. In prior methods, one must
-                   choose between using a shared network or separate networks
-                   to represent the policy and value function. Using separate
-                   networks avoids interference between objectives, while using
-                   a shared network allows useful features to be shared. PPG is
-                   able to achieve the best of both worlds by splitting
-                   optimization into two phases, one that advances training and
-                   one that distills features. PPG also enables the value
-                   function to be more aggressively optimized with a higher
-                   level of sample reuse. Compared to PPO, we find that PPG
-                   significantly improves sample efficiency on the challenging
-                   Procgen Benchmark.",
-  month         =  sep,
-  year          =  2020,
-  keywords      = "4 behavior;read next;unread;ERC Consolidator 2023",
-  copyright     = "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
-  archivePrefix = "arXiv",
-  primaryClass  = "cs.LG",
-  eprint        = "2009.04416"
+@INPROCEEDINGS{Cobbe2021-op,
+  title     = "Phasic Policy Gradient",
+  booktitle = "Proceedings of the 38th International Conference on Machine
+               Learning",
+  author    = "Cobbe, Karl and Hilton, Jacob and Klimov, Oleg and Schulman,
+               John",
+  abstract  = "We introduce Phasic Policy Gradient (PPG), a reinforcement
+               learning framework which modifies traditional on-policy
+               actor-critic methods by separating policy and value function
+               training into distinct phases. In prior methods, one must choose
+               between using a shared network or separate networks to represent
+               the policy and value function. Using separate networks avoids
+               interference between objectives, while using a shared network
+               allows useful features to be shared. PPG is able to achieve the
+               best of both worlds by splitting optimization into two phases,
+               one that advances training and one that distills features. PPG
+               also enables the value function to be more aggressively
+               optimized with a higher level of sample reuse. Compared to PPO,
+               we find that PPG significantly improves sample efficiency on the
+               challenging Procgen Benchmark.",
+  year      =  2021,
+  keywords  = "read next;unread;ERC Consolidator 2023",
+  copyright = "http://arxiv.org/licenses/nonexclusive-distrib/1.0/"
 }
 
 @ARTICLE{Chen2021-ap,
@@ -1760,6 +1757,39 @@
   pages    = "995--999",
   year     =  2008,
   keywords = "read;system identification;microns;ERC Consolidator 2023"
+}
+
+@ARTICLE{Wallace2013-lf,
+  title    = "Rats maintain an overhead binocular field at the expense of
+              constant fusion",
+  author   = "Wallace, Damian J and Greenberg, David S and Sawinski, Juergen
+              and Rulla, Stefanie and Notaro, Giuseppe and Kerr, Jason N D",
+  abstract = "Fusing left and right eye images into a single view is dependent
+              on precise ocular alignment, which relies on coordinated eye
+              movements. During movements of the head this alignment is
+              maintained by numerous reflexes. Although rodents share with
+              other mammals the key components of eye movement control, the
+              coordination of eye movements in freely moving rodents is
+              unknown. Here we show that movements of the two eyes in freely
+              moving rats differ fundamentally from the precisely controlled
+              eye movements used by other mammals to maintain continuous
+              binocular fusion. The observed eye movements serve to keep the
+              visual fields of the two eyes continuously overlapping above the
+              animal during free movement, but not continuously aligned.
+              Overhead visual stimuli presented to rats freely exploring an
+              open arena evoke an immediate shelter-seeking behaviour, but are
+              ineffective when presented beside the arena. We suggest that
+              continuously overlapping visual fields overhead would be of
+              evolutionary benefit for predator detection by minimizing blind
+              spots.",
+  journal  = "Nature",
+  volume   =  498,
+  number   =  7452,
+  pages    = "65--69",
+  month    =  jun,
+  year     =  2013,
+  keywords = "ERC Consolidator 2023",
+  language = "en"
 }
 
 @ARTICLE{Kao2015-aa,
@@ -3626,6 +3656,54 @@
   month    =  jun,
   year     =  2021,
   keywords = "read;ERC Consolidator 2023",
+  language = "en"
+}
+
+@ARTICLE{Shi2022-tq,
+  title    = "{MouseNet}: A biologically constrained convolutional neural
+              network model for the mouse visual cortex",
+  author   = "Shi, Jianghong and Tripp, Bryan and Shea-Brown, Eric and Mihalas,
+              Stefan and A Buice, Michael",
+  abstract = "Convolutional neural networks trained on object recognition
+              derive inspiration from the neural architecture of the visual
+              system in mammals, and have been used as models of the
+              feedforward computation performed in the primate ventral stream.
+              In contrast to the deep hierarchical organization of primates,
+              the visual system of the mouse has a shallower arrangement. Since
+              mice and primates are both capable of visually guided behavior,
+              this raises questions about the role of architecture in neural
+              computation. In this work, we introduce a novel framework for
+              building a biologically constrained convolutional neural network
+              model of the mouse visual cortex. The architecture and structural
+              parameters of the network are derived from experimental
+              measurements, specifically the 100-micrometer resolution
+              interareal connectome, the estimates of numbers of neurons in
+              each area and cortical layer, and the statistics of connections
+              between cortical layers. This network is constructed to support
+              detailed task-optimized models of mouse visual cortex, with
+              neural populations that can be compared to specific corresponding
+              populations in the mouse brain. Using a well-studied image
+              classification task as our working example, we demonstrate the
+              computational capability of this mouse-sized network. Given its
+              relatively small size, MouseNet achieves roughly 2/3rds the
+              performance level on ImageNet as VGG16. In combination with the
+              large scale Allen Brain Observatory Visual Coding dataset, we use
+              representational similarity analysis to quantify the extent to
+              which MouseNet recapitulates the neural representation in mouse
+              visual cortex. Importantly, we provide evidence that optimizing
+              for task performance does not improve similarity to the
+              corresponding biological system beyond a certain point. We
+              demonstrate that the distributions of some physiological
+              quantities are closer to the observed distributions in the mouse
+              brain after task training. We encourage the use of the MouseNet
+              architecture by making the code freely available.",
+  journal  = "PLoS Comput. Biol.",
+  volume   =  18,
+  number   =  9,
+  pages    = "e1010427",
+  month    =  sep,
+  year     =  2022,
+  keywords = "ERC Consolidator 2023",
   language = "en"
 }
 

@@ -170,7 +170,7 @@
 \setlength{\belowcaptionskip}{0.0cm}
 
 \RedeclareSectionCommands[indent=0pt, beforeskip=0.2em, afterskip=0.6em]{chapter,section}
-\RedeclareSectionCommands[indent=0pt, beforeskip=.2em, afterskip=0.3em, font=\bfseries\large]{subsection,subsubsection,paragraph}
+\RedeclareSectionCommands[indent=0pt, beforeskip=.2em, afterskip=0.2em, font=\bfseries\large]{subsection,subsubsection,paragraph}
 
 
 %###
@@ -237,7 +237,7 @@
 % \newcommand{\objiii}{\bboxed{\hyperref[sub:obj3]{\color{white}O-3}}{obj3}}
 % \newcommand{\objiv}{\bboxed{\hyperref[sub:objiv]{O-4}}{objiv}}
 
-\newcommand{\obj}[1]{\bboxed{\hyperref[obj#1]{\color{white}O#1}}{obj#1}}
+\DeclareRobustCommand{\obj}[1]{\bboxed{\hyperref[obj#1]{\color{white}O#1}}{obj#1}}
 \newcommand{\objwp}[2]{\bboxed{\hyperref[obj#1-wp#2]{\color{white}O#1-WP#2}}{obj#1}}
 \newcommand{\labelobjwp}[2]{\label{obj#1-wp#2}}
 \newcommand{\labelobj}[1]{\label{obj#1}}
@@ -316,13 +316,14 @@ Research proposal [Part B2] }
 \LARGE{\textbf{ERC \proposaltype~\callyear\\
 Research proposal [Part B1] }
 }
-\vfill
+
+% \vfill
 %
-\LARGE{\textsc{\@title}}
+\LARGE{\@acro: \textsc{\@title}}
 %
-\vfill
+% \vfill
 %
-\LARGE{\textsc{---~\@acro~---}}
+% \LARGE{\textsc{---~\@acro~---}}
 %
 \vfill
 \makeatother
@@ -334,8 +335,8 @@ Research proposal [Part B1] }
 \makeatletter
 \item Principal investigator (PI): \@author
 \item Host institution: \@institution
-\item Proposal full title: \@title
-\item Proposal short name: \theacro
+% \item Proposal full title: \@title
+% \item Proposal short name: \theacro
 \item Proposal duration: \proposal@duration
 \makeatother
 \end{itemize}
