@@ -1,10 +1,33 @@
-\newcommand{\oonetitle}{An video-driven digital twin of mouse visual cortex during free behavior}
-\newcommand{\otwotitle}{Find tuning changes and characterize uncertainty in latent dimensions}
-\newcommand{\othreetitle}{Identify causal links between neural representations and behavior}
+\usepackage{xifthen}
+\newcommand{\ifequals}[3]{\ifthenelse{\equal{#1}{#2}}{#3}{}}
+\newcommand{\case}[2]{#1 #2} % Dummy, so \renewcommand has something to overwrite...
+\newenvironment{switch}[1]{\renewcommand{\case}{\ifequals{#1}}}{}
+
+% Example: Pick color by ID
+\newcommand{\owptitle}[2]{
+    \begin{switch}{#1}
+        \case{1}{
+            \begin{switch}{#2}
+                \case{1}{A video-driven latent state model of the visual system}
+                \case{2}{Functional twin with behavior}
+            \end{switch}
+        }
+    \end{switch}
+}
+
+
+\newcommand{\oonetitle}{Develop a data-driven functional twin of mouse visual cortex and motor behavior in digitized environments}
+\newcommand{\ooneshort}{Develop a data-driven functional twin}
+
+\newcommand{\otwotitle}{Map out correspondence between neuronal tuning changes and behavioral context}
+\newcommand{\otwoshort}{Neuronal tuning changes and behavioral context}
+
+\newcommand{\othreetitle}{Predict how disabling tuning changes would affect goal-driven behavior}
+\newcommand{\othreeshort}{Predict how disabling tuning changes would affect goal-driven behavior}
+
+
+
 \author{Fabian Sinz}
 \acro{Visual System in Action}
-% \title{Putting data-driven digital twins of mouse visual cortex into action.}
-% \title{Towards a meta-verse for the mouse visual system}
-% \title{Building a data driven model how behavior changes neuronal processing in mouse visual cortex in freely behaving mice}
 \title{A data-driven characterization of free behavior's impact on mouse visual processing}
 \institution{Georg August Universität Göttingen Stiftung Öffentlichen Rechts}

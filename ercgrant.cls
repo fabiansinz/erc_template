@@ -32,6 +32,10 @@
 \RequirePackage{soul}
 \RequirePackage{pgfgantt}
 
+\RequirePackage{floatrow}
+\RequirePackage{wrapfig}
+
+
 \RequirePackage{tabularx}
 \RequirePackage{marginnote}
 \setlength{\footskip}{1.45\baselineskip}
@@ -185,6 +189,8 @@
 % for ``side-figures''
 \RequirePackage{wrapfig}
 
+\renewcommand{\figurename}{Fig.}
+\addto\captionsenglish{\renewcommand{\figurename}{Fig.}}
 
 % ==== COLORED BOXES ========
 \RequirePackage{tcolorbox}
