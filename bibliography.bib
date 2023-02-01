@@ -249,8 +249,52 @@
                we find that PPG significantly improves sample efficiency on the
                challenging Procgen Benchmark.",
   year      =  2021,
-  keywords  = "read next;unread;ERC Consolidator 2023",
+  keywords  = "read;ERC Consolidator 2023",
   copyright = "http://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+}
+
+@ARTICLE{Kwon2020-qb,
+  title         = "Inverse Rational Control with Partially Observable
+                   Continuous Nonlinear Dynamics",
+  author        = "Kwon, Minhae and Daptardar, Saurabh and Schrater, Paul and
+                   Pitkow, Xaq",
+  abstract      = "A fundamental question in neuroscience is how the brain
+                   creates an internal model of the world to guide actions
+                   using sequences of ambiguous sensory information. This is
+                   naturally formulated as a reinforcement learning problem
+                   under partial observations, where an agent must estimate
+                   relevant latent variables in the world from its evidence,
+                   anticipate possible future states, and choose actions that
+                   optimize total expected reward. This problem can be solved
+                   by control theory, which allows us to find the optimal
+                   actions for a given system dynamics and objective function.
+                   However, animals often appear to behave suboptimally. Why?
+                   We hypothesize that animals have their own flawed internal
+                   model of the world, and choose actions with the highest
+                   expected subjective reward according to that flawed model.
+                   We describe this behavior as rational but not optimal. The
+                   problem of Inverse Rational Control (IRC) aims to identify
+                   which internal model would best explain an agent's actions.
+                   Our contribution here generalizes past work on Inverse
+                   Rational Control which solved this problem for discrete
+                   control in partially observable Markov decision processes.
+                   Here we accommodate continuous nonlinear dynamics and
+                   continuous actions, and impute sensory observations
+                   corrupted by unknown noise that is private to the animal. We
+                   first build an optimal Bayesian agent that learns an optimal
+                   policy generalized over the entire model space of dynamics
+                   and subjective rewards using deep reinforcement learning.
+                   Crucially, this allows us to compute a likelihood over
+                   models for experimentally observable action trajectories
+                   acquired from a suboptimal agent. We then find the model
+                   parameters that maximize the likelihood using gradient
+                   ascent.",
+  month         =  sep,
+  year          =  2020,
+  keywords      = "ERC Consolidator 2023",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.LG",
+  eprint        = "2009.12576"
 }
 
 @ARTICLE{Chen2021-ap,
@@ -953,6 +997,41 @@
   language = "en"
 }
 
+@ARTICLE{Ayaz2013-gp,
+  title    = "Locomotion controls spatial integration in mouse visual cortex",
+  author   = "Ayaz, Asl{\i} and Saleem, Aman B and Sch{\"o}lvinck, Marieke L
+              and Carandini, Matteo",
+  abstract = "Growing evidence indicates that responses in sensory cortex are
+              modulated by factors beyond direct sensory stimulation. In
+              primary visual cortex (V1), for instance, responses increase with
+              locomotion. Here we show that this increase is accompanied by a
+              profound change in spatial integration. We recorded from V1
+              neurons in head-fixed mice placed on a spherical treadmill. We
+              characterized spatial integration and found that the responses of
+              most neurons were suppressed by large stimuli. As in primates,
+              this surround suppression increased with stimulus contrast. These
+              effects were captured by a divisive normalization model, where
+              the numerator originates from a central region driving the neuron
+              and the denominator originates from a larger suppressive field.
+              We then studied the effects of locomotion and found that it
+              markedly reduced surround suppression, allowing V1 neurons to
+              integrate over larger regions of visual space. Locomotion had two
+              main effects: it increased spontaneous activity, and it weakened
+              the suppressive signals mediating normalization, relative to the
+              driving signals. We conclude that a fundamental aspect of visual
+              processing, spatial integration, is controlled by an apparently
+              unrelated factor, locomotion. This control might operate through
+              the mechanisms that are in place to deliver surround suppression.",
+  journal  = "Curr. Biol.",
+  volume   =  23,
+  number   =  10,
+  pages    = "890--894",
+  month    =  may,
+  year     =  2013,
+  keywords = "unread;ERC Consolidator 2023",
+  language = "en"
+}
+
 @ARTICLE{Erisken2014-un,
   title    = "Effects of locomotion extend throughout the mouse early visual
               system",
@@ -1412,6 +1491,40 @@
   language = "en"
 }
 
+@ARTICLE{Reimer2014-cf,
+  title     = "Pupil Fluctuations Track Fast Switching of Cortical States
+               during Quiet Wakefulness",
+  author    = "Reimer, Jacob and Froudarakis, Emmanouil and Cadwell, Cathryn R
+               R and Yatsenko, Dimitri and Denfield, George H H and Tolias,
+               Andreas S S",
+  abstract  = "Neural responses are modulated by brain state, which varies with
+               arousal, attention, and behavior. In mice, running and whisking
+               desynchronize the cortex and enhance sensory responses, but the
+               quiescent periods between bouts of exploratory behaviors have
+               not been well studied. We found that these periods of ``quiet
+               wakefulness'' were characterized by state fluctuations on a
+               timescale of 1--2 s. Small fluctuations in pupil diameter
+               tracked these state transitions in multiple cortical areas.
+               During dilation, the intracellular membrane potential was
+               desynchronized, sensory responses were enhanced, and population
+               activity was less correlated. In contrast, constriction was
+               characterized by increased low-frequency oscillations and higher
+               ensemble correlations. Specific subtypes of cortical
+               interneurons were differentially activated during dilation and
+               constriction, consistent with their participation in the
+               observed state changes. Pupillometry has been used to index
+               attention and mental effort in humans, but the intracellular
+               dynamics and differences in population activity underlying this
+               phenomenon were previously unknown.",
+  journal   = "Neuron",
+  publisher = "Elsevier Inc.",
+  volume    =  84,
+  number    =  2,
+  pages     = "355--362",
+  year      =  2014,
+  keywords  = "feedback;ERC Consolidator 2023"
+}
+
 @ARTICLE{Vinck2015-wy,
   title     = "Arousal and locomotion make distinct contributions to cortical
                activity patterns and visual encoding",
@@ -1476,6 +1589,39 @@
   month    =  dec,
   year     =  2015,
   keywords = "4 behavior;not read;ERC Consolidator 2023",
+  language = "en"
+}
+
+@ARTICLE{Jazayeri2017-nz,
+  title    = "Navigating the Neural Space in Search of the Neural Code",
+  author   = "Jazayeri, Mehrdad and Afraz, Arash",
+  abstract = "The advent of powerful perturbation tools, such as optogenetics,
+              has created new frontiers for probing causal dependencies in
+              neural and behavioral states. These approaches have significantly
+              enhanced the ability to characterize the contribution of
+              different cells and circuits to neural function in health and
+              disease. They have shifted the emphasis of research toward causal
+              interrogations and increased the demand for more precise and
+              powerful tools to control and manipulate neural activity. Here,
+              we clarify the conditions under which measurements and
+              perturbations support causal inferences. We note that the brain
+              functions at multiple scales and that causal dependencies may be
+              best inferred with perturbation tools that interface with the
+              system at the appropriate scale. Finally, we develop a geometric
+              framework to facilitate the interpretation of causal experiments
+              when brain perturbations do or do not respect the intrinsic
+              patterns of brain activity. We describe the challenges and
+              opportunities of applying perturbations in the presence of
+              dynamics, and we close with a general perspective on navigating
+              the activity space of neurons in the search for neural codes.",
+  journal  = "Neuron",
+  volume   =  93,
+  number   =  5,
+  pages    = "1003--1014",
+  month    =  mar,
+  year     =  2017,
+  keywords = "behavior; causation; correlation; neural code; neural manifold;
+              perturbation;ERC Consolidator 2023",
   language = "en"
 }
 
@@ -1624,6 +1770,38 @@
   keywords = "manifold; movement preparation; neural circuits; neural
               population dynamics; nullspace; optimal control; thalamo-cortical
               loop;4 behavior;read next;unread;ERC Consolidator 2023",
+  language = "en"
+}
+
+@ARTICLE{Avitan2022-rm,
+  title    = "Not so spontaneous: Multi-dimensional representations of
+              behaviors and context in sensory areas",
+  author   = "Avitan, Lilach and Stringer, Carsen",
+  abstract = "Sensory areas are spontaneously active in the absence of sensory
+              stimuli. This spontaneous activity has long been studied;
+              however, its functional role remains largely unknown. Recent
+              advances in technology, allowing large-scale neural recordings in
+              the awake and behaving animal, have transformed our understanding
+              of spontaneous activity. Studies using these recordings have
+              discovered high-dimensional spontaneous activity patterns,
+              correlation between spontaneous activity and behavior, and
+              dissimilarity between spontaneous and sensory-driven activity
+              patterns. These findings are supported by evidence from
+              developing animals, where a transition toward these
+              characteristics is observed as the circuit matures, as well as by
+              evidence from mature animals across species. These newly revealed
+              characteristics call for the formulation of a new role for
+              spontaneous activity in neural sensory computation.",
+  journal  = "Neuron",
+  volume   =  110,
+  number   =  19,
+  pages    = "3064--3075",
+  month    =  oct,
+  year     =  2022,
+  keywords = "behavior; dimensionality; evoked neural activity;
+              multi-dimensional neural activity; neural coding; neural
+              subspace; orthogonal neural subspaces; spontaneous
+              activity;read;ERC Consolidator 2023",
   language = "en"
 }
 
@@ -1973,6 +2151,44 @@
   year      =  2011,
   keywords  = "microns;domain transfer;Orientation Selectivity;SFB 1456
                Mathematic of Experiment;ERC Consolidator 2023"
+}
+
+@ARTICLE{Saleem2013-gx,
+  title     = "Integration of visual motion and locomotion in mouse visual
+               cortex",
+  author    = "Saleem, Aman B and Ayaz, Asl{\i} and Jeffery, Kathryn J and
+               Harris, Kenneth D and Carandini, Matteo",
+  abstract  = "The primary visual cortex (V1) carries signals related to visual
+               speed, and its responses are also affected by run speed. Here
+               the authors report that nearly half of the V1 neurons were
+               reliably driven by combinations of visual speed and run speed.
+               As a population, V1 neurons predicted a linear combination of
+               visual and run speed better than visual or run speeds alone.
+               Successful navigation through the world requires accurate
+               estimation of one's own speed. To derive this estimate, animals
+               integrate visual speed gauged from optic flow and run speed
+               gauged from proprioceptive and locomotor systems. The primary
+               visual cortex (V1) carries signals related to visual speed, and
+               its responses are also affected by run speed. To study how V1
+               combines these signals during navigation, we recorded from mice
+               that traversed a virtual environment. Nearly half of the V1
+               neurons were reliably driven by combinations of visual speed and
+               run speed. These neurons performed a weighted sum of the two
+               speeds. The weights were diverse across neurons, and typically
+               positive. As a population, V1 neurons predicted a linear
+               combination of visual and run speeds better than either visual
+               or run speeds alone. These data indicate that V1 in the mouse
+               participates in a multimodal processing system that integrates
+               visual motion and locomotion during navigation.",
+  journal   = "Nat. Neurosci.",
+  publisher = "Nature Publishing Group",
+  volume    =  16,
+  number    =  12,
+  pages     = "1864--1869",
+  month     =  nov,
+  year      =  2013,
+  keywords  = "unread;ERC Consolidator 2023",
+  language  = "en"
 }
 
 @ARTICLE{Saleem2013-fx,
@@ -2745,6 +2961,36 @@
   keywords = "own;\_imported;ERC Consolidator 2023"
 }
 
+@UNPUBLISHED{Del_Grosso2017-ww,
+  title    = "Virtual Reality system for freely-moving rodents",
+  author   = "Del Grosso, Nicholas A and Graboski, Justin J and Chen, Weiwei
+              and Blanco-Hern{\'a}ndez, Eduardo and Sirota, Anton",
+  abstract = "ABSTRACT Spatial navigation, active sensing, and most cognitive
+              functions rely on a tight link between motor output and sensory
+              input. Virtual reality (VR) systems simulate the sensorimotor
+              loop, allowing flexible manipulation of enriched sensory input.
+              Conventional rodent VR systems provide 3D visual cues linked to
+              restrained locomotion on a treadmill, leading to a mismatch
+              between visual and most other sensory inputs, sensory-motor
+              conflicts, as well as restricted naturalistic behavior. To
+              rectify these limitations, we developed a VR system (ratCAVE)
+              that provides realistic and low-latency visual feedback directly
+              to head movements of completely unrestrained rodents. Immersed in
+              this VR system, rats displayed naturalistic behavior by
+              spontaneously interacting with and hugging virtual walls,
+              exploring virtual objects, and avoiding virtual cliffs. We
+              further illustrate the effect of ratCAVE-VR manipulation on
+              hippocampal place fields. The newly-developed methodology enables
+              a wide range of experiments involving flexible manipulation of
+              visual feedback in freely-moving behaving animals.",
+  journal  = "bioRxiv",
+  pages    = "161232",
+  month    =  jul,
+  year     =  2017,
+  keywords = "ERC Consolidator 2023",
+  language = "en"
+}
+
 @ARTICLE{Cadena2017-rb,
   title    = "Deep convolutional models improve predictions of macaque {V1}
               responses to natural images",
@@ -3139,7 +3385,7 @@
   pages    = "2022.11.03.515121",
   month    =  nov,
   year     =  2022,
-  keywords = "4 behavior;read next;unread;ERC Consolidator 2023",
+  keywords = "4 behavior;read;ERC Consolidator 2023",
   language = "en"
 }
 
@@ -3505,8 +3751,8 @@
   volume   =  364,
   number   =  6437,
   year     =  2019,
-  keywords = "4 behavior;4 mouse;read next;unread;brain state;SFB 1456
-              Mathematic of Experiment;ERC Consolidator 2023"
+  keywords = "4 behavior;4 mouse;read;brain state;SFB 1456 Mathematic of
+              Experiment;ERC Consolidator 2023"
 }
 
 @ARTICLE{Bashivan2019-ry,
@@ -3714,6 +3960,63 @@
               parallel processing; higher visual area; mouse; visual cortex;4
               mouse;read;ERC Consolidator 2023",
   language = "en"
+}
+
+@ARTICLE{Motter1993-od,
+  title     = "Focal attention produces spatially selective processing in
+               visual cortical areas V1, V2, and {V4} in the presence of
+               competing stimuli",
+  author    = "Motter, B C",
+  abstract  = "1. The activity of single neurons was recorded in Macaca mulatta
+               monkeys while they performed tasks requiring them to select a
+               cued stimulus from an array of three to eight stimuli and report
+               the orientation of that stimulus. Stimuli were presented in a
+               circular array centered on the fixation target and scaled to
+               place a single stimulus element within the receptive field of
+               the neuron under study. The timing of the cuing event permitted
+               the directing of visual attention to the spatial location of the
+               correct stimulus before its presentation. 2. The effects of
+               focal attention were examined in cortical visual areas V1, V2,
+               and V4, where a total of 672 neurons were isolated with complete
+               studies obtained for 94 V1, 74 V2, and 74 V4 neurons with
+               receptive-field center eccentricities in the range 1.8-8
+               degrees. Under certain conditions, directed focal attention
+               results in changes in the response of V1, V2, and V4 neurons to
+               otherwise identical stimuli at spatially specific locations. 3.
+               More than one-third of the neurons in each area displayed
+               differential sensitivity when attention was directed toward
+               versus away from the spatial location of the receptive field
+               just before and during stimulus presentation. Both relative
+               increases and decreases in neural activity were observed in
+               association with attention directed at receptive-field stimuli.
+               4. The presence of multiple competing stimuli in the visual
+               field was a major factor determining the presence or absence of
+               differential sensitivity. About two-thirds of the neurons that
+               were differentially sensitive to the attending condition in the
+               presence of competing stimuli were not differentially sensitive
+               when single stimuli were presented in control studies. For V1
+               and V2 neurons the presence of only a few (3-4) competing
+               stimuli was sufficient for a majority of the neurons studied; a
+               majority of the V4 neurons required six to eight stimuli in the
+               array before significant differences between attending
+               conditions occurred. 5. For V1 and V2 neurons the neuronal
+               sensitivity differences between attending conditions were
+               observed primarily at or near the peak of the orientation tuning
+               sensitivity for each neuron; the differences were evident over a
+               broader range of orientations in V4 neurons. 6. In conclusion,
+               neural correlates of focal attentive processes can be observed
+               in visual cortical processing in areas V1 and V2 as well as area
+               V4 under conditions that require stimulus feature analysis and
+               selective spatial processing within a field of competing
+               stimuli.(ABSTRACT TRUNCATED AT 400 WORDS)",
+  journal   = "J. Neurophysiol.",
+  publisher = "American Physiological Society",
+  volume    =  70,
+  number    =  3,
+  pages     = "909--919",
+  month     =  sep,
+  year      =  1993,
+  keywords  = "ERC Consolidator 2023"
 }
 
 @ARTICLE{Mikulasch2022-mc,
@@ -4144,6 +4447,36 @@
   language = "en"
 }
 
+@ARTICLE{Busse2017-rt,
+  title    = "Sensation during Active Behaviors",
+  author   = "Busse, Laura and Cardin, Jessica A and Chiappe, M Eugenia and
+              Halassa, Michael M and McGinley, Matthew J and Yamashita,
+              Takayuki and Saleem, Aman B",
+  abstract = "A substantial portion of our sensory experience happens during
+              active behaviors such as walking around or paying attention. How
+              do sensory systems work during such behaviors? Neural processing
+              in sensory systems can be shaped by behavior in multiple ways
+              ranging from a modulation of responsiveness or sharpening of
+              tuning to a dynamic change of response properties or functional
+              connectivity. Here, we review recent findings on the modulation
+              of sensory processing during active behaviors in different
+              systems: insect vision, rodent thalamus, and rodent sensory
+              cortices. We discuss the circuit-level mechanisms that might lead
+              to these modulations and their potential role in sensory
+              function. Finally, we highlight the open questions and future
+              perspectives of this exciting new field.",
+  journal  = "J. Neurosci.",
+  volume   =  37,
+  number   =  45,
+  pages    = "10826--10834",
+  month    =  nov,
+  year     =  2017,
+  keywords = "brain state; locomotion; remapping; sensory coding;
+              state-dependent processing; task-dependent processing;read;ERC
+              Consolidator 2023",
+  language = "en"
+}
+
 @ARTICLE{McAdams1999-cs,
   title     = "Effects of Attention on {Orientation-Tuning} Functions of Single
                Neurons in Macaque Cortical Area {V4}",
@@ -4474,6 +4807,31 @@
   pages    = "10005--10014",
   year     =  2015,
   keywords = "ERC Consolidator 2023"
+}
+
+@UNPUBLISHED{Azadi2022-ta,
+  title    = "Optical stimulation of inferior temporal cortex induces
+              object-specific visual distortions",
+  author   = "Azadi, Reza and Bohn, Simon and Lopez, Emily and Lafer-Sousa,
+              Rosa and Wang, Karen and Eldridge, Mark and Afraz, Arash",
+  abstract = "Abstract To be able to effectively restore vision by direct
+              cortical stimulation, we need to understand the perceptual events
+              induced by stimulation of high-level visual cortices. We trained
+              macaque monkeys to detect and report optogenetic impulses
+              delivered to their inferior temporal cortices. In a series of
+              experiments, we observed that detection of cortical stimulation
+              highly depends on the choice of images presented to the eyes and
+              that detection of cortical stimulation is most difficult when the
+              animal fixates on a blank screen. We show that local stimulation
+              of object selective parts of the visual cortex induce perceptual
+              events that are easy to detect as object-dependent distortions of
+              the concurrent contents of vision. These findings invite
+              expanding the scope of visual prosthetics beyond the primary
+              visual cortex.",
+  journal  = "Research Square",
+  month    =  feb,
+  year     =  2022,
+  keywords = "4 V4;read next;unread;ERC Consolidator 2023"
 }
 
 @ARTICLE{Hilton2020-jz,
@@ -5306,7 +5664,7 @@
                (24,000 environment actions) of gameplay to accomplish.",
   month     =  oct,
   year      =  2022,
-  keywords  = "4 behavior;read next;unread;ERC Consolidator 2023"
+  keywords  = "4 behavior;read;ERC Consolidator 2023"
 }
 
 @INPROCEEDINGS{Lurz2022-up,

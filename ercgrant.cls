@@ -180,7 +180,7 @@
 %###
 
 % === FIGURE AND CAPTION STUFF ====
-\RequirePackage[font=small]{caption}
+\RequirePackage[font=small,format=plain]{caption}
 \RequirePackage{chngcntr}
 % don't show the chapter part in the caption
 %\counterwithout{figure}{chapter}
@@ -188,7 +188,7 @@
 
 % for ``side-figures''
 \RequirePackage{wrapfig}
-
+\renewcommand\thefigure{\arabic{figure}}    
 \renewcommand{\figurename}{Fig.}
 \addto\captionsenglish{\renewcommand{\figurename}{Fig.}}
 
