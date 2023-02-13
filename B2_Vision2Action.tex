@@ -40,50 +40,50 @@ Currently there is a trend towards studying vision by recording from freely movi
 However, analyzing these data poses new computational challenges~\parencite{Busse2017-rt}. 
 Thus, how and when motor behavior influences visual representations in freely viewing and behaving animals is currently an open question. 
 %
-The goal of this proposal is to investigate the hypothesis that \textbf{neurons in mouse visual cortex adapt their stimulus preference to the current motor behavior to in order to decrease uncertainty about momentarily relevant aspects of the world.} 
+The goal of this proposal is to investigate the hypothesis that \textbf{neurons in mouse visual cortex adapt their stimulus preference to the current motor behavior to decrease uncertainty about momentarily relevant aspects of the world.} 
 
-Studying vision under freely moving behavior~\parencite{Parker2022-ac}, poses new challenges. 
+Studying vision under freely moving behavior~\parencite{Parker2022-ac} poses new challenges. 
 Experimental conditions and behavior cannot easily be controlled or repeated like in classical trial structures~\parencite{Huk2018-ez}, and complex natural visual input is not easily parametrized. 
 In addition, studying whether a neuronal mechanism is \textit{necessary} for  behavior usually involves a prediction how shutting down the mechanism affects the performance of an animal in elaborate behavioral tasks the animals need to be trained for.
-During unconstrained behavior, the animal might simply adapt its behavior to compensate for the experimental intervention, changing both the performance and motor behavior in non-trivial ways.  
+In unconstrained experiments, the animal might simply adapt its behavior to compensate for the experimental intervention, changing both the performance and motor behavior in non-trivial ways.  
 Making a prediction about these changes is challenging.
 % While this makes investigating how \textit{behavior affects neuronal representations} already challenging enough, studying the \textit{computational necessity} of visual represenations for behavior is even more challenging.
 % This is because it involves a fundamentally causal question: Given that the animal wants to achieve a particular behavioral goal, how would its behavioral strategy change if particular mechanisms of visual representation were changed or turned off?
-To tackle these challenges, I propose to \textbf{build a computational framework based on data-driven deep neural network models of the visual system, detailed motor behavior captured by posture graphs of freely behaving mice, digital replicas of real environments and reinforcement learning}.
+To tackle these challenges, I propose to \textbf{build a computational framework based on data-driven deep neural network models of the visual system, detailed motor behavior captured by posture graphs trajectories of freely behaving mice, digital replicas of real environments, and reinforcement learning}.
 % \begin{figure*}[b]
 % \includegraphics[width=\textwidth]{figures/overview5.pdf}
 % \end{figure*}
-My team and I will build a model for visual cortex under free behavior (\obj{1}), use it to disentangle the contribution of visual input, behavior, and internal state to neuronal activity, and study how motor behavior, internal state and task context affects neuronal stimulus selectivity (\obj{2}). To study the behavioral relevance of these selectivity-changes, I will use reinforcement learning to predict how shutting them down affects behavioral strategies and performance of mice in an open field object recognition task  (\obj{3}, Fig.~\ref{fig:openfield}).
+My team and I will build a model for visual cortex under free behavior (\obj{1}), use it to disentangle the contribution of visual input, behavior, and internal state to neuronal activity, and study how motor behavior, internal state and task context affect neuronal stimulus selectivity (\obj{2}). To study the behavioral relevance of these selectivity-changes, I will use reinforcement learning to predict how shutting them down affects behavioral strategies and performance of mice in an open field object recognition task  (\obj{3}, Fig.~\ref{fig:openfield}).
 
 
-\subsection{Visual cortex in the context of internal state, and behavior}
+\subsection{Visual cortex in the context of internal state and behavior}
 
-Sensory systems provide the informational basis of behavior: Their incomplete and noisy image of the environment is our only way to make decisions and pick the next action based on environmental information. 
+Sensory systems provide the informational basis of behavior: Their ambiguous and noisy image of the environment is our only way to make decisions and pick the next action based on environmental information. 
 At the same time, the brain can choose what to measure: Our actions influence the input to our senses and sensory processing itself adapts to the current behavioral needs. 
 
 % 
 
 The fact that sensory processing changes with motor activity and internal state was first demonstrated by elegant studies on invertebrates many decades ago  \parencite{Rowell1971-zj, Wiersma1968-xt}.
 Since then, modulation of sensory responses as a function of behavioral and internal state, such as attention, has been described in many animals \parencite[\eg][]{Maimon2010-sa, Niell2010-bs,Bezdudnaya2006-ge, Treue1996-lp, Musall2019-kd}.
-In many cases, state-dependent modulation affects neural responsiveness, called \textit{gain}~\parencite{Eggermann2014-xp, Niell2010-bs, McAdams1999-cs,Schroder2020-jl, Dadarlat2017-jw, Mineault2016-fk}.
-In other cases, however, the stimulus selectivity of single neurons are also affected by this modulation. 
+In many cases, state-dependent modulation affects neuronal responsiveness, called \textit{gain}~\parencite{Eggermann2014-xp, Niell2010-bs, McAdams1999-cs,Schroder2020-jl, Dadarlat2017-jw, Mineault2016-fk}.
+In other cases, however, the stimulus selectivity of single neurons is also affected by this modulation. 
 In the visual system, this has been reported, for instance, for temporal tuning in Drosophila \parencite{Chiappe2010-bm}, rabbits \parencite{Bezdudnaya2006-ge}, and mice \parencite{Andermann2011-vw}, as well as for direction selectivity in primates \parencite{Treue1996-lp}.
 Using more ethological UV-color stimuli and data-driven deep network models, we recently showed that arousal -- correlated with a dilated pupil and running -- can change stimulus selectivity of neurons in mouse visual cortex at the timescale of seconds~\parencite{Franke2022-do}. 
 \textcite{Stringer2019-lt} recently showed that spontaneous neuronal population activity is modulated by multi-dimensional latent fluctuations, related to detailed motor activity of the animal~\parencite{Syeda2022-bk}.
-Using an auditory and visual decision making task, \textcite{Musall2019-kd} found that task-irrelevant motor behavior becomes increasingly locked to the task and strongly modulates neuronal activity across the.
+Using an auditory and visual decision making task, \textcite{Musall2019-kd} found that task-irrelevant motor behavior becomes increasingly synchronized to the task and strongly modulates neuronal activity across the entire brain.
 These studies demonstrate that, even in head-fixed animals, where behavioral options are limited and other cues, such as self-motion and vestibular signals, are missing, activity in visual cortex and other sensory areas is heavily influenced by motor activity.
 This promises an even richer repertoire of behavioral effects on visual processing in freely moving animals in complex environments~\parencite{Busse2017-rt,Huk2018-ez, Datta2019-qj}.
 However, \textit{how} neurons in the visual system change their stimulus selectivity with motor behavior during free behavior is an open question. 
 
-Why do visual representations change with behavior in the first place? 
+Why do visual representations change with behavior? 
 A likely answer can come from behavior itself:
 % However, including behavior can offer a possible explanation: 
 When actions need to be chosen on the basis of uncertain sensory information about the world, decreasing uncertainty about momentarily relevant aspects becomes important~\parencite{Chebolu2022-tb}. 
 In fact, previous studies reported that modulation of sensory responses resulted in better behavioral performance \parencite{Spitzer1988-kq, Bennett2013-rk, Dadarlat2017-jw, De_Gee2022-ir}.
 The fact that most changes in representation are temporary suggests that certainty is a limited resource.
 If it comes at a cost -- energy or opportunity --, it makes sense to selectively bias visual processing depending on behavioral context, such as boosting higher temporal frequencies during walking, running, and flying.
-However, this means that the change of visual processing becomes dependent on behavior.
-Because these mechanisms likely evolved to boost perception in complex natural environments, it is important to study the correspondence between visual representations and free behavior in freely behaving (unrestrained) animals using the complex natural visual input~\parencite[\eg][]{Parker2022-ac, Huk2018-ez, Datta2019-qj}.
+However, this means that visual processing should change with behavior.
+Because these mechanisms likely evolved to boost perception in complex natural environments, it is important to study the correspondence between visual representations and free behavior in freely behaving (unrestrained) animals using complex natural  inputs~\parencite[\eg][]{Parker2022-ac, Huk2018-ez, Datta2019-qj}.
 Understanding \textit{which} neurons change their stimulus selectivity with behavior, \textit{how} they change it, and \textit{when}, will yield important insights into the role these neurons for the behavior of the animal. 
 
 \subsection{Functional twins: Data-driven models of visual cortex and behavior} 
@@ -94,87 +94,79 @@ At any point in time the neuronal activity in the visual system is the result of
 To understand how they shape visual processing, we need to disentangle their contributions to the activity of neurons during free behavior. 
 This includes reconstructing what the animal saw at every moment of the experiment, and developing models that can capture common fluctuations in neuronal population activity due to motor behavior or internal state in the neuronal population activity.
 \circled[gray][gray][white]{2}~\textit{Gaining insights from non-repeatable trials:} 
-To characterize how neuronal representations changes with behavior in a classical experimental trial structure, one would need to present the same stimuli in different behavioral contexts. 
+To characterize how neuronal representations change with behavior in a classical experimental trial structure, one would need to present the same stimuli in different behavioral contexts. 
 However, behavior and visual input in natural conditions cannot easily be controlled or repeated, and natural stimuli are not easily parametrized.
 \circled[gray][gray][white]{3}~\textit{Derive new predictions and paradigms:} The space of stimulus and behavior configurations during free behavior is endless.
-To come up with specific predictions about the interaction between both, we need a way to efficiently explore this space. 
-In particular, we need to make predictions about neural activity for combinations of stimuli and behavior not seen in the experimental data.
-However, existing work on visual responses during free behavior uses linear techniques~\parencite{Parker2022-ac}, such as generalized linear models, which fall short to address the above challenges.
+To come up with specific predictions about the interactions between both, we need a way to efficiently explore this space. 
+In particular, we need to make predictions about neuronal activity for combinations of stimuli and behavior not seen in the experimental data.
+However, existing work on visual responses during free behavior uses linear techniques~\parencite{Parker2022-ac}, such as generalized linear models, which are not suited to address the above challenges.
 
 
-One way these challenges were addressed in recordings of head-fixed animals, where stimuli are controlled, but simple behavior such as running on a treadmill or changes in pupil position and dilation are not, is to compile many unique behavioral and physiological observations (across multiple experiments) into a single computational model -- a data-driven \textbf{functional twin}.
+One way these challenges have been addressed in recordings of head-fixed animals, where stimuli are controlled, but running on a treadmill or changes in pupil position and dilation are not, was by compiling many unique behavioral and physiological observations across multiple experiments into a single computational model -- a data-driven \textbf{functional twin}~\parencite{Sinz2018-sk,Walker2019-yw,Franke2022-do}.
 Such a model allows us to characterize neuronal representations \textit{in silico} and make specific predictions that are testable \textit{in vivo}. 
 Thus, a functional twin mimics the system \textit{functionally}, without necessarily resembling it \textit{structurally}, like a biophysical circuit simulation.  
-They are descriptive models that faithfully predict measurable observations for a real system, such as neural activity or behavior, and extrapolate over a large range of conditions, \textit{e.g.} arbitrary videos or behaviors. 
-Functional twins allow us to outsource experimentally difficult or even infeasible operations on the animal to an \textit{in silico} experiment in the model, such as synthesizing a novel optimal stimulus by gradient descent~\parencite{Walker2019-yw} or mapping out tuning functions and invariances in high dimensional image space~\parencite{Baroni2022-fi}. 
-Importantly, however, as the result of such a search can presented back to the animal in an experiment, it is \textit{feasible} to experimentally test specific predictions by the model~\parencite{Walker2019-yw,Bashivan2019-ry}.
+They are descriptive models that faithfully predict measurable observations for a real system, such as neuronal activity or behavior, and extrapolate over a large range of conditions, \textit{e.g.} arbitrary videos or behaviors. 
+Functional twins allow us to outsource experimentally difficult or even infeasible operations on the animal to an \textit{in silico} experiment in the model, such as synthesizing a novel optimal stimulus by gradient descent~\parencite{Walker2019-yw} or mapping out tuning functions and invariances in high dimensional image spaces~\parencite{Baroni2022-fi}. 
+Importantly, however, since the results of such a search can be presented back to the animal in an experiment, it is \textit{feasible} to experimentally test specific predictions by the model~\parencite{Walker2019-yw,Bashivan2019-ry}.
 
 
 \begin{wrapfigure}[15]{r}{.5\textwidth}
 \vspace{-4ex}
 \includegraphics[width=\linewidth]{figures/architecure_v15_raster.pdf}
-\caption{Basic architecture of our current video-based functional twin for passively viewing head-fixed mice with, simple behavioral variables, and no latent state.}
+\caption{Basic architecture of our current video-based functional twin for passively viewing head-fixed mice with simple behavioral variables and no latent state.}
 \label{fig:videomodel}
 \end{wrapfigure}
-Like in many other areas of research, deep learning also marked a paradigm shift in this area: task-optimized deep convolutional neural networks (CNNs) \parencite{Yamins2014-cg,Cadieu2014-gc,Cadena2017-rb} and CNN-based architectures learned end-to-end on physiological recordings set new standards in the prediction quality and extrapolation capability of models from images to neuronal responses~\parencite{Antolik2016-va,Batty2016-do,McIntosh2016-tr,Klindt2017-sb,Kindel2017-xs,Cadena2017-rb,Burg2021-yg, Lurz2020-ua, Bashiri2021-or,Zhang2018-cs,Cowley2020-cy,Ecker2018-gz, Sinz2018-sk, Walker2019-yw, Franke2022-do}. 
+Like in many other areas of research, deep learning also marked a paradigm shift in this field: task-optimized deep convolutional neural networks (CNNs) \parencite{Yamins2014-cg,Cadieu2014-gc,Cadena2017-rb} and CNN-based architectures trained end-to-end on physiological recordings set new standards regarding the prediction quality and extrapolation capability of models from images to neuronal responses~\parencite{Antolik2016-va,Batty2016-do,McIntosh2016-tr,Klindt2017-sb,Kindel2017-xs,Cadena2017-rb,Burg2021-yg, Lurz2020-ua, Bashiri2021-or,Zhang2018-cs,Cowley2020-cy,Ecker2018-gz, Sinz2018-sk, Walker2019-yw, Franke2022-do}. 
 My group and I made key contributions to the development of data-driven models, trained end-to-end on neuronal responses and natural images or video~\parencite{Sinz2018-sk, Walker2019-yw, Lurz2020-ua, Bashiri2021-or, Lurz2022-up, Franke2022-do, Cobos2022-rr, Ecker2018-gz,Cadena2019-jw}. 
 I developed the first deep model of primary visual cortex on natural video~\parencite{Sinz2018-sk}, which was also the first model to include simple forms of behavioral variables, such as running speed or pupil dilation, and the first to incorporate gaze prediction of the animal as part of an end-to-end trained model (see Fig.~\ref{fig:videomodel}). 
-We were the first to combine fully image driven model with latent state models that capture common fluctuations caused by internal states~\parencite{Bashiri2021-or}.
+We were the first to combine a fully image driven model with latent state models that capture common fluctuations caused by internal states~\parencite{Bashiri2021-or}.
 In addition, we can infer boundaries between brain areas just from recordings of natural images, something that usually requires additional experiments~\parencite{Bashiri2021-or}.
 We also demonstrated that these models learn characteristic feature representations for visual cortex that generalize well between neurons and animals~\parencite{Lurz2020-ua,Cobos2022-rr}.
 Models based on our network architectures are currently state of the art in predicting mouse visual cortex\footnote{All winners of  \url{https://sensorium2022.net/} used our base network architecture}. 
-Furthermore, we~\parencite{Walker2019-yw} developed the \textit{inception loops} paradigm that uses data-driven models of the visual system to synthesized new optimal stimuli for specific neurons that can readily be verified in follow-up experiments\footnote{Other groups from Harvard~\parencite{Ponce2019-yn} and MIT~\parencite{Bashivan2019-ry} concurrently published similar techniques for monkey visual cortex.}. 
+Furthermore, we developed the \textit{inception loops} paradigm~\parencite{Walker2019-yw} that uses data-driven models of the visual system to synthesized new optimal stimuli for specific neurons that can readily be verified in follow-up experiments\footnote{Other groups from Harvard~\parencite{Ponce2019-yn} and MIT~\parencite{Bashivan2019-ry} concurrently published similar techniques for monkey visual cortex.}. 
 Using this technique, we demonstrated that optimal stimuli for mouse primary visual cortex substantially deviated from previous text book models of visual tuning~\parencite{Hubel1959-zs}, and that selectivity of these neurons can change with arousal on the order of seconds~\parencite{Franke2022-do}.
 Other labs are using our models to gather new insights about the visual system~\parencite{Hofling2022-wr} or model it under complex conditions~\parencite{Parker2022-ac}.
 The unrealized potential of this approach to integrate complex experimental data, generate new predictions, and speed up our understanding of the brain is enormous. 
 In fact, the authors of the \textit{neuroconnectionist research programme}~\parencite{Doerig2022-ex} advocated a ``large-scale research programme centered around ANNs as a computational language for expressing falsifiable theories about brain computation'' that generate ``new and otherwise unreachable insights into the workings of the brain''. 
 
 
-Current functional twins models allow neuroscience researchers to accurately capture neuronal responses in passively viewing animals. 
-% Almost all of them are based on images, include only simple behavior such as running and pupil dilation~\parencite{Walker2019-yw,Sinz2018-sk,Stringer2019-lt}, or face movements~\parencite{Stringer2019-lt,Syeda2022-bk}, 
-However, the visual system is not a passive observer but operates in sync with behavior of the animal. 
-% and many neuroscience experiments involve a task or behavior to understand causal effects of the visual representations onto the actions of an animal. 
-% Since behavioral experiments are often tedious and time consuming, and since it is hard to make predictions for natural unconstrained behavior, a modeling approach that integrates neuronal activity and flexible behavior would substantially accelerate neuroscience research. 
+Current functional twin models allow neuroscientists  to accurately capture neuronal responses in passively viewing animals. 
+However, the visual system is not a passive observer but operates in sync with the behavior of an animal. 
 To study the interaction between vision and behavior in freely moving animals, several key elements of such a model are missing. 
-% To model the effect of behavior on visual processing, we need a model that can capture this effect. 
-Since the number of simultaneously recordable neurons in freely behaving animals is still orders of magnitude lower than in head-fixed animals, training a complex model from scratch on one experiment only likely would yield reliable predictive performance. 
+Since the number of simultaneously recordable neurons in freely behaving animals is still orders of magnitude lower than in head-fixed animals, training a complex model from scratch in one experiment is unlikely to yield reliable predictive performance. 
 Thus, we need effective transfer learning schemes to pre-train a model on head-fixed animals, where large scale data is available, and transfer it to freely behaving animals in a way that still allows us to capture how behavior influences visual processing. 
 To model visual cortex under free viewing, we need to know the visual input to the mouse. 
 This means we need to experimentally track where it looks, which is technically challenging, or we need to infer where it looks from video recordings of the animal and simultaneous recordings of neuronal activity. 
-Furthermore, if we want to make predictions about how visual system about behavior, we need to provide the possibility for the model to behave differently than what we observed (to answer ``what if'' type of questions). 
+Furthermore, if we want to make predictions about how the visual system is influenced by behavior, we need to provide the possibility for the model to behave differently from what we observed (to answer ``what if'' type of questions). 
 This means we have to be able to predict the visual input from new viewpoints.
 Existing approaches that mount a camera on a behaving mouse~\parencite{Parker2022-ac} do not allow for that. 
-Other approaches that used a digital replicas of environments, did not record neuronal activity~\parencite{Holmgren2021-jv}.
+Other approaches that used a digital replicas of environments did not record neuronal activity~\parencite{Holmgren2021-jv}.
 Finally, there is no model that combines real neuronal responses from the visual system with a model that selects actions of a mouse in free behavior. 
 This is needed, however, to make predictions about how neuronal visual processing mechanisms affect behavior. 
-Here, I propose a model that closes all of these gaps. 
+Here, I propose an approach that closes all of these gaps. 
 
 \subsection{Studying the effect of visual representations on behavior}
-% virtual mouse, the paper by the guy from Freiburg, Deepmind paper, some Dayan work maybe?
 The gold-standard in understanding the computational relevance of visual representations  is to quantify the effect of causal manipulations of the visual system on decisions and behavior. 
 For instance, if changes in neuronal stimulus-selectivity serve to decrease uncertainty in relevant world dimensions, then disabling these changes should result in a higher variance or lower accuracy of the animal's performance in a task, or in some kind of compensatory behavior, such as longer decision times.
 These kinds of questions involve many computational  challenges. 
-The first is to come up with a specific prediction for the behavioral effect of the causal manipulation: For instance, other neuronal circuits parallel or downstream of the manipulation might have complex effects on the decision of the behavior of an animal that can be hard to control. 
+The first is to come up with a specific prediction for the behavioral effect of the causal manipulation: For instance, other neuronal circuits parallel or downstream of the manipulation might have complex effects on the decision or the behavior of an animal that can be hard to control. 
 Second, to experimentally show the effect, animals need to be trained on a task which is time consuming and tedious. 
 A computational framework that uses a functional twin to make specific behavioral predictions would tremendously speed up neuroscience research because it could be used to prescreen tasks and make more specific predictions, which are easier to test. 
 Here, I propose to develop such an approach in \obj{3}. 
 
-% To answer causal questions about how visual representations affect behavioral performance, we need a behavioral goal (\eg~specified by a reward) and derive behavioral predictions from that under the assumption that the animals solves it optimally. 
 One way to derive predictions about behavior, particularly when it is task-driven, is reinforcement learning.
 There is a large literature that studies the neuronal basis of decisions and motor behavior of animals using reinforcement learning, imitation learning, or optimal control~\parencite{Schultz1997-xu,Todorov2004-yb, Morris2006-ub, Botvinick2009-nn, Yamaguchi2018-xp, Miyazaki2018-gy}.
-For instance, \textcite{Kalweit2022-ev} recently demonstrated that accounting for the intrinsic reward inferred via inverse reinforcement learning and neuronal data can improve the predicted accuracy of a mouse's behavior by approximately 40\%.
+For instance, \textcite{Kalweit2022-ev} recently demonstrated that accounting for the intrinsic reward inferred via inverse reinforcement learning and neuronal data substantially improves the predicted accuracy of rat behavior.
 However, all previous studies either assume that the state of the environment is known to the animal, use strongly simplified (low dimensional) sensory models, or study a very constrained environment with a severely limited action space. 
 
-On the other hand, it has been demonstrated in the recent past that combining reinforcement learning algorithms with complex deep network based vision models is feasible. 
-\textcite{Merel2020-hf} trained a virtual rat to perform tasks in a virtual environment and studied the effect of manipulating representations in the agent's visual system onto task behavior, and demonstrated that they could obtain meaningful results with ablating selected neurons in the circuit. 
+On the other hand, it has been demonstrated in the recent past that combining reinforcement learning algorithms with complex deep network-based vision models is feasible. 
+\textcite{Merel2020-hf} trained a virtual rat to perform tasks in a virtual environment and studied the effect of manipulating representations in the agent's visual system onto task behavior. They demonstrated that they could obtain meaningful results with ablating selected neurons in the circuit. 
 \textcite{Deverett2019-gs} explored the effect of recurrence in an artificial neural network on behavior. 
-They show that the ablation of recurrent connections removes the agents ability to internally measure time and instead the agent used rhythmic behavior to track time. 
+They showed that the ablation of recurrent connections removes the agent's ability to internally measure time. Instead, the agent used rhythmic behavior to track time. 
 Interestingly, measuring time by rhythmic motor behavior has been studied in animals behavior and known as stigmergy.
 Finally, \textcite{Hilton2020-jz} showed that altering the image feature extractor model of a reinforcement learning agent results in predictable changes of behavior.
 While all of these machine learning studies demonstrate that the effect of altering the ``visual system'' of a virtual agent on behavior can be systematically studied, none of these studies use neuronal data, realistic models of a visual system, or real behavior of animals. 
 A computational framework that integrates large scale neuronal activity in the visual system and behavior in a realistic environment or task, is thus timely, but currently non-existent. 
-% The mouse is an almost perfect model system for this.
-% The absence of a fovea and the relatively low resolution of the visual system makes it easier to model its visual system, and the genetic toolbox available offer many opportunities to test the effect of causal manipulations onto behavior \textit{in vivo}.
 
 \subsection{Objectives}
 
@@ -184,7 +176,7 @@ A computational framework that integrates large scale neuronal activity in the v
 \caption{Open field task: Animals have to identify the correct object and touch it to get water reward (figure by Dr. Froudarakis).}
 \label{fig:openfield}
 \end{wrapfigure}
-The proposed project is centered around three central questions, addressed in three objective:
+The proposed project is centered around three central questions, addressed in three objectives:
 \obj{1} What are the contributions of visual stimulus, motor behavior, and internal state to neuronal activity in freely moving mice?
 \obj{2} How does stimulus selectivity in visual cortex change with motor behavior or behavioral context?
 \obj{3} What would be the effect of disabling these selectivity-changes on the behavior and performance in an open field task (Fig~\ref{fig:openfield}), where the animal can freely move?
@@ -193,10 +185,10 @@ These questions lead to three objectives:
 
 \obj{1} \textbf{\oonetitle} to \textbf{disambiguate the contributions of stimulus, behavior, and internal state} to neuronal responses in miniscope recordings~\parencite[see Fig.~\ref{fig:miniscope}]{Cai2016-rh} of freely moving animals. This model will form the backbone for \obj{2} and \obj{3}.
 
-\obj{2} \textbf{\otwotitle} in the model and quantify which scene properties are represented more reliably as a result by reconstructing 3D scene properties from neuronal activity. This addresses \textit{how} selectivity changes with behavior, and what this means in terms of stimulus representation. 
+\obj{2} \textbf{\otwotitle} in the model and quantify which scene properties are represented more reliably as a result by reconstructing 3D scene properties from the model. This addresses \textit{how} selectivity changes with behavior, and what this means in terms of stimulus representation. 
 % I expect a close correspondence between motifs of motor behavior and which scene aspects are more accurately represented. 
 
-\obj{3} \textbf{\othreetitle} by using reinforcement learning to teach the functional twin to solve an open field object recognition task (Fig.~\ref{fig:openfield}) in the virtual environment and observing the effect of circuit manipulations in the model on the twin's behavior. 
+\obj{3} \textbf{\othreetitle} by training the functional twin how to solve an open field object recognition task (Fig.~\ref{fig:openfield}) in the virtual environment and observing the effect of circuit manipulations in the model on the twin's behavior. 
 This investigates \textit{why} selectivity changes with behavior.
 
 \subsection{Significance}
@@ -209,12 +201,9 @@ This investigates \textit{why} selectivity changes with behavior.
 \end{wrapfigure}
 \textbf{Interdisciplinarity} 
 Today, neuroscience can record more detail and volume  of  behavioral and physiological data than ever before, putting it in the area of big data. 
-Fully unlocking the potential of these data, requires strong expertise in computational sciences, such as  machine learning, and in neuroscience. 
+Fully unlocking the potential of these data requires strong expertise in both computational sciences, such as  machine learning, and in neuroscience. 
 I am trained in bioinformatics (undergraduate), machine learning (since undergraduate), computational neuroscience (PhD), and neuroscience (postdocs).
-% I was the coordinator for machine learning and computational neuroscience in a large consortium\footnote{Machine Intelligence from Cortical Networks: \url{https://ninai.org}} to understand the cortical algorithms of vision.
-% This and multiple follow-up projects gives me access to >18M neuron-hours of responses to visual stimuli across the entire mouse visual cortex. 
-% This project develops novel machine learning methods for fundamental research questions in neuroscience, and 
-I will make sure that my students and postdocs will develop this expertise in both fields and maximally benefit from a interdisciplinary environment by enabling them to spend time in our experimental collaborators’ labs (Emmanouil Froudarakis at FORTH and Andreas Tolias at Baylor College of Medicine).
+I will make sure that my students and postdocs will develop this expertise in both fields and maximally benefit from an interdisciplinary environment by enabling them to spend time in our experimental collaborators’ labs (Emmanouil Froudarakis at FORTH and Andreas Tolias at Baylor College of Medicine).
 This will also enable them to test our computational predictions together with experimentalists.
 
 
@@ -223,18 +212,18 @@ Studying the interaction between behavior and visual representations in freely b
 In this project, I will use state of the art machine learning to develop an unprecedented computational framework to address several of these challenges and make a big step towards a ``natural neuroscience'' in unrestrained animals under complex natural conditions.
 
 The model of \obj{1} will be the first unified model of neuronal activity in terms of visual input, internal (latent) state, and complex motor behavior in complex environments. 
-It will allow me to know what the visual input to the animal is, and investigate how visual input and behavior determine in \obj{2}. 
+It will allow me to infer what the visual input to the animal is, and investigate how visual input and behavior interact (\obj{2}). 
 Rendering the visual input from scanned virtual replicas of real experimental environments (Fig.~\ref{fig:replica}) will allow me to replay visual input from recorded as well as simulated behavior to the model of visual system.
 This enables me to efficiently explore the infinite space of behavior and visual stimuli.
-Furthermore, it will allow me to simulate responses of real neurons from large scale recordings in head-fixed animals during behavior in the virtual replica, put a different brain on the behavior of a mouse. 
+Furthermore, it will allow me to simulate responses of real neurons from large scale recordings in head-fixed animals during behavior in the virtual replica. 
 This enables me to ask questions about the behavioral relevance of visual representations for task-driven behavior with reinforcement learning in \obj{3}.
-The framework will not replace experiments, but make it easier, faster and cheaper to generate specific predictions \textit{in silico} before testing them \textit{in vivo}.
+The framework will not replace experiments, but make it easier, faster, and cheaper to generate specific predictions \textit{in silico} before testing them \textit{in vivo}.
 
 \textbf{Potential impact} 
 If successful, this project will change our view on how free behavior affects the visual system and open a new research avenue on how what we do affects how we sense the world. 
 Furthermore, this computational framework is general and has numerous applications beyond this project. 
-For instance, it can be generalized other areas (such as motor or prefrontal areas), stimulus modalities (such as sound or proprioreception), or more detailed observations (such as whisking or biophysical body models), as well as other tasks and questions, even pharmacological interventions.
-It and will be a powerful tool to study sensory neuroscience during free behavior.
+For instance, it can be generalized to other brain areas, such as motor or prefrontal areas, stimulus modalities (such as sound or proprioreception), or more detailed observations (such as whisking or biophysical body models), as well as other tasks and questions, even pharmacological interventions.
+It will thus be a powerful tool to study sensory neuroscience during free behavior.
 As the volume, detail, and complexity of neuroscience data is increasing, the proposed approach can become one step towards a \textit{standard model of systems neuroscience}.
 
 \textbf{Ethics in AI and the use of animals}
@@ -242,9 +231,8 @@ The misuse of machine learning can negatively impact the lives of individuals wi
 My  project will develop computational tools for fundamental research in neuroscience. 
 Thus, I do not anticipate any direct negative consequences regarding ethical concerns related to human rights and values.
 
-Although, we study neuronal systems and use large scale neuronal data, my lab will not perform any animal experiments in this project, but obtains this data from our long time experimental collaborators (see \nameref{sub:data}). 
-% The experiments for a large fraction of the data volume that we want to use for this project have already been recorded. 
-They have or will be carried out in agreement with ethical regulations and protocols approved by an independent Animal Ethical Committee at the Foundation of Research and Technology - Hellas (FORTH) and the Veterinary Directorate of the Region of Crete and Baylor College of Medicine Institutional Animal Care and Use Committee (IACUC).
+Although we study neuronal systems and use large scale neuronal data, my lab will not perform any animal experiments in this project, but obtains  data from our long time experimental collaborators (see \nameref{sub:data}). 
+They have been or will be carried out in agreement with ethical regulations and protocols approved by an independent Animal Ethical Committee at the Foundation of Research and Technology - Hellas (FORTH) and the Veterinary Directorate of the Region of Crete and Baylor College of Medicine Institutional Animal Care and Use Committee (IACUC).
 %%%%%%%%%%%%% METHODOLOGY %%%%%%%%%%%%%%%%%%%
 \section{Methodology}
 \subsection{Data and data management}
@@ -257,14 +245,18 @@ They have or will be carried out in agreement with ethical regulations and proto
 \label{fig:miniscope}
 \end{wrapfigure}
 This project at the frontier of machine learning and neuroscience would not be possible without actual neuroscientific and behavioral data. 
-I have a long-standing collaboration with Dr. Tolias (Baylor College of Medicine, Houston, co-authors on >20  publications) and Dr. Froudarakis (FORTH, Crete, co-authors on >10 publications) who agreed to share physiological and behavioral data with me (see Letters of Support).
+I have a long-standing collaboration with Dr. Tolias (Baylor College of Medicine, Houston, co-author on >20  publications) and Dr. Froudarakis (FORTH, Crete, co-author on >10 publications) who agreed to share physiological and behavioral data with me.
 Our labs have a long and successful history of closely working together by exchanging data and machine learning models. 
-Through Dr. Tolias, I have access to 2-photon recordings of more than 18M neuron hours of single cell resolution responses~\parencite{Sofroniew2016-xg} to visual stimuli across the entire visual cortex of transgenic animals expression GCaMP. A significant fraction of that is to natural video, recorded during the MICRONs project (\url{https://ninai.org}), which I was part of.
-In addition, Drs. Froudarakis and Tolias will share with me behavioral videos and neural responses, recorded with miniscopes~\parencite[Fig~\ref{fig:miniscope}]{Cai2016-rh} or silicon probes in freely behaving mice during spontaneous or task-driven behavior, performing different open field visual object recognition tasks (Figs~\ref{fig:miniscope} and~\ref{fig:openfield}). Dr. Froudarakis will also share data from visual cortex of head-fixed and freely behaving mice under optogenetic suppression of different visual areas with me. Drs. Froudarakis and Tolias are recording this data for other ongoing grants. My framework is not required for these grants, but opens new possibilities to analyze their data.
+Through Dr. Tolias, I have access to 2-photon recordings of more than 18M neuron hours of single cell resolution responses~\parencite{Sofroniew2016-xg} to visual stimuli across the entire visual cortex of transgenic animals expressing GCaMP. A significant fraction of that are responses to natural video, recorded during the MICRONs project (\url{https://ninai.org}), which I was part of.
+In addition, my long-time collaborator Dr. Froudarakis (FORTH, Crete, co-author on >10 publications) 
+% and Dr. Tolias (Baylor College of Medicine, Houston, co-author on >20  publications) 
+will share with me behavioral videos and neuronal responses, recorded with miniscopes~\parencite[Fig~\ref{fig:miniscope}]{Cai2016-rh} in freely behaving mice during spontaneous or task-driven behavior.
+The animals perform open field visual object recognition tasks (Figs~\ref{fig:openfield}). 
+Dr. Froudarakis will also share data from visual cortex of head-fixed and freely behaving mice under optogenetic suppression of different visual areas with me. Dr. Froudarakis is recording these data for other ongoing grants. My framework is not required for these grants, but opens new possibilities to analyze their data.
 Both also agreed to run supplementary experiments as subcontractors to test our predictions.
-While the success of the project does not depend on these test, they will make our results more impactful.
-We will store, exchange and manage this data using \href{https://www.datajoint.org/}{DataJoint}~\parencite{Yatsenko2015-id}, an open source database system our labs developed. 
-From ongoing collaborations the data management structure is established and ready to use.
+While the success of the project does not depend on these tests, they will make our results more impactful.
+We will store, exchange and manage all data using \href{https://www.datajoint.org/}{DataJoint}~\parencite{Yatsenko2015-id}, an open source database system our labs developed. 
+The data management structure has been established in ongoing collaborations and is ready to use.
 
 \subsection{\colorbox{obj1}{\color{white}O1} Objective 1: \oonetitle}
 \labelobj{1}
@@ -272,12 +264,12 @@ From ongoing collaborations the data management structure is established and rea
 \textbf{Goal:} Build a functional digital twin of a mouse visual system to disentangle the contributions of visual input, behavior, and internal state to neuronal activity in visual cortex recorded during free behavior, and to simulate neuronal activity for novel behavioral trajectories.
 
 \textbf{Overview and rationale:} Neuronal activity  in visual cortex is not only determined by visual input, but can be profoundly affected by behavior and the internal state of an animal~\parencite{Niell2010-bs,Musall2019-kd,Stringer2019-lt, Franke2022-do}.
-To disentangle the contributions from these different sources to neuronal activity in freely moving animals, I will move a deep video-based data-driven model of the mouse visual system through the scanned digital replica (like in Fig.~\ref{fig:replica}) of the real experimental environment according to its eye and body movement inferred from a behavioral video and a pupil camera mounted on the mouse. 
+To disentangle the contributions from these different sources to neuronal activity in freely moving animals, I will move a deep video-based data-driven model of the mouse visual system through the scanned digital replica  of the real experimental environment (like in Fig.~\ref{fig:replica}) according to its eye and body movement inferred from a behavioral video and a pupil camera mounted on the mouse. 
 While it is now possible to record hundreds of neurons during free behavior~\parencite{Parker2022-ac}, we are still not at the scale in terms of the number of neurons that can be reached with head-fixed 2-photon recordings~\parencite{Sofroniew2016-xg}. 
 It might thus not be possible to train a video-based model only on the recordings from free behavior. 
 Thus, I will first pre-train a video-based model on tens of thousands of excitatory neurons from nine areas of the visual system recorded with 2-photon from head-fixed mice, and transfer it to the freely moving mouse afterwards.
-We will add an multidimensional latent state to the model to capture common non-visual fluctuations in population activity~\parencite{Bashiri2021-or} which might change stimulus selectivity in visual neurons as a result.
-When we attach the model to the mouse in the replica environment we will fine-tune the readout and latent state to the fewer neurons recorded during free behavior, adapt it to the exact eye movements, and use the behavior to predict  the latent state -- and thus the change in selectivity.
+We will add a multidimensional latent state to the model to capture common non-visual fluctuations in population activity~\parencite{Bashiri2021-or} such that it can also change stimulus selectivity in visual neurons.
+When we attach the model to the mouse in the replica environment we will fine tune the readout and latent state to the fewer neurons recorded during free behavior, adapt it to the exact eye movements, and use the behavior to predict  the latent state -- and thus the potential change in selectivity.
 
 \begin{wrapfigure}[19]{r}{.35\textwidth}
 \vspace{-3ex}
@@ -288,7 +280,7 @@ When we attach the model to the mouse in the replica environment we will fine-tu
 \circled[gray][gray][white]{1} We previously showed that models pre-trained on multiple datasets can be fit more efficiently to new neurons and stimuli using transfer learning~\parencite{Lurz2020-ua}. We thus expect pre-training to substantially increase the predictive power. 
 \circled[gray][gray][white]{2} Since previous work has found the non-visual fluctuations to be relatively low dimensional compared to the number of neurons~\parencite{Stringer2019-lt}, we expect to be able to identify most of the latent dimensions (not the state itself) from the head-fixed recordings first and fine tune it on (possibly multiple) miniscope recordings. 
 The actual \textit{state} $\vec{z}$, and the resulting changes in stimulus-selectivity, will then be inferred from the neurons recorded during free behavior. We can then explain fluctuations in $\vec{z}$ via the actual behavior (by conditioning on it) and thus disentangle the contributions of visual input, behavioral state, and internal state to neuronal activity. 
-\circled[gray][gray][white]{3} The approach also allows us to simulate neurons from a different mouse with behavior from another mouse by using the latent state $\vec{z}$ inferred from the freely behaving mouse and replaying the visual input and behavior to the model. 
+\circled[gray][gray][white]{3} The approach also allows us to simulate neurons from a mouse with behavior from another mouse by using the latent state $\vec{z}$ inferred from the freely behaving mouse and replaying the visual input and behavior to the model. 
 \circled[gray][gray][white]{4} In a similar way, we can simulate neuronal activity for novel behavioral trajectories that are not in the dataset and even use the model as a virtual agent to simulate task driven behavior. An approach that directly mounts a camera on a mouse~\parencite{Parker2022-ac} cannot do that. 
 
 
@@ -296,50 +288,31 @@ The objective is split into three work packages.
 Building on my previous work~\parencite{Sinz2018-sk, Bashiri2021-or}, \objwp{1}{1} develops a video-driven latent state functional digital twin model. 
 The technical innovation is to include a latent state into a dynamic model that can accurately capture low-dimensional population dynamics from non-visual sources, and can easily be adapted to new neurons and mice. 
 \objwp{1}{2} digitizes the environment and infers the 3D trajectories of the animal's pose from video data.
-\objwp{1}{3} builds the functional twin by attaching the pre-trained model to the mouse predicted eye positions, and fine-tuning it to neuronal activity and pupil positions recorded during free behavior.
-
-
-% \textbf{Technical innovation:} This will be the first encoding model that predicts the activity of tens of thousands of neurons in visual cortex under free behavior and accounts for the modulation of neurons from brain state and behavior -- yielding an embodied functional digital twin that can be used to simulate new situations as close to real activity as currently possible.
-
-
+\objwp{1}{3} builds the functional twin by attaching the pre-trained model to the mouse's predicted eye positions, and fine  tunes it to neuronal activity and pupil positions recorded during free behavior.
 
 \subsubsection{Work package 1.1: A video-driven latent state model of the visual system\hfill\objwp{1}{2}}
 \labelobjwp{1}{1}
 Like in my previous work, the video model will consist of a \textit{common feature map} that extracts nonlinear features from a given video using a deep convolutional recurrent network (Fig.~\ref{fig:model}).
 Different visual areas will be predicted  from different layers of the network.
 To model common fluctuations in the neuronal population, we will add a Gaussian latent state $\vec{z}$ to this feature representation.
-Because it is added to the feature representation from which many neurons are predicted, changes in the latent state can cause changes in stimulus selectivity of the neurons.
+Because many neurons are predicted from this feature representation, changes in the latent state can cause changes in stimulus selectivity of the neurons.
 Correlations between neurons will be modeled by allowing the latent state to be correlated across space and time. 
-% In the image based model~\parencite{Bashiri2021-or}, we used a factor analysis model. 
 To obtain an efficient dynamic model for the latent state, we will use a low-dimensional linear Gauss-Markov model.
-We will use a parameter efficient linear \textit{readout mechanisms} we developed~\parencite{Lurz2020-ua} to predict neuronal responses.
-Since neural response have at least one discrete component (``0'' for two photon recordings), we will use variational dequantization~\parencite{Hoogeboom2021-zs} to make this discrete component continuous.
-% We will integrate over the latent state for fitting and train the model on the marginal likelihood of the transformed neural responses given the video.
-% This can be done efficiently because the latent state and the dequantized responses are linearly related.
+We will use a parameter efficient linear \textit{readout mechanism} we developed~\parencite{Lurz2020-ua} to predict neuronal responses.
+Since neuronal responses have at least one discrete component (``0'' for two photon recordings), we will use variational dequantization~\parencite{Hoogeboom2021-zs} to make this discrete component continuous.
 We will use variational inference to train the model. 
 Eye movements will be captured from a pupil camera and used to predict a gaze change end-to-end from visual input and neuronal activity~\parencite[Fig.~\ref{fig:videomodel}]{Sinz2018-sk}.
-We will train this model on large scale two-photon data from head-fixed mice watching natural, rendered, and noise movies.
+We will train this model on large scale two-photon data from head-fixed mice watching natural, rendered, and  movies with drifting Gaussian noise.
 This  will yield a video-driven latent-state foundation model for visual cortex that can be efficiently adapted to neurons recorded during free behavior by fitting readout vectors for new neurons, and fine tuning the mapping from latent state to the feature map and from pupil to gaze.
-
-% If necessary, we can also let the correlation structure depend on the visual input. 
-% \hl{include what data the model is trained on, do we include behavioral state, or just compare to it.}
 
 \subsubsection{Work package 1.2: Digital replica of the environment and tracking behavior\hfill\objwp{1}{2}}
 \labelobjwp{1}{2}
-
-
-
-% \textbf{Behavior via posture graph trajectories}
 We will track the movement of the mouse in the cage from two cameras, and detect 2D keypoints of its posture graph using DeepLabCut~\parencite{Mathis2018-lk}. 
-Subsequently, we will lift this 2D graph to a 3D posture graph using triangulation combined with a pose lifting model developed by us that can deal with temporarily occluded keypoints~\parencite{Pierzchlewicz2022-tq}. 
-% For freely moving humans, this model achieves an accuracy of less than 5mm and can also deal with temporarily occluded keypoints. 
-This step will yield a 3D trajectory of a stick-figure model of the mouse in its environment over time. 
+Subsequently, we will lift the 2D graphs to a 3D posture graphs using triangulation combined with a pose lifting model developed by us that can deal with temporarily occluded keypoints~\parencite{Pierzchlewicz2022-tq}. 
+This step will yield a 3D trajectory of posture graphs  of the mouse in its environment over time. 
 
-
-
-% \textbf{Digital replica of the experimental environment:} 
 We will build a virtual model of the environment using LIDAR and baking images of the animal's cage as texture onto the scanned mesh~\parencite[similar as in][]{Holmgren2021-jv}.
-Subsequently, we will use Blender and PyTorch3D to move a camera in the environment according to the tracked movement of the mouses eyes, render the scenes and feed it to the predictive model from~\objwp{1}{1}.
+Subsequently, we will use Blender and PyTorch3D to move a camera in the environment according to the tracked movement of the mouse's eyes, render the scenes and feed it to the predictive model from~\objwp{1}{1}.
 Since the cage and lab environment are standardized and static, we will not model the dynamics of the arena. 
 However, we will include the monitor showing stimulus videos into the environment. 
 This step will yield a virtual environment that we can use to recreate visual input from tracked or novel behavioral trajectories.
@@ -350,20 +323,19 @@ This step will yield a virtual environment that we can use to recreate visual in
 
 \textbf{Functional twin:} We will place a camera at the approximate eye locations of the mouse inferred from tracking the mouse's head and move it in the virtual environment according to the movement of the mouse. 
 The rendered frames of the camera will become the visual input to the model.
-We will fine-tune the camera angle (the mouse's gaze direction) by accounting for the fact that mice do compensatory eye movements during locomotion~\parencite[similar to rats][]{Wallace2013-lf}, and simultaneously optimizing the gaze direction as a function of pupil position from an eye camera 
+We will fine tune the camera angle (the mouse's gaze direction) by accounting for the fact that mice do compensatory eye movements during locomotion~\parencite[similar to rats][]{Wallace2013-lf}, and simultaneously optimizing the gaze direction as a function of pupil position from an eye camera 
 mounted on the mouse to maximize neuronal prediction performance. 
-We have already demonstrated before that end-to-end gaze inference is possible~\parencite{Sinz2018-sk,Walker2019-yw} and others have use this technique successfully in freely moving mice~\parencite{Parker2022-ac}.
-We will then fine-tune the parameters of the latent state model, and fit new readout vectors for the recorded neurons during free behavior.
+We have already demonstrated before that end-to-end gaze inference is possible~\parencite{Sinz2018-sk,Walker2019-yw} and others have used this technique successfully in freely moving mice~\parencite{Parker2022-ac}.
+We will then fine tune the parameters of the latent state model, and fit new readout vectors for the recorded neurons during free behavior.
 For fine tuning the model to the pose trajectories, we will include them as an additional function of the latent state $\vec{z}$ to the model (Fig.~\ref{fig:model}). 
-After fine tuning, this allows us to condition on the pose trajectories, which makes them an input to the model, and use it to explain away the part of the latent state cause by motor behavior.
-% During prediction, we can reverse that relation and condition on the posture trajectory  
+After fine tuning, this allows us to condition on the pose trajectories and use it to explain away the part of the latent state caused by motor behavior.
 The remaining part will be treated as internal state. 
-All fitting and fine-tuning steps trained end-to-end  on  miniscope recordings from freely behaving animals. 
+All fitting and fine tuning steps are trained end-to-end  on  miniscope recordings from freely behaving animals. 
 This yields a functional twin for neuronal activity during free behavior.
 
 \subsubsection{Expected outcome} 
 
-A functional digital twin of the visual system of the mouse that allows us to disentangle the contributions of visual input, behavior, and internal state to neuron activity during free behavior. 
+I expect to obtain a functional digital twin of the visual system of the mouse that allows us to disentangle the contributions of visual input, behavior, and internal state to neuron activity during free behavior. 
 Importantly, it will allow us to discover behavior-associated changes in stimulus-selectivity by analyzing the influence of the posture graph trajectories on the predicted neuronal activity.
 It will also allow us to predict neuronal activity to completely novel trajectories of the mouse in the environment.
 We will quantify the prediction performance of the model by computing correlations of predicted neuronal activity with the actually recorded activity on episodes not used for training. 
@@ -371,14 +343,13 @@ As an additional quality control, we will predict the receptive fields of each n
 If the model faithfully captures the response function of each neuron, we should see sharp receptive fields~\parencite{Parker2022-ac}.
 
 \subsubsection{Risk management} 
-While \obj{1} will be a substantial step ahead, all single parts have been implemented on their own before by us~\parencite{Sinz2018-sk, Bashiri2021-or} or others~\parencite{Parker2022-ac,Holmgren2021-jv}. 
-% We thus expect to be able to successfully implement the model. 
-% If the latent state in head-fixed experiments should turn out to not be rich enough (\obj{1}), we will adapt it directly on data from multiple miniscope experiments. 
-Using a forward facing and an eye camera in a mouse, \textcite{Parker2022-ac} already showed that they can account for eye movements and map receptive fields in behaving mice. Note, however, that they lack model for the interaction between behavior and vision, and they can only replay the path the mouse took (they could not do \obj{2} and \obj{3}).
+While \obj{1} will be a substantial step ahead, all individual parts have been implemented before by us~\parencite{Sinz2018-sk, Bashiri2021-or} or others~\parencite{Parker2022-ac,Holmgren2021-jv}. 
+Using a forward facing and an eye camera in a mouse, \textcite{Parker2022-ac} already accounted for eye movements and mapped receptive fields in behaving mice. However, their simple model would be insufficient for all objectives discussed here.
 
-Currently, our model only accounts for modulations due to motor behavior and any other non-visually driven activity is assigned to the internal state. 
-However there might be other modalities that affect neuronal activity, such as proprioreception or whisking. 
-Currently, our model will capture them under ``internal state''.
+
+Currently, our model only accounts for modulations due to motor behavior while any other non-visually driven activity is assigned to the internal state. 
+However, there might be other modalities that affect neuronal activity, such as proprioreception or whisking. 
+% Currently, our model will capture them under ``internal state''.
 We will perform an additional analysis whether these factors have a major influence and include them in the model if necessary. 
 We can estimate some proprioreception by inferring contact-to-ground from the behavior videos.
 In addition, we can add a component to the network that uses video from a bounding box around the mouse, similar to FaceMap~\parencite{Syeda2022-bk}.
@@ -392,16 +363,14 @@ In addition, we can add a component to the network that uses video from a boundi
 Describe scene properties that are encoded more reliably under the different tuning extremes. 
 
 \textbf{Overview and rationale:} 
-Even in head-fixed animals, behavior and state of arousal can modulate the response of neurons in mouse visual cortex~\parencite{Niell2010-bs, Stringer2019-lt, Musall2019-kd} and change their stimulus selectivity~\parencite{Franke2022-do,Chiappe2010-bm, Bezdudnaya2006-ge,Treue1996-lp, Andermann2011-vw}, and result in better behavioral performance \parencite{Spitzer1988-kq, Bennett2013-rk, Dadarlat2017-jw, De_Gee2022-ir}.
+Even in head-fixed animals, behavior and state of arousal can modulate the response of neurons in mouse visual cortex~\parencite{Niell2010-bs, Stringer2019-lt, Musall2019-kd}, change their stimulus selectivity~\parencite{Franke2022-do,Chiappe2010-bm, Bezdudnaya2006-ge,Treue1996-lp, Andermann2011-vw}, and result in better behavioral performance \parencite{Spitzer1988-kq, Bennett2013-rk, Dadarlat2017-jw, De_Gee2022-ir}.
 \textcite{Stringer2019-lt} also showed that detailed behavior of the face alone can already explain more latent fluctuations than other variables such as running or pupil dilation.
 This provides a strong rationale for an even richer repertoire of effects from behavior on stimulus selectivity in freely behaving animals, and that these selectivity-changes increase the reliability (decrease uncertainty) in relevant stimulus dimensions. 
-% I thus hypothesize that there are more ways how visual tuning adapts to behavior, and that this serves to decrease the uncertainty about stimulus dimensions that are relevant for the particular behavior. 
-% However, how motor behavior affects tuning in freely moving animals is an open question.
-In this objective I develop a data-driven approach using the functional twin model from~\obj{1} to find novel correspondences between motor behavior and change in stimulus selectivity in visual cortex. 
+In this objective we will develop a data-driven approach using the functional twin model from~\obj{1} to find novel correspondences between motor behavior and change in stimulus selectivity in visual cortex. 
 We will subsequently investigate which scene properties are better encoded as a result of the selectivity-change.
 This will yield important clues about what features are relevant to the mouse during the behavior. 
 We will use data from animals performing an open field object recognition task. 
-To control for the possibility that tuning changes could be induced by task context instead, we will only analyze episodes where the animal did not engage in the task or additionally condition on task variables. 
+To control for the possibility that tuning changes could be induced by task contexts instead, we will only analyze episodes where the animal did not engage in the task or additionally condition on task variables. 
 To quantify how the selectivity-changes affect the encoding of a scene, we will reconstruct geometric and semantic properties -- available from rendering -- from the neuronal activity in the model under the two extreme ends of the stimulus selectivity identified before, and analyze which are encoded more reliably. 
 
 
@@ -415,15 +384,15 @@ To quantify how the selectivity-changes affect the encoding of a scene, we will 
 \end{wrapfigure}
 %
 Because the tracked keypoints in 3D are correlated in space and time, they can be more compactly described in behavioral motifs, such as running, rearing, or grooming. 
-To extract these motifs form the data, we will first fit a latent state probabilistic model to the trajectories of the 3D graphs to describe them in terms of a low dimensional continuous latent state and a clustering of those embedding into discrete motifs~\parencite[similar to][]{Wiltschko2015-ey, Wiltschko2020-zd}.
+To extract these motifs from the data, we will first fit a latent state probabilistic model to the trajectories of the 3D graphs to describe them in terms of a low dimensional continuous latent state and a clustering of those embeddings into discrete motifs~\parencite[similar to][]{Wiltschko2015-ey, Wiltschko2020-zd}.
 Since this model can also generate 3D graphs, we will connect it the model of~\objwp{1}{1} to make it a function of a stimulus and the latent behavioral embedding: \texttt{neural responses = model(video stimulus, 3D postures(embedding))}.
 Note that the video stimulus would usually be a function of the 3D postures and eye movements, which determine where the animal looks. 
-However, our functional twin models allows us to decouple the stimulus from the behavior and use it to find pairs of stimuli and embedding vectors (and their corresponding 3D posture trajectory) to map out tuning changes of single neurons with respect to motor behavior. 
-To this end, we will first describe the tuning manifold of each neuron, by extending a contrastive learning algorithm we developed~\parencite{Baroni2022-fi}, and then find directions in the behavior embedding space that maximally modulate the response of a given neuron to this stimulus manifold, i.e. change its tuning (Fig.~\ref{fig:o2wp1}).
+However, our functional twin models allow us to decouple the stimulus from the behavior and find pairs of stimuli and embedding vectors (and their corresponding 3D posture trajectory) to map out tuning changes of single neurons with respect to motor behavior. 
+To this end, we will first describe the tuning manifold of each neuron by extending a contrastive learning algorithm we developed~\parencite{Baroni2022-fi}, and then find directions in the behavior embedding space that maximally modulate the response of a given neuron to this stimulus manifold, i.e. change its tuning (Fig.~\ref{fig:o2wp1}).
 This can be done using optimization on the embedding space. 
-To visualize the changes in tuning, we will compute maximally exciting video~\parencite{Walker2019-yw} for each extreme in the behavior embedding space. 
+To visualize the changes in tuning, we will compute maximally exciting videos~\parencite{Walker2019-yw} for each extreme in the behavior embedding space. 
 In addition to motor behavior, task context could explain tuning changes. 
-To account for this possible confounder, we will add task variables (trial active or not, what object ID was shown, etc.) as additional variables to the model in the same way we added behavior, and then condition on the task context first to see whether motor behavior can explain tuning changes beyond task context. 
+To account for this possible confounder, we will add task variables (trial active or not, what object ID was shown, etc.) as additional variables to the model in the same way we added behavior, and then condition on the task context first, to see whether motor behavior can explain tuning changes beyond task context. 
 If task context has an influence, we will also analyze how it changes tuning in the same way we analyzed the motor behavior. 
 Together with our experimental partners, we will experimentally verify the predicted change in tuning by designing stimuli that can will yield differential responses under the different behavioral states irrespective of gaze. 
 
@@ -443,31 +412,30 @@ Modulation or change in tuning of visual neurons usually goes hand in hand with 
 I thus expect any change in tuning found in~\objwp{2}{1} to also increase signal quality specific dimensions.
 Since the goal of the visual system is to infer information about the \textit{world}, not the \textit{image}, we will analyze what these dimensions are in terms of scene features. 
 
-To investigate this, we will reconstruct scene features, such as object boundaries, depth, curvature, slant, texture, and optical flow (Fig.~\ref{fig:o2wp2}), that are available to us from the virtual replica of the environment and the rendered stimuli from object recognition task, under the different tuning extremes identified in~\objwp{2}{1}.
-To that end, we will train another convolutional or recurrent feature map (\texttt{FM}, Fig~.\ref{fig:model}) of the network from~\objwp{1}{1} to reproduce the features of the original core by minimizing the difference between 
+To investigate this, we will reconstruct scene features, such as object boundaries, depth, curvature, slant, texture, and optical flow (Fig.~\ref{fig:o2wp2}). These are available to us from the virtual replica of the environment and the rendered stimuli from the object recognition task under the different tuning extremes identified in~\objwp{2}{1}.
+To that end, we will train another convolutional or recurrent feature map (\texttt{FM}, Fig.~\ref{fig:model}) of the network from~\objwp{1}{1} to reproduce the features of the original core by minimizing the difference between 
 % \begin{center}
     \texttt{FM\_old(rendered video)} and \texttt{FM\_new(scene properties)}
 % \end{center}
 with respect to the parameters (network weights) of \texttt{FM\_new}. 
-Note, that this does not require neural responses to rendered stimuli, only pairs of rendered videos and latent dimensions, which are cheap to generate. 
-We have previously demonstrated that matching the outputs of a core can reproduce the essential features for neural prediction~\parencite{Safarani2021-yy}.
+Note that this does not require neural responses to rendered stimuli, only pairs of rendered videos and latent dimensions which are cheap to generate. 
+We have previously demonstrated that matching the outputs of  feature maps between networks can reproduce the essential features for neural prediction~\parencite{Safarani2021-yy}.
 This yields a new model \texttt{neural responses = model(\textbf{scene properties}, 3D postures(embedding))}.
 We can then reconstruct scene properties from neural responses in the model by pixelwise optimizing scene properties to reproduce the same response~\parencite{Cobos2022-rr}.
-We will do that under the different extremes of stimulus-selectivity identified above.
-% We have previously demonstrated with models for static natural images and verification experiments, that this approach best captures the perceptual relevant dimensions for mouse visual cortex. 
-We will then analyze the accuracy and variability with which different world properties are reconstructed under different behavioral states, by reconstructing multiple times from different realization of neuronal noise.
+We will do that under the different extremes of stimulus-selectivity identified in \objwp{2}{1}.
+We will then analyze the accuracy and variability with which different world properties are reconstructed under different behavioral states by reconstructing multiple times from different realizations of neuronal noise.
 
 \subsubsection{Expected outcome} 
-I expect to find changes in tuning that correspond to particular behavioral motifs, and possibly task context.
-Irrespective of what caused the change in tuning, I expect that the behavioral context determines which scene features are better reconstructed from the model.
+I expect to find changes in tuning that correspond to particular behavioral motifs and, possibly, task context.
+Irrespective of what caused the change in tuning, I expect the behavioral context to determine which scene features are better reconstructed from the model.
 I expect these features to be meaningful with respect to the behavioral context. 
 For instance, object boundaries or optic flow not caused by self-motion could be enhanced during running to facilitate navigation. 
 
 \subsubsection{Risk management} 
 The goal of this objective is to find new correspondences between change in stimulus-selectivity of neurons in visual cortex and particular motor behavior in freely moving animals in a data-driven way.
-One risk is, that we will not find such new mechanisms.
+One risk is that we will not find such new mechanisms.
 While this is unlikely, given that \textcite{Stringer2019-lt} already showed in head-fixed animals that just including more features from the face explains more variance in spontaneous activity than simple arousal variables like running, pupil, or whisking, even the absence of selectivity-changes would be a valuable result since it would mean that stimulus tuning would be kept stable during behavior. 
-In this unlikely case, we would then turn to the question when simple gain modulation of neuronal activity occurs in freely behaving animals under natural stimulation, and how this relates to latent scene variables. 
+% In this unlikely case, we would then turn to the question when simple gain modulation of neuronal activity occurs in freely behaving animals under natural stimulation, and how this relates to latent scene variables. 
 
 
 
@@ -480,108 +448,98 @@ In this unlikely case, we would then turn to the question when simple gain modul
 
 \textbf{Overview and rationale:} 
 Previous studies reported that modulation of sensory responses resulted in better behavioral performance \parencite{Spitzer1988-kq, Bennett2013-rk, Dadarlat2017-jw, De_Gee2022-ir}, suggesting that the modulation is necessary for successful behavior. 
-\obj{2} identified how changes in tuning \textit{correlate} with behavior, but did not demonstrate whether they are \textit{necessary} for the animal to perform certain tasks.
+\obj{2} identifies how changes in tuning \textit{correlate} with behavior, but does not demonstrate whether they are \textit{necessary} for the animal to perform certain tasks.
 The goal of this objective is to build a computational framework to predict how motor behavior and task performance of an animal would change if temporary changes in stimulus selectivity were experimentally shut down.  
 The difficulty for making such a prediction results from the redundancy of the visual stimulus and the visual system: 
 Even when a particular neuronal mechanism is suppressed, the animal might still achieve the behavioral goal using alternative strategies.
-In this work package we will predict both the effect on performance as well as possibly different behavioral strategies, allow our model to change its behavior to solve the task. 
-% To model the effect of changes in visual representations on behavior in open field behavior, we need to account for the possibility that the animal chooses a different strategy to still solve the same task. 
-To achieve this, I propose extend the functional twin with a model component that predicts motor actions of the animal and let it learn to solve behavioral tasks with reinforcement learning.
+In this objective we will predict the effect of manipulations on performance as well as behavior, by allowing our model to adapt its behavior to solve the task. 
+To achieve this, I will extend the functional twin with a model component that predicts motor actions of the animal and let it learn to solve behavioral tasks with reinforcement learning.
 The reinforcement learning agent will have the previously learned visual system of a mouse to access the state of the environment.
 We will then manipulate the visual system (the video model) of this agent. 
-These manipulation will also be learned from data to reflect real experimental (optogenetic) manipulations.
-% The resulting behavior of the agent in the natural and manipulated state will make predictions about the behavior of the animal. 
+These manipulations will also be learned from data to reflect real experimental (optogenetic) manipulations.
 When the manipulation is turned on, the agent can either use the previously learned policy or adapt the policy to compensate for the changes in the visual system.
 Both will make a prediction about the change in behavior of the animal. 
-% To account for this, I propose to build a reinforcement learning agent based on the functional twin and let it learn to solve an open field recognition task in the digitized environment. 
-% The behavioral policy of this agent will make a prediction about the animal's behavioral strategy and performance.
-% Simulating experimental interventions on the visual system of the agent and letting it solve the task again, will then allow me to make predictions how the behavior changes under experimental interventions. 
-% As a consequence, the behavioral changes might be subtle and thus hard to predict or interpret.
 
-Shutting down changes in stimulus-selectivity is not yet possible in real animals, since we do not know enough about the circuits that cause these shifts in selectivity.
-We will deal with this in two ways: \circled[gray][gray][white]{1} First we will learn to predict the effect of existing optogenetic manipulations, for which we have data, on performance and behavior.
-We will do that in several stages of difficulty: We will first capture the effect of optogenetic manipulations one the neuronal representations in the model using large scale recordings from head-fixed animals. 
-We will then model the effect of these manipulations on the decisions of the mouse in a object recognition task during head-fixed and open field behavior. 
+Shutting down changes in stimulus-selectivity is not yet possible in real animals, since we do not know which neuronal circuits cause these shifts in selectivity.
+We will deal with this in two ways: \circled[gray][gray][white]{1} To develop the model, we will first learn to predict the effect of existing optogenetic manipulations, for which we have data, on performance and behavior.
+We will do that in several stages of difficulty: We will first capture how optogenetic manipulations change neuronal representations in the model using large scale recordings from head-fixed animals. 
+We will then model the effect of these manipulations on the decisions of the mouse in object recognition tasks during head-fixed and open field behavior. 
 Since we will have the corresponding experimental data this will be a strong test whether our model can indeed capture the effect of causal manipulations on behavior.
-Once we validated our approach with that, we will predict the effect of shutting down behavior-associated changes in stimulus selectivity.
-\circled[gray][gray][white]{2} To make it experimentally testable, we will predict a stimulus manipulation that would cause a similar change in behavior and performance as the shutting down the selectivity-changes.
+Once we have validated our approach this way, we will predict the effect of shutting down behavior-associated changes in stimulus selectivity.
+\circled[gray][gray][white]{2} To make it experimentally testable, we will predict a stimulus manipulation, such as selectively distorting certain scene features, that is expected to cause a similar change in behavior and performance as shutting down the selectivity-changes.
 This can also be related to the reconstructed dimensions from \objwp{2}{2}.
 
 \subsubsection{Workpackage 3.1: Causal manipulations in head-fixed animals\hfill\objwp{3}{1}}
 \labelobjwp{3}{1}
-We will first model the effect of optogenetic inhibition of different visual areas onto decisions of mice in two alternative forced choice object recognition tasks, similar to the open field task but performed in head-fixed animals. 
-Activity in multiple visual areas recorded with 2-photon while mice perform the task under normal conditions and when particular areas are optogenetically suppressed.
-We will first model whether we can predict the animals decisions under normal conditions. 
-To that end, we will train a decision network to predict the correct outcome for each trial either from the modeled neurons while freezing the  latent state in the functional twin model.
+We will first model the effect of optogenetic inhibition of different visual areas on decisions of mice in a two alternative forced choice object recognition task, similar to the open field task but performed in head-fixed animals. 
+Activity in multiple visual areas is recorded with 2-photon while mice perform the task under normal conditions and when particular areas are optogenetically suppressed.
+We will first model whether we can predict the animals' decisions under normal conditions. 
+To that end, we will train a decision network to predict the correct outcome for each trial from the modeled neurons while freezing the  latent state in the functional twin model.
 We will then freeze the decision network, enable the latent state in the visual model and infer its actual state from the neuronal recordings. 
 Then we will compare the decisions of the model with the decisions of the animal. 
-I expect that adding the latent state will lead to better predictions of the animal's choices. 
+I expect that adding the latent state will lead to better predictions of the animals' choices. 
 
 In the next step, we will extend the model to account for the effect of optogenetic manipulations. 
 To that end, we will include an additional input to the model that indicates whether the manipulation was \texttt{on} or \texttt{off}. 
 We will then only adapt the feature representations of the model (see Fig.~\ref{fig:model}) to account for the changes in neuronal activity to visual stimuli without a task under both conditions.
 This will also reflect any effect of the manipulations on other areas that might be mediated through feedback and do not require the model to be anatomically faithful. 
-% Since the optogenetic inhibition will be local, we will add positional encoding to the additional input so the core can change spatially localized. 
-Subsequently, we use this model to predict the animals decisions like above, with the additional ability to simulate optogenetic manipulations.
-% We will train it with the core where the manipulations are off, and then predict the decisions of the animal when the manipulations are on.
-% We expect that our model faithfully generalizes and correctly predicts the decisions of the animal. 
+Subsequently, we use this model to predict the animals' decisions like above, with the additional ability to simulate optogenetic manipulations.
 
-\subsubsection{Workpackage 3.2: Predicting effect of optogenetic manipulations in an open field task\hfill\objwp{3}{2}}
+\subsubsection{Workpackage 3.2: Predicting the effect of optogenetic manipulations in an open field task\hfill\objwp{3}{2}}
 \labelobjwp{3}{2}
 
 Predicting the effect of circuit manipulations on task performance and decisions of the animal becomes more challenging in the open field task because we need to account for the entire behavioral trace leading up to the decision, or we need to predict the actions leading to the behavioral trace.
 
 \textbf{Modeling decisions:} 
 We will put the visual model from \objwp{3}{1} with and without circuit manipulations onto the posture graph from tracked behavior of animals performing the task (as in \obj{1}) and predict miniscope neuronal activity when the optogenetic manipulation is \texttt{on} or \texttt{off}. 
-Then we will the decision network like in \objwp{3}{1} and then test whether it can predict decisions of the animal depending on the latent state inferred from behavior and neuronal recordings, and the changes in decisions under optogenetic manipulation. 
+Then we will train the decision network like in \objwp{3}{1} and test whether it can predict decisions of the animal depending on the latent state inferred from behavior and neuronal recordings, and the changes in decisions under optogenetic manipulation. 
 
 \textbf{Modeling behavior:} 
 Before, we predicted the effect of optogenetic manipulations on the \textit{decisions} of the animal for \textit{actually observed behavior} in the open field task. 
 Now we will build a model to predict the effect of experimental manipulations on \textit{behavior} using reinforcement learning.
-To that end, we will add an action selection network to the model of \obj{1} and train it to solve the open field task in the virtual replica of the environment by maximizing reward with model free reinforcement learning.
-This will predict \textbf{motor behavior (actions), decisions and task performance} of the animal. 
+To that end, we will add an action selection network to the model of \obj{1} and train it to solve the open field task in the virtual replica of the environment by maximizing reward with model-free reinforcement learning.
+This will predict \textbf{motor behavior (actions), decisions, and task performance} of the animal. 
 This step is crucial for \objwp{3}{3} where we want to predict the changes in performance and behavior when shutting down behavior-associated changes in stimulus-selectivity, since we will not have actually observed behavioral trajectories of the animal under that intervention. 
 
 To predict behavior and performance of an animal in the open field object recognition task, we will use reinforcement learning with phasic policy gradient~\parencite[PPG,][]{Cobbe2021-op}. 
-% or imitation learning~\parencite{Chen2021-ap} using the functional twin from \obj{1} in the digitized environment. 
-Phasic policy gradient (PPG) is a state-of-the art method for learning behavior with a continuous actions space. 
-It was used in the recent work \cite{Baker2022-ph}, which showed that first pre-training a reinforcement learning model using behavioral cloning provides a strong prior over the actions and decreases the exploration space to a more meaningful domain. 
+PPG is a state-of-the art method for learning behavior with a continuous action space. 
+It was used in recent work \cite{Baker2022-ph}, which showed that first pre-training a reinforcement learning model using behavioral cloning provides a strong prior over the actions and decreases the exploration space to a more meaningful domain. 
 As a result, the fine-tuning with PPG is more efficient and gives rise to more complex behaviors than were previously possible with reinforcement learning only.
 We will use the neuronal activity predicted by the functional twin's visual model response to the rendered frames from the mouse's point of view as state observations for the reinforcement learning model, followed by a classifier for modeling the policy over actions.
 Similarly to \cite{Baker2022-ph}, we will then train a foundation model for predicting actions using behavioral cloning i.e. maximizing the likelihood of the actions performed by actual mice given the rendered images.
 Using the real runs for pre-training the behavioral model decreases the initial exploration complexity and provides a meaningful base policy.
-We will then fine-tune the foundation model by simulating the behavior of the mouse in the virtual replica environment and update the policy using phasic policy gradient \parencite{Cobbe2021-op} to maximize the obtained reward.
+We will then fine tune the foundation model by simulating the behavior of the mouse in the virtual replica environment and update the policy using PPG to maximize the obtained reward.
 
 We will then analyze two cases: In the first, we train the agent on the unmanipulated visual model and turn on the manipulation during test time. 
 This will model the situation where the animal has not yet adapted its behavior to the manipulation of the circuit. 
 In the other case, we will learn another policy with the manipulated visual model so the agent can learn to adapt its behavior to the changed visual system. 
 This will model the situation where the animal has potentially developed a different strategy to solve the task. 
 We will quantify how well our approach predicts the behavior by training a classifier that has to distinguish between real trials of the animal and trials generated by our agent. 
-Given the trained model, we can then analyze where the behavior maximally differ by comparing the decisions of the policy classifier under the manipulated and un-manipulated conditions. 
+Given the trained model, we can then analyze where the behaviors maximally differ by comparing the decisions of the policy classifier under the manipulated and un-manipulated conditions. 
 
 \subsubsection{Workpackage 3.3: Predicting behavioral relevance of selectivity-changes\hfill\objwp{3}{3}}
 \labelobjwp{3}{3}
 
-After we have validated the framework in \objwp{3}{2}, we will use the model to the effect of shutting down behavior-associated changes in stimulus selectivity on task-performance and behavior of the animal. 
+After we have validated the framework in \objwp{3}{2}, we will use the model to capture the effect of shutting down behavior-associated changes in stimulus selectivity on task-performance and behavior of the animal. 
 To shut down the selectivity changes in the model, we can simply pretend to the latent state that the agent performed a different behavior than it actually did, thus controlling the associated change in selectivity. 
 The agent will still take a particular action to achieve the goal, but the feedback to the visual system will get a different behavior, particularly the one we identified in \objwp{2}{2}.
 Then we will repeat the same procedure as in \objwp{3}{2} to predict behavioral and performance changes of the animal under this manipulation. 
 The quantification will be the same as in \objwp{3}{2}.
-To experimentally test our predictions together with our experimental partners, we will optimize a stimulus manipulation (\eg~a degrade in quality in the scene predicted by \objwp{2}{2}) that simulates tuning off the change in tuning. 
-Then we will display this stimulus in the respective behavioral episodes (\eg~blur the edges when the animal runs) and test whether we can get a similar behavior as predicted by our agent.
+To experimentally test our predictions together with our experimental partners, we will optimize a stimulus manipulation (\eg~a degrade in quality in the scene predicted by \objwp{2}{2}) that simulates turning off the change in stimulus selectivity. 
+Then we will display this stimulus in the respective behavioral episodes (\eg~blur the edges when the animal runs) and test whether we can get a similar behavior as predicted.
 
 \subsubsection{Expected outcome} 
 In \objwp{3}{1} and \objwp{3}{2} I expect that adding the latent state in the model can better explain the decisions of the animal, and that modeling the changes of the optogenetic manipulations to the visual system can account for changes in decisions and motor behavior. 
 In \objwp{3}{3}, I expect that our framework predicts a loss in performance when behavior associated tuning changes are turned off but the original behavioral policy is kept, because -- according to my hypothesis -- the agent (animal) cannot benefit from the effects (\ie~increased reliability) of changes in stimulus selectivity in relevant scene features anymore. 
-In particular, I expect that en- and disabling tuning changes mostly affects behavior/performance when their associated behavioral motifs are actively used in the task, or when the have been identified to occur in the context of the task (in \obj{2}).
-When the agent is allowed to adapt its policy, I expect the performance to partly recover, but I expect the agent to come up with motor behavior, that can compensate the loss in certainty. 
+In particular, I expect that disabling changes in stimulus selectivity mostly affects behavior/performance when their associated behavioral motifs are actively used in the task, or when they occur in particular task-contexts (in \obj{2}).
+When the agent is allowed to adapt its policy, I expect the performance to partly recover, but I expect the agent to come up with motor behavior that can compensate the loss in certainty. 
 For instance, the agent could stall while approaching the object to trade off the loss in reliability with longer observation times. 
 
 
 \subsubsection{Risk management} 
 The approach of combining a large scale model of the visual system with behavioral predictions of new behavior via reinforcement learning is novel and thus has the potential to fail. 
-To de-risk the possibility of failure, I intentionally designed \obj{3} in stages of increasing complexity and difficulty. 
-Existing work provides evidence that the intermediate likely be successful.  
+To de-risk the possibility of failure, I designed \obj{3} in stages of increasing complexity and difficulty. 
+Existing work provides evidence that the intermediate steps will likely be successful.  
 For instance, \textcite{Kalweit2022-ev} combined inverse reinforcement learning with neuronal data and showed that they can predict actual behavior of a rat better, even under experimental interventions. 
 All of these stages will yield interesting insights on their own and help to diagnose why a particular next stage failed and eventually lead to the fix of that problem. If the agent should fail to emulate behavior of individual mice, we will ``personalize'' the agent to these mice by minor adjustments in the reward structure, \eg~include ``laziness'' factors.
 
@@ -590,8 +548,8 @@ Results and algorithms from this project will be published on peer reviewed conf
 Conference proceedings will be open access.
 For journals, we will upload a preprint to arXiv or bioRxiv prior to submission, as we have done with the majority of our research in the last years. 
 In addition, we will organize workshops on the topic of functional and digital twins at conferences such as CoSyNe, Fens, Society for Neuroscience Meeting, or Bernstein Conference for Computational Neuroscience.
-In addition, it is standard practice in my lab to release the code, software libraries and trained models along with the publication on GitHub.
-Whenever it makes sense, we also provide a Docker container with a trained model to run our models in an reproducible environment without the need to install extra dependencies. 
+In addition, it is standard practice in my lab to release the code, software libraries, and trained models along with the publication on GitHub.
+Whenever it makes sense, we also provide a Docker container with a trained model to provide a reproducible environment.
 
 \subsection{Team and Timeline}
 The project work will be carried out by a postdoc (\circled[postdoc1][postdoc1][postdoc1]{a}), and two PhD students (\circled[phd1][phd1][white]{1} and \circled[phd2][phd2][white]{2}). 
